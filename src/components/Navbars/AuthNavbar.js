@@ -94,7 +94,7 @@ function AdminNavbar() {
             <Nav className="mr-auto" navbar>
               <NavItem>
                 <NavLink to="/admin/dashboard" tag={Link}>
-                  <span className="nav-link-inner--text">Dashboard</span>
+                  <span className="nav-link-inner--text">Inicio</span>
                 </NavLink>
               </NavItem>
               <NavItem>
@@ -104,12 +104,12 @@ function AdminNavbar() {
               </NavItem>
               <NavItem>
                 <NavLink to="/auth/login" tag={Link}>
-                  <span className="nav-link-inner--text">Login</span>
+                  <span className="nav-link-inner--text">Ingresar</span>
                 </NavLink>
               </NavItem>
               <NavItem>
                 <NavLink to="/auth/register" tag={Link}>
-                  <span className="nav-link-inner--text">Register</span>
+                  <span className="nav-link-inner--text">Registrarse</span>
                 </NavLink>
               </NavItem>
               <NavItem>

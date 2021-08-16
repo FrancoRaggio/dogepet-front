@@ -335,7 +335,7 @@ function Profile() {
               <CardHeader>
                 <Row className="align-items-center">
                   <Col xs="8">
-                    <h3 className="mb-0">Edit profile</h3>
+                    <h3 className="mb-0">Editar Perfil</h3>
                   </Col>
                   <Col className="text-right" xs="4">
                     <Button
@@ -352,7 +352,7 @@ function Profile() {
               <CardBody>
                 <Form>
                   <h6 className="heading-small text-muted mb-4">
-                    User information
+                    Informacion de usuario
                   </h6>
                   <div className="pl-lg-4">
                     <Row>
@@ -362,7 +362,7 @@ function Profile() {
                             className="form-control-label"
                             htmlFor="input-username"
                           >
-                            Username
+                            Nombre
                           </label>
                           <Input
                             defaultValue="lucky.jesse"
@@ -378,7 +378,7 @@ function Profile() {
                             className="form-control-label"
                             htmlFor="input-email"
                           >
-                            Email address
+                            Email
                           </label>
                           <Input
                             id="input-email"
@@ -393,14 +393,14 @@ function Profile() {
                         <FormGroup>
                           <label
                             className="form-control-label"
-                            htmlFor="input-first-name"
+                            htmlFor="input-phone"
                           >
-                            First name
+                            Telefono
                           </label>
                           <Input
-                            defaultValue="Lucky"
-                            id="input-first-name"
-                            placeholder="First name"
+                            defaultValue="221:"
+                            id="input-phone"
+                            placeholder="Phone"
                             type="text"
                           />
                         </FormGroup>
@@ -411,7 +411,7 @@ function Profile() {
                             className="form-control-label"
                             htmlFor="input-last-name"
                           >
-                            Last name
+                            Apellido
                           </label>
                           <Input
                             defaultValue="Jesse"
@@ -426,7 +426,7 @@ function Profile() {
                   <hr className="my-4" />
 
                   <h6 className="heading-small text-muted mb-4">
-                    Contact information
+                    Informacion de Contacto
                   </h6>
                   <div className="pl-lg-4">
                     <Row>
@@ -436,7 +436,7 @@ function Profile() {
                             className="form-control-label"
                             htmlFor="input-address"
                           >
-                            Address
+                            Direccion
                           </label>
                           <Input
                             defaultValue="Bld Mihail Kogalniceanu, nr. 8 Bl 1, Sc 1, Ap 09"
@@ -454,7 +454,7 @@ function Profile() {
                             className="form-control-label"
                             htmlFor="input-city"
                           >
-                            City
+                            Ciudad
                           </label>
                           <Input
                             defaultValue="New York"
@@ -470,7 +470,7 @@ function Profile() {
                             className="form-control-label"
                             htmlFor="input-country"
                           >
-                            Country
+                            Localidad
                           </label>
                           <Input
                             defaultValue="United States"
@@ -486,7 +486,7 @@ function Profile() {
                             className="form-control-label"
                             htmlFor="input-country"
                           >
-                            Postal code
+                            Codigo Postal
                           </label>
                           <Input
                             id="input-postal-code"
@@ -498,19 +498,6 @@ function Profile() {
                     </Row>
                   </div>
                   <hr className="my-4" />
-
-                  <h6 className="heading-small text-muted mb-4">About me</h6>
-                  <div className="pl-lg-4">
-                    <FormGroup>
-                      <label className="form-control-label">About Me</label>
-                      <Input
-                        placeholder="A few words about you ..."
-                        rows="4"
-                        type="textarea"
-                        defaultValue="A beautiful premium dashboard for Bootstrap 4."
-                      />
-                    </FormGroup>
-                  </div>
                 </Form>
               </CardBody>
             </Card>

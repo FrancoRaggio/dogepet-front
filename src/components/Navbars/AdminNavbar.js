@@ -401,50 +401,28 @@ function AdminNavbar({ theme, sidenavOpen, toggleSidenav }) {
                     </span>
                     <Media className="ml-2 d-none d-lg-block">
                       <span className="mb-0 text-sm font-weight-bold">
-                        John Snow
+                        Usuario
                       </span>
                     </Media>
                   </Media>
                 </DropdownToggle>
                 <DropdownMenu right>
                   <DropdownItem className="noti-title" header tag="div">
-                    <h6 className="text-overflow m-0">Welcome!</h6>
+                    <h6 className="text-overflow m-0">Bienvenido</h6>
                   </DropdownItem>
                   <DropdownItem
                     href="#pablo"
                     onClick={(e) => e.preventDefault()}
                   >
                     <i className="ni ni-single-02" />
-                    <span>My profile</span>
+                    <span>Mi Perfil</span>
                   </DropdownItem>
                   <DropdownItem
                     href="#pablo"
                     onClick={(e) => e.preventDefault()}
                   >
-                    <i className="ni ni-settings-gear-65" />
-                    <span>Settings</span>
-                  </DropdownItem>
-                  <DropdownItem
-                    href="#pablo"
-                    onClick={(e) => e.preventDefault()}
-                  >
-                    <i className="ni ni-calendar-grid-58" />
-                    <span>Activity</span>
-                  </DropdownItem>
-                  <DropdownItem
-                    href="#pablo"
-                    onClick={(e) => e.preventDefault()}
-                  >
-                    <i className="ni ni-support-16" />
-                    <span>Support</span>
-                  </DropdownItem>
-                  <DropdownItem divider />
-                  <DropdownItem
-                    href="#pablo"
-                    onClick={(e) => e.preventDefault()}
-                  >
-                    <i className="ni ni-user-run" />
-                    <span>Logout</span>
+                    <i className="ni ni-curved-next" />
+                    <span>Cerrar sesion</span>
                   </DropdownItem>
                 </DropdownMenu>
               </UncontrolledDropdown>
@@ -457,7 +435,7 @@ function AdminNavbar({ theme, sidenavOpen, toggleSidenav }) {
 }
 
 AdminNavbar.defaultProps = {
-  toggleSidenav: () => {},
+  toggleSidenav: () => { },
   sidenavOpen: false,
   theme: "dark",
 };
