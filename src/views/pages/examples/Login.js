@@ -39,58 +39,25 @@ import AuthHeader from "components/Headers/AuthHeader.js";
 function Login() {
   const [focusedEmail, setfocusedEmail] = React.useState(false);
   const [focusedPassword, setfocusedPassword] = React.useState(false);
+  const [email, setEmail] = React.useState("");
+  const [password, setPassword] = React.useState("");
+  function proof() {
+    console.log(email, password);
+
+  }
   return (
     <>
       <AuthHeader
-        title="Welcome!"
-        lead="Use these awesome forms to login or create new account in your project for free."
+        title="Bienvenido!"
+        lead="Esto es dogepet."
       />
       <Container className="mt--8 pb-5">
         <Row className="justify-content-center">
           <Col lg="5" md="7">
             <Card className="bg-secondary border-0 mb-0">
-              <CardHeader className="bg-transparent pb-5">
-                <div className="text-muted text-center mt-2 mb-3">
-                  <small>Sign in with</small>
-                </div>
-                <div className="btn-wrapper text-center">
-                  <Button
-                    className="btn-neutral btn-icon"
-                    color="default"
-                    href="#pablo"
-                    onClick={(e) => e.preventDefault()}
-                  >
-                    <span className="btn-inner--icon mr-1">
-                      <img
-                        alt="..."
-                        src={
-                          require("assets/img/icons/common/github.svg").default
-                        }
-                      />
-                    </span>
-                    <span className="btn-inner--text">Github</span>
-                  </Button>
-                  <Button
-                    className="btn-neutral btn-icon"
-                    color="default"
-                    href="#pablo"
-                    onClick={(e) => e.preventDefault()}
-                  >
-                    <span className="btn-inner--icon mr-1">
-                      <img
-                        alt="..."
-                        src={
-                          require("assets/img/icons/common/google.svg").default
-                        }
-                      />
-                    </span>
-                    <span className="btn-inner--text">Google</span>
-                  </Button>
-                </div>
-              </CardHeader>
               <CardBody className="px-lg-5 py-lg-5">
                 <div className="text-center text-muted mb-4">
-                  <small>Or sign in with credentials</small>
+                  <small>Ingresa con tus credenciales</small>
                 </div>
                 <Form role="form">
                   <FormGroup
@@ -109,6 +76,7 @@ function Login() {
                         type="email"
                         onFocus={() => setfocusedEmail(true)}
                         onBlur={() => setfocusedEmail(true)}
+                        onChange={(e) => setEmail(e.target.value)}
                       />
                     </InputGroup>
                   </FormGroup>
@@ -128,6 +96,7 @@ function Login() {
                         type="password"
                         onFocus={() => setfocusedPassword(true)}
                         onBlur={() => setfocusedPassword(true)}
+                        onChange={(e) => setPassword(e.target.value)}
                       />
                     </InputGroup>
                   </FormGroup>
@@ -141,12 +110,14 @@ function Login() {
                       className="custom-control-label"
                       htmlFor=" customCheckLogin"
                     >
-                      <span className="text-muted">Remember me</span>
+                      <span className="text-muted">Recuerdame</span>
                     </label>
                   </div>
                   <div className="text-center">
-                    <Button className="my-4" color="info" type="button">
-                      Sign in
+                    <Button className="my-4" color="info" type="button"
+                      onClick={() => proof()}
+                    >
+                      Ingresar
                     </Button>
                   </div>
                 </Form>
@@ -159,7 +130,7 @@ function Login() {
                   href="#pablo"
                   onClick={(e) => e.preventDefault()}
                 >
-                  <small>Forgot password?</small>
+                  <small>Olvidaste contraseña?</small>
                 </a>
               </Col>
               <Col className="text-right" xs="6">
@@ -168,7 +139,7 @@ function Login() {
                   href="#pablo"
                   onClick={(e) => e.preventDefault()}
                 >
-                  <small>Create new account</small>
+                  <small>Crear nueva cuenta</small>
                 </a>
               </Col>
             </Row>
@@ -177,6 +148,7 @@ function Login() {
       </Container>
     </>
   );
+
 }
 
 export default Login;
