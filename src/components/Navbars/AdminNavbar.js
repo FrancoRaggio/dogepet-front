@@ -19,6 +19,7 @@ import React from "react";
 import classnames from "classnames";
 // nodejs library to set properties for components
 import PropTypes from "prop-types";
+import { Link } from "react-router-dom";
 // reactstrap components
 import {
   Collapse,
@@ -415,7 +416,9 @@ function AdminNavbar({ theme, sidenavOpen, toggleSidenav }) {
                     onClick={(e) => e.preventDefault()}
                   >
                     <i className="ni ni-single-02" />
-                    <span>Mi Perfil</span>
+                    <Link to="/admin/profile" style={{ textDecoration: "none", color: "black" }}  >
+                      <span>Mi Perfil</span>
+                    </Link>
                   </DropdownItem>
                   <DropdownItem
                     href="#pablo"

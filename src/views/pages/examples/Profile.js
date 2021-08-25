@@ -376,6 +376,22 @@ function Profile() {
                         <FormGroup>
                           <label
                             className="form-control-label"
+                            htmlFor="input-last-name"
+                          >
+                            Apellido
+                          </label>
+                          <Input
+                            defaultValue="Jesse"
+                            id="input-last-name"
+                            placeholder="Last name"
+                            type="text"
+                          />
+                        </FormGroup>
+                      </Col>
+                      <Col lg="6">
+                        <FormGroup>
+                          <label
+                            className="form-control-label"
                             htmlFor="input-email"
                           >
                             Email
@@ -387,8 +403,6 @@ function Profile() {
                           />
                         </FormGroup>
                       </Col>
-                    </Row>
-                    <Row>
                       <Col lg="6">
                         <FormGroup>
                           <label
@@ -401,22 +415,6 @@ function Profile() {
                             defaultValue="221:"
                             id="input-phone"
                             placeholder="Phone"
-                            type="text"
-                          />
-                        </FormGroup>
-                      </Col>
-                      <Col lg="6">
-                        <FormGroup>
-                          <label
-                            className="form-control-label"
-                            htmlFor="input-last-name"
-                          >
-                            Apellido
-                          </label>
-                          <Input
-                            defaultValue="Jesse"
-                            id="input-last-name"
-                            placeholder="Last name"
                             type="text"
                           />
                         </FormGroup>
@@ -448,7 +446,7 @@ function Profile() {
                       </Col>
                     </Row>
                     <Row>
-                      <Col lg="4">
+                      <Col md="12">
                         <FormGroup>
                           <label
                             className="form-control-label"
@@ -461,37 +459,6 @@ function Profile() {
                             id="input-city"
                             placeholder="City"
                             type="text"
-                          />
-                        </FormGroup>
-                      </Col>
-                      <Col lg="4">
-                        <FormGroup>
-                          <label
-                            className="form-control-label"
-                            htmlFor="input-country"
-                          >
-                            Localidad
-                          </label>
-                          <Input
-                            defaultValue="United States"
-                            id="input-country"
-                            placeholder="Country"
-                            type="text"
-                          />
-                        </FormGroup>
-                      </Col>
-                      <Col lg="4">
-                        <FormGroup>
-                          <label
-                            className="form-control-label"
-                            htmlFor="input-country"
-                          >
-                            Codigo Postal
-                          </label>
-                          <Input
-                            id="input-postal-code"
-                            placeholder="Postal code"
-                            type="number"
                           />
                         </FormGroup>
                       </Col>
