@@ -134,17 +134,31 @@ function AdminNavbar({ theme, sidenavOpen, toggleSidenav }) {
               </NavItem>
               <UncontrolledDropdown nav>
                 <DropdownToggle className="nav-link" color="" tag="a">
-                  <i className="ni ni-bell-55" />
+                  <i className="ni ni-basket" /> {/* //ni-bell-55// */}
                 </DropdownToggle>
                 <DropdownMenu
                   className="dropdown-menu-xl py-0 overflow-hidden"
                   right
-                >
+                >  
                   <div className="px-3 py-3">
                     <h6 className="text-sm text-muted m-0">
-                      You have <strong className="text-info">13</strong>{" "}
-                      notifications.
+                      Tienes <strong className="text-info">2</strong>{" "}
+                      productos.
                     </h6>
+                    
+                    <ol style={{ padding: 10 }} >
+                      <li > 
+                       
+                      <dl><dt>Pro Plan</dt><dd style={{fontSize: 10 }}> Cantidad: 1 </dd></dl>
+                    </li>
+                    <li >
+                    <dl><dt>Correa </dt><dd style={{fontSize: 10 }}> Cantidad: 1 </dd></dl>
+                     </li>
+                    <li alt="3"> 
+                    <dl><dt>Pipeta</dt><dd style={{fontSize: 10 }}> Cantidad: 2 </dd></dl>
+                    </li>
+                    </ol>
+                    
                   </div>
 
                   <ListGroup flush>
@@ -155,14 +169,14 @@ function AdminNavbar({ theme, sidenavOpen, toggleSidenav }) {
                       tag="a"
                     >
                       <Row className="align-items-center">
-                        <Col className="col-auto">
+                        {/* <Col className="col-auto">
                           <img
                             alt="..."
                             className="avatar rounded-circle"
                             src={require("assets/img/theme/team-1.jpg").default}
                           />
-                        </Col>
-                        <div className="col ml--2">
+                        </Col> */}
+                        {/* <div className="col ml--2">
                           <div className="d-flex justify-content-between align-items-center">
                             <div>
                               <h4 className="mb-0 text-sm">John Snow</h4>
@@ -174,10 +188,10 @@ function AdminNavbar({ theme, sidenavOpen, toggleSidenav }) {
                           <p className="text-sm mb-0">
                             Let's meet at Starbucks at 11:30. Wdyt?
                           </p>
-                        </div>
+                        </div> */}
                       </Row>
                     </ListGroupItem>
-                    <ListGroupItem
+                    {/* <ListGroupItem
                       className="list-group-item-action"
                       href="#pablo"
                       onClick={(e) => e.preventDefault()}
@@ -205,8 +219,8 @@ function AdminNavbar({ theme, sidenavOpen, toggleSidenav }) {
                           </p>
                         </div>
                       </Row>
-                    </ListGroupItem>
-                    <ListGroupItem
+                    </ListGroupItem> */}
+                    {/* <ListGroupItem
                       className="list-group-item-action"
                       href="#pablo"
                       onClick={(e) => e.preventDefault()}
@@ -263,8 +277,8 @@ function AdminNavbar({ theme, sidenavOpen, toggleSidenav }) {
                           </p>
                         </div>
                       </Row>
-                    </ListGroupItem>
-                    <ListGroupItem
+                    </ListGroupItem> */}
+                    {/* <ListGroupItem
                       className="list-group-item-action"
                       href="#pablo"
                       onClick={(e) => e.preventDefault()}
@@ -292,7 +306,7 @@ function AdminNavbar({ theme, sidenavOpen, toggleSidenav }) {
                           </p>
                         </div>
                       </Row>
-                    </ListGroupItem>
+                    </ListGroupItem> */}
                   </ListGroup>
 
                   <DropdownItem
@@ -300,6 +314,7 @@ function AdminNavbar({ theme, sidenavOpen, toggleSidenav }) {
                     href="#pablo"
                     onClick={(e) => e.preventDefault()}
                   >
+                    
                     View all
                   </DropdownItem>
                 </DropdownMenu>
@@ -396,15 +411,17 @@ function AdminNavbar({ theme, sidenavOpen, toggleSidenav }) {
                     <span className="avatar avatar-sm rounded-circle">
                       <img
                         alt="..."
-                        src={require("assets/img/theme/team-4.jpg").default}
+                        src={require("assets/img/theme/loginblanc.png").default}
                       />
                     </span>
                     <Media className="ml-2 d-none d-lg-block">
                       <span className="mb-0 text-sm font-weight-bold">
-                        John Snow
+                        Login
                       </span>
                     </Media>
                   </Media>
+
+                  
                 </DropdownToggle>
                 <DropdownMenu right>
                   <DropdownItem className="noti-title" header tag="div">
