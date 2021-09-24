@@ -117,7 +117,7 @@ function Dashboard() {
                      <input  class="pl-95 wl-95" step="any" type="number" min="0" ></input>
                      </div>
                       <Col className="col-auto">
-                        <Button color="primary" size="sm" type="button">
+                        <Button color="primary" size="sm" type="button" >
                           Add
                         </Button>
                       </Col>

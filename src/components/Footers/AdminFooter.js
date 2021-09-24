@@ -34,12 +34,12 @@ function AdminFooter() {
                   href="https://www.creative-tim.com?ref=adpr-admin-footer"
                   target="_blank"
                 >
-                  Creative Tim
+                  DogePet
                 </a>
               </div>
             </Col>
             <Col lg="6">
-              <Nav className="nav-footer justify-content-center justify-content-lg-end">
+              {/* <Nav className="nav-footer justify-content-center justify-content-lg-end">
                 <NavItem>
                   <NavLink
                     href="https://www.creative-tim.com?ref=adpr-admin-footer"
@@ -72,7 +72,7 @@ function AdminFooter() {
                     License
                   </NavLink>
                 </NavItem>
-              </Nav>
+              </Nav> */}
             </Col>
           </Row>
         </footer>
