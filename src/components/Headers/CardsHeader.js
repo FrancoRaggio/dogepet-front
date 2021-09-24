@@ -17,14 +17,17 @@
 import React from "react";
 // nodejs library to set properties for components
 import PropTypes from "prop-types";
+import Slhead from './Slhead';
+
+
 // reactstrap components
 import {
   Breadcrumb,
   BreadcrumbItem,
   Button,
-  Card,
-  CardBody,
-  CardTitle,
+  //  Card,
+  // CardBody,
+  //  CardTitle,
   Container,
   Row,
   Col,
@@ -38,7 +41,9 @@ function CardsHeader({ name, parentName }) {
           <div className="header-body">
             <Row className="align-items-center py-4">
               <Col lg="6" xs="7">
-                <h6 className="h2 text-white d-inline-block mb-0">{name}</h6>{" "}
+                {/* <h6 className="h2 text-white d-inline-block mb-0">{name}</h6>{" "} */}
+                <h6 className="h2 text-white d-inline-block mb-0">DogePet </h6>{" "}
+
                 <Breadcrumb
                   className="d-none d-md-inline-block ml-md-4"
                   listClassName="breadcrumb-links breadcrumb-dark"
@@ -54,7 +59,8 @@ function CardsHeader({ name, parentName }) {
                     </a>
                   </BreadcrumbItem>
                   <BreadcrumbItem aria-current="page" className="active">
-                    {name}
+                    {/* {name} */}
+                    DogePet
                   </BreadcrumbItem>
                 </Breadcrumb>
               </Col>
@@ -80,12 +86,19 @@ function CardsHeader({ name, parentName }) {
               </Col>
             </Row>
 
-            <Row>
-              <Col md="6" xl="3">
-                <Card className="card-stats">
+
+             <Row style={{ alignContent:"center" }}>
+              <Col md="12" xl="12" className="slid" style={{  maxWidth:'1000px', overflow:'hidden' , display : 'block' , 
+            textAlign: 'center', marginLeft: '3%'}}>
+              
+                <Slhead />
+                </Col>
+                </Row> 
+               {/* <Card className="card-stats">
                   <CardBody>
                     <Row>
                       <div className="col">
+                        
                         <CardTitle
                           tag="h5"
                           className="text-uppercase text-muted mb-0"
@@ -101,17 +114,17 @@ function CardsHeader({ name, parentName }) {
                           <i className="ni ni-active-40" />
                         </div>
                       </Col>
-                    </Row>
-                    <p className="mt-3 mb-0 text-sm">
+                    </Row> */}
+                    {/* <p className="mt-3 mb-0 text-sm">
                       <span className="text-success mr-2">
                         <i className="fa fa-arrow-up" /> 3.48%
                       </span>{" "}
                       <span className="text-nowrap">Since last month</span>
-                    </p>
-                  </CardBody>
+                    </p> */}
+                  {/* </CardBody>
                 </Card>
-              </Col>
-              <Col md="6" xl="3">
+              </Col> */}
+              {/* <Col md="6" xl="3">
                 <Card className="card-stats">
                   <CardBody>
                     <Row>
@@ -138,8 +151,8 @@ function CardsHeader({ name, parentName }) {
                     </p>
                   </CardBody>
                 </Card>
-              </Col>
-              <Col md="6" xl="3">
+              </Col> */}
+              {/* <Col md="6" xl="3">
                 <Card className="card-stats">
                   <CardBody>
                     <Row>
@@ -166,8 +179,8 @@ function CardsHeader({ name, parentName }) {
                     </p>
                   </CardBody>
                 </Card>
-              </Col>
-              <Col md="6" xl="3">
+              </Col> */}
+              {/* <Col md="6" xl="3">
                 <Card className="card-stats">
                   <CardBody>
                     <Row>
@@ -191,11 +204,11 @@ function CardsHeader({ name, parentName }) {
                         <i className="fa fa-arrow-up" /> 3.48%
                       </span>{" "}
                       <span className="text-nowrap">Since last month</span>
-                    </p>
-                  </CardBody>
-                </Card>
+                    </p> */}
+                  {/* </CardBody>
+                </Card> 
               </Col>
-            </Row>
+            </Row>  */}
           </div>
         </Container>
       </div>

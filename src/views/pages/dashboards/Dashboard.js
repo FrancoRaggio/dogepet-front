@@ -16,32 +16,32 @@
 */
 import React from "react";
 // node.js library that concatenates classes (strings)
-import classnames from "classnames";
+// import classnames from "classnames";
 // javascipt plugin for creating charts
 import Chart from "chart.js";
 // react plugin used to create charts
-import { Line, Bar } from "react-chartjs-2";
+// import { Line, Bar } from "react-chartjs-2";
 // reactstrap components
 import {
-  Badge,
+  // Badge,
   Button,
   Card,
   CardHeader,
   CardBody,
-  DropdownMenu,
-  DropdownItem,
-  DropdownToggle,
-  UncontrolledDropdown,
+  // DropdownMenu,
+  // DropdownItem,
+  // DropdownToggle,
+  // UncontrolledDropdown,
   Form,
   Input,
   ListGroupItem,
   ListGroup,
   Media,
-  NavItem,
-  NavLink,
-  Nav,
+  // NavItem,
+  // NavLink,
+  // Nav,
   Progress,
-  Table,
+  // Table,
   Container,
   Row,
   Col,
@@ -54,30 +54,183 @@ import CardsHeader from "components/Headers/CardsHeader.js";
 import {
   chartOptions,
   parseOptions,
-  chartExample1,
-  chartExample2,
+  // chartExample1,
+  // chartExample2,
 } from "variables/charts.js";
+import ShoppingCart from "components/Headers/ShoppingCart";
 
 function Dashboard() {
-  const [activeNav, setActiveNav] = React.useState(1);
-  const [chartExample1Data, setChartExample1Data] = React.useState("data1");
-  const toggleNavs = (e, index) => {
-    e.preventDefault();
-    setActiveNav(index);
-    setChartExample1Data(chartExample1Data === "data1" ? "data2" : "data1");
-  };
+  // const [/*activeNav,*/ setActiveNav] = React.useState(1);
+  // const [chartExample1Data, setChartExample1Data] = React.useState("data1");
+  // const toggleNavs = (e, index) => {
+  //   e.preventDefault();
+  //   setActiveNav(index);
+  //   setChartExample1Data(chartExample1Data === "data1" ? "data2" : "data1");
+  // };
+
+  
   if (window.Chart) {
     parseOptions(Chart, chartOptions());
   }
   return (
     <>
+    
       <CardsHeader name="Default" parentName="Dashboards" />
       <Container className="mt--6" fluid>
         <Row>
-          <Col xl="8">
+          <Col xl="12">
             <Card className="bg-default">
               <CardHeader className="bg-transparent">
-                <Row className="align-items-center">
+              <Col xl="14">
+            <Card>
+              <CardHeader>
+              <ShoppingCart/>
+                <h5 className="h3 mb-0">Carrito</h5>
+              </CardHeader>
+
+              <CardBody>
+                <ListGroup className="list my--3" flush>
+                  <ListGroupItem className="px-0">
+                    <Row className="align-items-center">
+                      <Col className="col-auto">
+                        <a
+                          className="avatar avatar-lg mw-100"
+                          href="#pablo"
+                          onClick={(e) => e.preventDefault()}
+                        >
+                          <img
+                            alt="..."
+                            src={require("assets/img/theme/proplan.jpg").default}
+                          />
+                        </a>
+                      </Col>
+                      <div className="col ml--2">
+                        <h4 className="mb-0">
+                          <a href="#pablo" onClick={(e) => e.preventDefault()}>
+                            Pro Plan 20kg
+                          </a>
+                        </h4>
+                        <span className="text-success">$</span>{" "}
+                        <small>2700</small>
+                      </div>
+                      <div class="col-xs-5 .ml-auto ">
+                     <input  class="pl-95 wl-95" step="any" type="number" min="0" ></input>
+                     </div>
+                      <Col className="col-auto">
+                        <Button color="primary" size="sm" type="button">
+                          Add
+                        </Button>
+                      </Col>
+                    </Row>
+                  </ListGroupItem>
+                  <ListGroupItem className="px-0">
+                    <Row className="align-items-center">
+                      <Col className="col-auto">
+                        <a
+                          className="avatar avatar-lg mw-100"
+                          href="#pablo"
+                          onClick={(e) => e.preventDefault()}
+                        >
+                          <img
+                            alt="..."
+                            src={require("assets/img/theme/pipe.jpeg").default}
+                          />
+                        </a>
+                      </Col>
+                      <div className="col ml--2">
+                        <h4 className="mb-0">
+                          <a href="#pablo" onClick={(e) => e.preventDefault()}>
+                            Pipeta 
+                          </a>
+                        </h4>
+                        <span className="text-success" /* "text-warning"*/ >$</span>{" "} 
+                        <small>800</small>
+                      </div>
+                      <div class="col-xs-5 .ml-auto ">
+                     <input  class="pl-95 wl-95" step="any" type="number" min="0" ></input>
+                     </div>
+                      <Col className="col-auto">
+                        <Button color="primary" size="sm" type="button">
+                          Add
+                        </Button>
+                      </Col>
+                    </Row>
+                  </ListGroupItem>
+                  <ListGroupItem className="px-0">
+                    <Row className="align-items-center">
+                      <Col className="col-auto">
+                      {/* rounded-circle */}
+                        <a
+                          className="avatar avatar-lg " 
+                          href="#pablo"
+                          onClick={(e) => e.preventDefault()}
+                        >
+                          <img
+                            alt="..."
+                            src={require("assets/img/theme/comedero.jpg").default}
+                          />
+                        </a>
+                      </Col>
+                      <div className="col ml--2">
+                        <h4 className="mb-0">
+                          <a href="#pablo" onClick={(e) => e.preventDefault()}>
+                            Comedero
+                          </a>
+                        </h4>
+                        <span className="text-success">$</span>{" "}
+                        <small>400</small>
+                      </div>
+                      <div class="col-xs-5 .ml-auto ">
+                     
+                     <input  class="pl-95 wl-95" step="any" type="number" min="0" ></input>
+                     </div>
+                      <Col className="col-auto">
+                        <Button color="primary" size="sm" type="button">
+                          Add
+                        </Button>
+                      </Col>
+                    </Row>
+                  </ListGroupItem>
+                  <ListGroupItem className="px-0">
+                    <Row className="align-items-center">
+                      <Col className="col-auto">
+                        <a
+                          className="avatar avatar-lg "
+                          href="#pablo"
+                          onClick={(e) => e.preventDefault()}
+                        >
+                          <img
+                            alt="..."
+                            src={require("assets/img/theme/correa2.jpg").default}
+                          />
+                        </a>
+                      </Col>
+                      <div className="col ml--2">
+                        <h4 className="mb-0">
+                          <a href="#pablo" onClick={(e) => e.preventDefault()}>
+                            Correa
+                          </a>
+                        </h4>
+                        <span className="text-success">$</span>{" "}
+                        <small>1300</small>
+                      </div>
+                      <div class="col-xs-5 .ml-auto ">
+                     
+                     <input  class="pl-95 wl-95" step="any" type="number" min="0" ></input>
+                     </div>
+                      <Col className="col-auto">
+                        <Button color="primary" size="sm" type="button">
+                          Add
+                        </Button>
+                      </Col>
+                    </Row>
+                  </ListGroupItem>
+                </ListGroup>
+                
+              </CardBody>
+            </Card>
+          </Col>
+                {/* <Row className="align-items-center">
                   <div className="col">
                     <h6 className="text-light text-uppercase ls-1 mb-1">
                       Overview
@@ -113,9 +266,9 @@ function Dashboard() {
                       </NavItem>
                     </Nav>
                   </div>
-                </Row>
+                </Row> */}
               </CardHeader>
-              <CardBody>
+              {/* <CardBody>
                 <div className="chart">
                   <Line
                     data={chartExample1[chartExample1Data]}
@@ -124,10 +277,10 @@ function Dashboard() {
                     className="chart-canvas"
                   />
                 </div>
-              </CardBody>
+              </CardBody> */}
             </Card>
           </Col>
-          <Col xl="4">
+          {/* <Col xl="4">
             <Card>
               <CardHeader className="bg-transparent">
                 <Row className="align-items-center">
@@ -150,148 +303,20 @@ function Dashboard() {
                 </div>
               </CardBody>
             </Card>
-          </Col>
+          </Col> */}
         </Row>
-        <Row>
-          <Col xl="4">
-            <Card>
-              <CardHeader>
-                <h5 className="h3 mb-0">Team members</h5>
-              </CardHeader>
 
-              <CardBody>
-                <ListGroup className="list my--3" flush>
-                  <ListGroupItem className="px-0">
-                    <Row className="align-items-center">
-                      <Col className="col-auto">
-                        <a
-                          className="avatar rounded-circle"
-                          href="#pablo"
-                          onClick={(e) => e.preventDefault()}
-                        >
-                          <img
-                            alt="..."
-                            src={require("assets/img/theme/team-1.jpg").default}
-                          />
-                        </a>
-                      </Col>
-                      <div className="col ml--2">
-                        <h4 className="mb-0">
-                          <a href="#pablo" onClick={(e) => e.preventDefault()}>
-                            John Michael
-                          </a>
-                        </h4>
-                        <span className="text-success">●</span>{" "}
-                        <small>Online</small>
-                      </div>
-                      <Col className="col-auto">
-                        <Button color="primary" size="sm" type="button">
-                          Add
-                        </Button>
-                      </Col>
-                    </Row>
-                  </ListGroupItem>
-                  <ListGroupItem className="px-0">
-                    <Row className="align-items-center">
-                      <Col className="col-auto">
-                        <a
-                          className="avatar rounded-circle"
-                          href="#pablo"
-                          onClick={(e) => e.preventDefault()}
-                        >
-                          <img
-                            alt="..."
-                            src={require("assets/img/theme/team-2.jpg").default}
-                          />
-                        </a>
-                      </Col>
-                      <div className="col ml--2">
-                        <h4 className="mb-0">
-                          <a href="#pablo" onClick={(e) => e.preventDefault()}>
-                            Alex Smith
-                          </a>
-                        </h4>
-                        <span className="text-warning">●</span>{" "}
-                        <small>In a meeting</small>
-                      </div>
-                      <Col className="col-auto">
-                        <Button color="primary" size="sm" type="button">
-                          Add
-                        </Button>
-                      </Col>
-                    </Row>
-                  </ListGroupItem>
-                  <ListGroupItem className="px-0">
-                    <Row className="align-items-center">
-                      <Col className="col-auto">
-                        <a
-                          className="avatar rounded-circle"
-                          href="#pablo"
-                          onClick={(e) => e.preventDefault()}
-                        >
-                          <img
-                            alt="..."
-                            src={require("assets/img/theme/team-3.jpg").default}
-                          />
-                        </a>
-                      </Col>
-                      <div className="col ml--2">
-                        <h4 className="mb-0">
-                          <a href="#pablo" onClick={(e) => e.preventDefault()}>
-                            Samantha Ivy
-                          </a>
-                        </h4>
-                        <span className="text-danger">●</span>{" "}
-                        <small>Offline</small>
-                      </div>
-                      <Col className="col-auto">
-                        <Button color="primary" size="sm" type="button">
-                          Add
-                        </Button>
-                      </Col>
-                    </Row>
-                  </ListGroupItem>
-                  <ListGroupItem className="px-0">
-                    <Row className="align-items-center">
-                      <Col className="col-auto">
-                        <a
-                          className="avatar rounded-circle"
-                          href="#pablo"
-                          onClick={(e) => e.preventDefault()}
-                        >
-                          <img
-                            alt="..."
-                            src={require("assets/img/theme/team-4.jpg").default}
-                          />
-                        </a>
-                      </Col>
-                      <div className="col ml--2">
-                        <h4 className="mb-0">
-                          <a href="#pablo" onClick={(e) => e.preventDefault()}>
-                            John Michael
-                          </a>
-                        </h4>
-                        <span className="text-success">●</span>{" "}
-                        <small>Online</small>
-                      </div>
-                      <Col className="col-auto">
-                        <Button color="primary" size="sm" type="button">
-                          Add
-                        </Button>
-                      </Col>
-                    </Row>
-                  </ListGroupItem>
-                </ListGroup>
-              </CardBody>
-            </Card>
-          </Col>
+       
+        <Row>
+        
+          
           <Col xl="4">
             <Card>
               <CardHeader>
                 <h5 className="h3 mb-0">To do list</h5>
               </CardHeader>
 
-              <CardBody className="p-0">
+              {/* <CardBody className="p-0">
                 <ListGroup data-toggle="checklist" flush>
                   <ListGroupItem className="checklist-entry flex-column align-items-start py-4 px-4">
                     <div className="checklist-item checklist-item-success checklist-item-checked">
@@ -391,7 +416,7 @@ function Dashboard() {
             <Card>
               <CardHeader>
                 <h5 className="h3 mb-0">Progress track</h5>
-              </CardHeader>
+              </CardHeader> */}
 
               <CardBody>
                 <ListGroup className="list my--3" flush>
@@ -525,12 +550,12 @@ function Dashboard() {
                       href="#pablo"
                       onClick={(e) => e.preventDefault()}
                     >
-                      John Snow
+                      DogePet
                     </a>
-                    <small className="d-block text-muted">3 days ago</small>
+                    <small className="d-block text-muted"> Hace dos días</small>
                   </div>
                 </div>
-                <div className="text-right ml-auto">
+                {/* <div className="text-right ml-auto">
                   <Button
                     className="btn-icon"
                     color="primary"
@@ -542,14 +567,11 @@ function Dashboard() {
                     </span>
                     <span className="btn-inner--text">Follow</span>
                   </Button>
-                </div>
+                </div> */}
               </CardHeader>
               <CardBody>
                 <p className="mb-4">
-                  Personal profiles are the perfect way for you to grab their
-                  attention and persuade recruiters to continue reading your CV
-                  because you’re telling them from the off exactly why they
-                  should hire you.
+                Científicos chinos crearon un “collar inteligente” que puede prevenir la tenia -género de platelmintos parásitos de la clase Cestoda, conocidos vulgarmente como tenias o solitarias, que causa dos tipos de enfermedades parasitarias, según sean producidas por su fase adulta o por su fase larvaria- en los perros mediante la administración automática de una dosis regular de un medicamento antiparasitario.
                 </p>
                 <img
                   alt="..."
@@ -647,11 +669,9 @@ function Dashboard() {
                     />
                     <Media>
                       <div className="media-comment-text">
-                        <h6 className="h5 mt-0">Michael Lewis</h6>
+                        <h6 className="h5 mt-0">Martin Tito Giras</h6>
                         <p className="text-sm lh-160">
-                          Cras sit amet nibh libero nulla vel metus scelerisque
-                          ante sollicitudin. Cras purus odio vestibulum in
-                          vulputate viverra turpis.
+                          WOWWW!
                         </p>
                         <div className="icon-actions">
                           <a
@@ -678,11 +698,9 @@ function Dashboard() {
                     />
                     <Media>
                       <div className="media-comment-text">
-                        <h6 className="h5 mt-0">Jessica Stones</h6>
+                        <h6 className="h5 mt-0">Jessica Khiuwski</h6>
                         <p className="text-sm lh-160">
-                          Cras sit amet nibh libero, in gravida nulla. Nulla vel
-                          metus scelerisque ante sollicitudin. Cras purus odio,
-                          vestibulum in vulputate at, tempus viverra turpis.
+                          wow2
                         </p>
                         <div className="icon-actions">
                           <a
@@ -722,7 +740,7 @@ function Dashboard() {
               </CardBody>
             </Card>
           </Col>
-          <Col xl="7">
+          {/* <Col xl="7">
             <Row>
               <div className="col">
                 <Card>
@@ -2100,7 +2118,7 @@ function Dashboard() {
                 </Card>
               </div>
             </Row>
-            <div className="card-deck">
+            {/* <div className="card-deck">
               <Card className="bg-gradient-default">
                 <CardBody>
                   <div className="mb-2">
@@ -2176,11 +2194,11 @@ function Dashboard() {
                     </div>
                   </Row>
                 </CardBody>
-              </Card>
-            </div>
-          </Col>
-        </Row>
-        <Row>
+              </Card> 
+            </div>*/}
+          {/* </Col>
+        </Row> 
+         <Row>
           <Col xl="8">
             <Card>
               <CardHeader className="border-0">
@@ -2199,8 +2217,8 @@ function Dashboard() {
                     </Button>
                   </div>
                 </Row>
-              </CardHeader>
-              <Table className="align-items-center table-flush" responsive>
+              </CardHeader> */}
+              {/* <Table className="align-items-center table-flush" responsive>
                 <thead className="thead-light">
                   <tr>
                     <th scope="col">Page name</th>
@@ -2256,10 +2274,10 @@ function Dashboard() {
                     </td>
                   </tr>
                 </tbody>
-              </Table>
+              </Table> 
             </Card>
-          </Col>
-          <Col xl="4">
+          </Col>*/}
+          {/* <Col xl="4">
             <Card>
               <CardHeader className="border-0">
                 <Row className="align-items-center">
@@ -2370,7 +2388,7 @@ function Dashboard() {
                 </tbody>
               </Table>
             </Card>
-          </Col>
+          </Col> */}
         </Row>
       </Container>
     </>
