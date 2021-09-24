@@ -38,7 +38,7 @@ function Admin() {
       if (prop.collapse) {
         return getRoutes(prop.views);
       }
-      if (prop.layout === "/admin") {
+      if (prop.layout === "/admin" && prop.path !== 'login') {
         return (
           <Route
             path={prop.layout + prop.path}

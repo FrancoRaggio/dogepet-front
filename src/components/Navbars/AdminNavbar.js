@@ -91,7 +91,7 @@ function AdminNavbar({ theme, sidenavOpen, toggleSidenav }) {
                 { "navbar-search-dark": theme === "light" }
               )}
             >
-              <FormGroup className="mb-0">
+              {/* <FormGroup className="mb-0">
                 <InputGroup className="input-group-alternative input-group-merge">
                   <InputGroupAddon addonType="prepend">
                     <InputGroupText>
@@ -100,7 +100,7 @@ function AdminNavbar({ theme, sidenavOpen, toggleSidenav }) {
                   </InputGroupAddon>
                   <Input placeholder="Search" type="text" />
                 </InputGroup>
-              </FormGroup>
+              </FormGroup> */}
               <button
                 aria-label="Close"
                 className="close"
@@ -336,7 +336,7 @@ function AdminNavbar({ theme, sidenavOpen, toggleSidenav }) {
                       <span className="shortcut-media avatar rounded-circle bg-gradient-orange">
                         <i className="ni ni-email-83" />
                       </span>
-                      <small>Email</small>
+                      <small>Chat</small>
                     </Col>
                     <Col
                       className="shortcut-item"
@@ -348,9 +348,9 @@ function AdminNavbar({ theme, sidenavOpen, toggleSidenav }) {
                       <span className="shortcut-media avatar rounded-circle bg-gradient-info">
                         <i className="ni ni-credit-card" />
                       </span>
-                      <small>Payments</small>
+                      <small>Historial clinico</small>
                     </Col>
-                    <Col
+                    {/* <Col
                       className="shortcut-item"
                       href="#pablo"
                       onClick={(e) => e.preventDefault()}
@@ -385,7 +385,7 @@ function AdminNavbar({ theme, sidenavOpen, toggleSidenav }) {
                         <i className="ni ni-basket" />
                       </span>
                       <small>Shop</small>
-                    </Col>
+                    </Col> */}
                   </Row>
                 </DropdownMenu>
               </UncontrolledDropdown>

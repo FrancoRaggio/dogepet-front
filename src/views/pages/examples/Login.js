@@ -115,34 +115,21 @@ function Login() {
                   </div>
                   <div className="text-center">
                     <Button className="my-4" color="info" type="button"
-                      onClick={() => proof()}
+                      onClick={() => window.location.href = "/admin/dashboard"}
                     >
                       Ingresar
+                    </Button>
+                  </div>
+                  <div className="text-center">
+                    <Button className="my-4" color="warning" type="button"
+                      onClick={(e) => window.location.href = "/auth/register"}
+                    >
+                      Crear nueva cuenta
                     </Button>
                   </div>
                 </Form>
               </CardBody>
             </Card>
-            <Row className="mt-3">
-              <Col xs="6">
-                <a
-                  className="text-light"
-                  href="#pablo"
-                  onClick={(e) => e.preventDefault()}
-                >
-                  <small>Olvidaste contraseña?</small>
-                </a>
-              </Col>
-              <Col className="text-right" xs="6">
-                <a
-                  className="text-light"
-                  href="#pablo"
-                  onClick={(e) => e.preventDefault()}
-                >
-                  <small>Crear nueva cuenta</small>
-                </a>
-              </Col>
-            </Row>
           </Col>
         </Row>
       </Container>
