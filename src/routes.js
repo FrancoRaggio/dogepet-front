@@ -17,6 +17,7 @@
 import Alternative from "views/pages/dashboards/Alternative.js";
 import Buttons from "views/pages/components/Buttons.js";
 import Calendar from "views/pages/Calendar.js";
+import Chat from "views/pages/Chat.js";
 import Cards from "views/pages/components/Cards.js";
 import Charts from "views/pages/Charts.js";
 import Components from "views/pages/forms/Components.js";
@@ -317,6 +318,13 @@ const routes = [
     name: "Calendar",
     icon: "ni ni-calendar-grid-58 text-red",
     component: Calendar,
+    layout: "/admin",
+  },
+  {
+    path: "/chat",
+    name: "Chat",
+    icon: "ni ni-calendar-grid-58 text-red",
+    component: Chat,
     layout: "/admin",
   },
 ];

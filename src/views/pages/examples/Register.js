@@ -35,6 +35,8 @@ import {
 } from "reactstrap";
 // core components
 import AuthHeader from "components/Headers/AuthHeader.js";
+import { emailValidation, nameValidation, lastNameValidation, addressValidation, cityValidation, phoneValidation, dniValidation } from "../../../validations/Register";
+import Validation from "../forms/Validation";
 
 function Register() {
   const [focusedName, setfocusedName] = React.useState(false);
@@ -48,15 +50,33 @@ function Register() {
   const [phone, setPhone] = React.useState("");
   const [dni, setDni] = React.useState("");
   const [city, setCity] = React.useState("");
-  function proof() {
-    console.log(name, lastName, address, email, password, phone, dni, city,);
+  const [validation, setValidation] = React.useState({ email: true, name: true, lastName: true, address: true, city: true, phone: true, dni: true });
+  async function proof() {
+    let emailV = await emailValidation(email);
+    let nameV = await nameValidation(name);
+    let lastNameV = await lastNameValidation(lastName);
+    let addressV = await addressValidation(address);
+    let cityV = await cityValidation(city);
+    let phoneV = await phoneValidation(phone);
+    let dniV = await dniValidation(dni);
+    setValidation({
+      ...validation,
+      email: emailV,
+      name: nameV,
+      lastName: lastNameV,
+      address: addressV,
+      city: cityV,
+      phone: phoneV,
+      dni: dniV
+    })
+    console.log(emailV, nameV, lastNameV, addressV, cityV, phoneV, dniV);
 
   }
   return (
     <>
       <AuthHeader
+        //lead="Use these awesome forms to login or create new account in your project for free."
         title="Registrarse"
-        lead="Use these awesome forms to login or create new account in your project for free."
       />
       <Container className="mt--8 pb-5">
         <Row className="justify-content-center">
@@ -64,7 +84,6 @@ function Register() {
             <Card className="bg-secondary border-0">
               <CardBody className="px-lg-5 py-lg-5">
                 <div className="text-center text-muted mb-4">
-                  <small>Registrarte en Dodge</small>
                 </div>
                 <Form role="form">
                   <FormGroup
@@ -85,6 +104,7 @@ function Register() {
                         onBlur={() => setfocusedName(false)}
                         onChange={(e) => setName(e.target.value)}
                       />
+                      {validation.name ? null : <p>Nombre invalido</p>}
                     </InputGroup>
                   </FormGroup>
                   <FormGroup
@@ -105,6 +125,7 @@ function Register() {
                         onBlur={() => setfocusedName(false)}
                         onChange={(e) => setlastName(e.target.value)}
                       />
+                      {validation.lastName ? null : <p>Apellido invalido</p>}
                     </InputGroup>
                   </FormGroup>
                   <FormGroup
@@ -125,6 +146,7 @@ function Register() {
                         onBlur={() => setfocusedEmail(false)}
                         onChange={(e) => setEmail(e.target.value)}
                       />
+                      {validation.email ? null : <p>Email invalido</p>}
                     </InputGroup>
                   </FormGroup>
                   <FormGroup
@@ -145,6 +167,7 @@ function Register() {
                         onBlur={() => setfocusedName(false)}
                         onChange={(e) => setAddress(e.target.value)}
                       />
+                      {validation.address ? null : <p>Direccion invalido</p>}
                     </InputGroup>
                   </FormGroup>
                   <FormGroup
@@ -165,6 +188,7 @@ function Register() {
                         onBlur={() => setfocusedName(false)}
                         onChange={(e) => setPhone(e.target.value)}
                       />
+                      {validation.phone ? null : <p>Telefono invalido</p>}
                     </InputGroup>
                   </FormGroup>
                   <FormGroup
@@ -185,6 +209,7 @@ function Register() {
                         onBlur={() => setfocusedName(false)}
                         onChange={(e) => setDni(e.target.value)}
                       />
+                      {validation.dni ? null : <p>dni invalido</p>}
                     </InputGroup>
                   </FormGroup>
                   <FormGroup
@@ -205,6 +230,7 @@ function Register() {
                         onBlur={() => setfocusedName(false)}
                         onChange={(e) => setCity(e.target.value)}
                       />
+                      {validation.city ? null : <p>Ciudad invalido</p>}
                     </InputGroup>
                   </FormGroup>
                   <FormGroup
