@@ -1,11 +1,11 @@
 import React from 'react';
-import {Slideshow, Slide, TextoSlide} from 'D:/Codigo/dogepet-front/src/components/Headers/Slideshow.js';
-import 'D:/Codigo/dogepet-front/src/assets/css/slide.css';
+import {Slideshow, Slide, TextoSlide} from '../../components/Headers/Slideshow.js';
+import '../../assets/css/slide.css';
 import styled from 'styled-components';
-import img1 from 'D:/CODIGO/dogepet-front/src/assets/img/brand/images1.jpg';
-import img2 from 'D:/CODIGO/dogepet-front/src/assets/img/brand/images2.jpg';
-import img3 from 'D:/CODIGO/dogepet-front/src/assets/img/brand/imagen4.jpg';
-import img4 from 'D:/CODIGO/dogepet-front/src/assets/img/brand/imagen5.jpg';
+import img1 from '../../assets/img/brand/images1.jpg';
+import img2 from '../../assets/img/brand/images2.jpg';
+import img3 from '../../assets/img/brand/imagen4.jpg';
+import img4 from '../../assets/img/brand/imagen5.jpg';
 
 const Slhead = () => {
 	return (

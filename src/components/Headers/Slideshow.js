@@ -1,6 +1,6 @@
 import React, {useRef, useEffect, useCallback} from 'react';
-import { ReactComponent as FlechaIzquierda } from 'D:/CODIGO/dogepet-front/src/assets/img/brand/iconmonstr-arrow-64.svg';
-import { ReactComponent as FlechaDerecha } from 'D:/CODIGO/dogepet-front/src/assets/img/brand/iconmonstr-arrow-25.svg';
+import { ReactComponent as FlechaIzquierda } from '../../assets/img/brand/iconmonstr-arrow-64.svg';
+import { ReactComponent as FlechaDerecha } from '../../assets/img/brand/iconmonstr-arrow-25.svg';
 import styled from 'styled-components';
 
 const Slideshow = ({
@@ -15,7 +15,8 @@ const Slideshow = ({
 
 	const siguiente = useCallback(() => {
 		// Comprobamos que el slideshow tenga elementos
-		if(slideshow.current.children.length > 0){
+		return
+		if(slideshow?.current?.children?.length > 0){
 			console.log('Siguiente')
 
 			// Obtenemos el primer elemento del slideshow.
