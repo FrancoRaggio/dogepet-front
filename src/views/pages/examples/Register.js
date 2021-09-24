@@ -75,8 +75,8 @@ function Register() {
   return (
     <>
       <AuthHeader
+        //lead="Use these awesome forms to login or create new account in your project for free."
         title="Registrarse"
-        lead="Use these awesome forms to login or create new account in your project for free."
       />
       <Container className="mt--8 pb-5">
         <Row className="justify-content-center">
@@ -84,7 +84,6 @@ function Register() {
             <Card className="bg-secondary border-0">
               <CardBody className="px-lg-5 py-lg-5">
                 <div className="text-center text-muted mb-4">
-                  <small>Registrarte en Dodge</small>
                 </div>
                 <Form role="form">
                   <FormGroup
