@@ -93,16 +93,6 @@ function AdminNavbar() {
             </div>
             <Nav className="mr-auto" navbar>
               <NavItem>
-                <NavLink to="/admin/dashboard" tag={Link}>
-                  <span className="nav-link-inner--text">Inicio</span>
-                </NavLink>
-              </NavItem>
-              <NavItem>
-                <NavLink to="/auth/pricing" tag={Link}>
-                  <span className="nav-link-inner--text">Pricing</span>
-                </NavLink>
-              </NavItem>
-              <NavItem>
                 <NavLink to="/auth/login" tag={Link}>
                   <span className="nav-link-inner--text">Ingresar</span>
                 </NavLink>
@@ -112,90 +102,8 @@ function AdminNavbar() {
                   <span className="nav-link-inner--text">Registrarse</span>
                 </NavLink>
               </NavItem>
-              <NavItem>
-                <NavLink to="/auth/lock" tag={Link}>
-                  <span className="nav-link-inner--text">Lock</span>
-                </NavLink>
-              </NavItem>
             </Nav>
             <hr className="d-lg-none" />
-            <Nav className="align-items-lg-center ml-lg-auto" navbar>
-              <NavItem>
-                <NavLink
-                  className="nav-link-icon"
-                  href="https://www.facebook.com/creativetim?ref=creative-tim"
-                  id="tooltip601201423"
-                  target="_blank"
-                >
-                  <i className="fab fa-facebook-square" />
-                  <span className="nav-link-inner--text d-lg-none">
-                    Facebook
-                  </span>
-                </NavLink>
-                <UncontrolledTooltip delay={0} target="tooltip601201423">
-                  Like us on Facebook
-                </UncontrolledTooltip>
-              </NavItem>
-              <NavItem>
-                <NavLink
-                  className="nav-link-icon"
-                  href="https://www.instagram.com/creativetimofficial?ref=creative-tim"
-                  id="tooltip871243015"
-                  target="_blank"
-                >
-                  <i className="fab fa-instagram" />
-                  <span className="nav-link-inner--text d-lg-none">
-                    Instagram
-                  </span>
-                </NavLink>
-                <UncontrolledTooltip delay={0} target="tooltip871243015">
-                  Follow us on Instagram
-                </UncontrolledTooltip>
-              </NavItem>
-              <NavItem>
-                <NavLink
-                  className="nav-link-icon"
-                  href="https://twitter.com/creativetim?ref=creative-tim"
-                  id="tooltip366258619"
-                  target="_blank"
-                >
-                  <i className="fab fa-twitter-square" />
-                  <span className="nav-link-inner--text d-lg-none">
-                    Twitter
-                  </span>
-                </NavLink>
-                <UncontrolledTooltip delay={0} target="tooltip366258619">
-                  Follow us on Twitter
-                </UncontrolledTooltip>
-              </NavItem>
-              <NavItem>
-                <NavLink
-                  className="nav-link-icon"
-                  href="https://github.com/creativetimofficial?ref=creative-tim"
-                  id="tooltip931502898"
-                  target="_blank"
-                >
-                  <i className="fab fa-github" />
-                  <span className="nav-link-inner--text d-lg-none">Github</span>
-                </NavLink>
-                <UncontrolledTooltip delay={0} target="tooltip931502898">
-                  Star us on Github
-                </UncontrolledTooltip>
-              </NavItem>
-              <NavItem className="d-none d-lg-block ml-lg-4">
-                <Button
-                  className="btn-neutral btn-icon"
-                  color="default"
-                  href="https://www.creative-tim.com/product/argon-dashboard-pro-react?ref=adpr-auth-navbar"
-                  target="_blank"
-                >
-                  <span className="btn-inner--icon">
-                    <i className="fas fa-shopping-cart mr-2" />
-                  </span>
-                  <span className="nav-link-inner--text">Purchase now</span>
-                </Button>
-              </NavItem>
-            </Nav>
           </UncontrolledCollapse>
         </Container>
       </Navbar>

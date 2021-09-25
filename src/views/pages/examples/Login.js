@@ -35,16 +35,27 @@ import {
 } from "reactstrap";
 // core components
 import AuthHeader from "components/Headers/AuthHeader.js";
+import { RepositoryFactory } from "Api/RepositoryFactory";
+
+
+const authRepository = RepositoryFactory.get('auth');
 
 function Login() {
   const [focusedEmail, setfocusedEmail] = React.useState(false);
   const [focusedPassword, setfocusedPassword] = React.useState(false);
   const [email, setEmail] = React.useState("");
   const [password, setPassword] = React.useState("");
+
   function proof() {
     console.log(email, password);
+  }
+
+  const loginFunction = async () => {
+    window.location.href = "/admin/dashboard"
+    let response = await authRepository.signIn({email, password})
 
   }
+
   return (
     <>
       <AuthHeader
@@ -115,34 +126,21 @@ function Login() {
                   </div>
                   <div className="text-center">
                     <Button className="my-4" color="info" type="button"
-                      onClick={() => proof()}
+                      onClick={() => loginFunction()}
                     >
                       Ingresar
+                    </Button>
+                  </div>
+                  <div className="text-center">
+                    <Button className="my-4" color="warning" type="button"
+                      onClick={(e) => window.location.href = "/auth/register"}
+                    >
+                      Crear nueva cuenta
                     </Button>
                   </div>
                 </Form>
               </CardBody>
             </Card>
-            <Row className="mt-3">
-              <Col xs="6">
-                <a
-                  className="text-light"
-                  href="#pablo"
-                  onClick={(e) => e.preventDefault()}
-                >
-                  <small>Olvidaste contraseña?</small>
-                </a>
-              </Col>
-              <Col className="text-right" xs="6">
-                <a
-                  className="text-light"
-                  href="#pablo"
-                  onClick={(e) => e.preventDefault()}
-                >
-                  <small>Crear nueva cuenta</small>
-                </a>
-              </Col>
-            </Row>
           </Col>
         </Row>
       </Container>

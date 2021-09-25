@@ -37,6 +37,9 @@ import {
 import AuthHeader from "components/Headers/AuthHeader.js";
 import { emailValidation, nameValidation, lastNameValidation, addressValidation, cityValidation, phoneValidation, dniValidation } from "../../../validations/Register";
 import Validation from "../forms/Validation";
+import { RepositoryFactory } from "Api/RepositoryFactory";
+const authRepository = RepositoryFactory.get('auth');
+
 
 function Register() {
   const [focusedName, setfocusedName] = React.useState(false);
@@ -71,6 +74,18 @@ function Register() {
     })
     console.log(emailV, nameV, lastNameV, addressV, cityV, phoneV, dniV);
 
+    let data = {
+      email,
+      name,
+      lastName,
+      password,
+      phone,
+      dni,
+      city,
+    }
+    let response = await authRepository.signUp(data)
+    
+    window.location.href = "/auth/login"
   }
   return (
     <>
