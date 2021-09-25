@@ -43,6 +43,7 @@ import Vector from "views/pages/maps/Vector.js";
 import Widgets from "views/pages/Widgets.js";
 
 const routes = [
+  
   {
     collapse: true,
     name: "Inicio",
@@ -63,20 +64,6 @@ const routes = [
       //   component: Alternative,
       //   layout: "/admin",
       // },
-      {
-        path: "/login",
-        name: "Login",
-        miniName: "L",
-        component: Login,
-        layout: "/auth",
-      },
-      {
-        path: "/register",
-        name: "Register",
-        miniName: "R",
-        component: Register,
-        layout: "/auth",
-      },
       {
         path: "/profile",
         name: "Profile",
@@ -321,11 +308,18 @@ const routes = [
     layout: "/admin",
   },
   {
-    path: "/chat",
-    name: "Chat",
-    icon: "ni ni-calendar-grid-58 text-red",
-    component: Chat,
-    layout: "/admin",
+    path: "/login",
+    name: "Login",
+    miniName: "L",
+    component: Login,
+    layout: "/auth",
+  },
+  {
+    path: "/register",
+    name: "Register",
+    miniName: "R",
+    component: Register,
+    layout: "/auth",
   },
 ];
 

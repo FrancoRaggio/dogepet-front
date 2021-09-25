@@ -332,7 +332,7 @@ function AdminNavbar({ theme, sidenavOpen, toggleSidenav }) {
                     <Col
                       className="shortcut-item"
                       href="#pablo"
-                      onClick={(e) => e.preventDefault()}
+                      onClick={(e) => window.location.href = "/admin/calendar"}
                       xs="4"
                       tag="a"
                     >
@@ -343,8 +343,7 @@ function AdminNavbar({ theme, sidenavOpen, toggleSidenav }) {
                     </Col>
                     <Col
                       className="shortcut-item"
-                      href="#pablo"
-                      onClick={(e) => e.preventDefault()}
+                      onClick={(e) => window.location.href = "http://3.131.200.100/chat"}
                       xs="4"
                       tag="a"
                     >
@@ -429,17 +428,13 @@ function AdminNavbar({ theme, sidenavOpen, toggleSidenav }) {
                     <h6 className="text-overflow m-0">Bienvenido</h6>
                   </DropdownItem>
                   <DropdownItem
-                    href="#pablo"
-                    onClick={(e) => e.preventDefault()}
+                    onClick={(e) => window.location.href = "/admin/profile"}
                   >
                     <i className="ni ni-single-02" />
-                    <Link to="/admin/profile" style={{ textDecoration: "none", color: "black" }}  >
                       <span>Mi Perfil</span>
-                    </Link>
                   </DropdownItem>
                   <DropdownItem
-                    href="#pablo"
-                    onClick={(e) => e.preventDefault()}
+                    onClick={(e) => window.location.href = "/auth/login"}
                   >
                     <i className="ni ni-curved-next" />
                     <span>Cerrar sesion</span>

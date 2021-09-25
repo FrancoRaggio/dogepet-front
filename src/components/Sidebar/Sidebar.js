@@ -95,6 +95,9 @@ function Sidebar({ toggleSidenav, sidenavOpen, routes, logo, rtlActive }) {
   // this function creates the links and collapses that appear in the sidebar (left menu)
   const createLinks = (routes) => {
     return routes.map((prop, key) => {
+      if(prop.path == "/login" || prop.path == "/register"){
+        return null
+      }
       if (prop.redirect) {
         return null;
       }
