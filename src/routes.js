@@ -57,13 +57,13 @@ const routes = [
         component: Dashboard,
         layout: "/admin",
       },
-      // {
-      //   path: "/alternative-dashboard",
-      //   name: "Alternative",
-      //   miniName: "A",
-      //   component: Alternative,
-      //   layout: "/admin",
-      // },
+      {
+        path: "/alternative-dashboard",
+        name: "Alternative",
+        miniName: "A",
+        component: Alternative,
+        layout: "/admin",
+      },
       {
         path: "/profile",
         name: "Profile",
