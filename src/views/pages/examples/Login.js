@@ -35,16 +35,27 @@ import {
 } from "reactstrap";
 // core components
 import AuthHeader from "components/Headers/AuthHeader.js";
+import { RepositoryFactory } from "Api/RepositoryFactory";
+
+
+const authRepository = RepositoryFactory.get('auth');
 
 function Login() {
   const [focusedEmail, setfocusedEmail] = React.useState(false);
   const [focusedPassword, setfocusedPassword] = React.useState(false);
   const [email, setEmail] = React.useState("");
   const [password, setPassword] = React.useState("");
+
   function proof() {
     console.log(email, password);
-
   }
+
+  const loginFunction = async () => {
+    let response = await authRepository.signIn({email, password})
+
+    window.location.href = "/admin/dashboard"
+  }
+
   return (
     <>
       <AuthHeader
@@ -115,7 +126,7 @@ function Login() {
                   </div>
                   <div className="text-center">
                     <Button className="my-4" color="info" type="button"
-                      onClick={() => window.location.href = "/admin/dashboard"}
+                      onClick={() => loginFunction()}
                     >
                       Ingresar
                     </Button>
