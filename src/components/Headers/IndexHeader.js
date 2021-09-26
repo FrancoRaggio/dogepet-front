@@ -30,16 +30,15 @@ function IndexHeader() {
               <Col lg="6">
                 <div className="pr-5">
                   <h1 className="display-2 text-white font-weight-bold mb-0">
-                    Argon Dashboard PRO React
+                    DogePet 
                   </h1>
                   <h2 className="display-4 text-white font-weight-light">
-                    A beautiful premium dashboard for Bootstrap 4, React and
-                    Reactstrap.
+                  Nuestra visión es proporcionar la mejor atención veterinaria en la zona, donde las mascotas y sus dueños son nuestra prioridad.
                   </h2>
                   <p className="text-white mt-4">
-                    Argon perfectly combines reusable HTML and modular CSS with
-                    a modern styling and beautiful markup throughout each HTML
-                    template in the pack.
+                  Nuestra misión proporcionar la asistencia médica de la más alta calidad a nuestros pacientes,
+                  educando e informando a los propietarios lo mejor posible para garantizar
+                   así que puedan tomar las mejores decisiones
                   </p>
                   <div className="mt-5">
                     <Button
@@ -48,15 +47,15 @@ function IndexHeader() {
                       to="/admin/dashboard"
                       tag={Link}
                     >
-                      Explore Dashboard
+                      Explora el Home
                     </Button>
-                    <Button
+                    {/* <Button
                       className="my-2"
                       color="default"
                       href="https://www.creative-tim.com/product/argon-dashboard-pro-react?ref=adpr-auth-navbar"
                     >
                       Purchase now
-                    </Button>
+                    </Button> */}
                   </div>
                 </div>
               </Col>
@@ -68,8 +67,8 @@ function IndexHeader() {
                         <div className="icon icon-shape bg-gradient-red text-white rounded-circle shadow mb-4">
                           <i className="ni ni-active-40" />
                         </div>
-                        <h5 className="h3">Components</h5>
-                        <p>Argon comes with over 70 handcrafted components.</p>
+                        <h5 className="h3">Turnos</h5>
+                        <p>Mejora de administracion de turnos de la veterinaria, con un aumento en un 50%</p>
                       </CardBody>
                     </Card>
                     <Card>
@@ -77,10 +76,10 @@ function IndexHeader() {
                         <div className="icon icon-shape bg-gradient-info text-white rounded-circle shadow mb-4">
                           <i className="ni ni-active-40" />
                         </div>
-                        <h5 className="h3">Plugins</h5>
+                        <h5 className="h3">Chat</h5>
                         <p>
-                          Fully integrated and extendable third-party plugins
-                          that you will love.
+                        Mejora en la comunicación con los clientes de la veterinaria,
+                        para disminuir un 50% las consultas recurrentes brindando un historial de consultas.
                         </p>
                       </CardBody>
                     </Card>
@@ -91,22 +90,22 @@ function IndexHeader() {
                         <div className="icon icon-shape bg-gradient-success text-white rounded-circle shadow mb-4">
                           <i className="ni ni-active-40" />
                         </div>
-                        <h5 className="h3">Pages</h5>
+                        <h5 className="h3">Historial Clinico</h5>
                         <p>
-                          From simple to complex, you get a beautiful set of 15+
-                          page examples.
+                        Crear libreta digital/historial del veterinario,
+                        con la descarga del historial médico buscamos reducir al 60% la pérdida de los datos del animal.
                         </p>
                       </CardBody>
                     </Card>
-                    <Card className="mb-4">
+                    {/* <Card className="mb-4">
                       <CardBody>
                         <div className="icon icon-shape bg-gradient-warning text-white rounded-circle shadow mb-4">
                           <i className="ni ni-active-40" />
                         </div>
-                        <h5 className="h3">Documentation</h5>
+                        <h5 className="h3">Documentacion</h5>
                         <p>You will love how easy is to to work with Argon.</p>
                       </CardBody>
-                    </Card>
+                    </Card> */}
                   </Col>
                 </Row>
               </Col>
