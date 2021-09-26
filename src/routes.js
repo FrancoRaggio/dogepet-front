@@ -66,7 +66,7 @@ const routes = [
       },
       {
         path: "/profile",
-        name: "Profile",
+        name: "Perfil",
         miniName: "P",
         component: Profile,
         layout: "/admin",
@@ -302,7 +302,7 @@ const routes = [
   },*/
   {
     path: "/calendar",
-    name: "Calendar",
+    name: "Calendario",
     icon: "ni ni-calendar-grid-58 text-red",
     component: Calendar,
     layout: "/admin",
