@@ -227,7 +227,7 @@ function CalendarView() {
                     </a>
                   </BreadcrumbItem>
                   <BreadcrumbItem aria-current="page" className="active">
-                    Calendar
+                    Calendario
                   </BreadcrumbItem>
                 </Breadcrumb>
               </Col>
@@ -259,7 +259,7 @@ function CalendarView() {
                   onClick={() => changeView("dayGridMonth")}
                   size="sm"
                 >
-                  Month
+                  Mes
                 </Button>
                 <Button
                   className="btn-neutral"
@@ -268,7 +268,7 @@ function CalendarView() {
                   onClick={() => changeView("dayGridWeek")}
                   size="sm"
                 >
-                  Week
+                  Semana
                 </Button>
                 <Button
                   className="btn-neutral"
@@ -277,7 +277,7 @@ function CalendarView() {
                   onClick={() => changeView("dayGridDay")}
                   size="sm"
                 >
-                  Day
+                  Dia
                 </Button>
               </Col>
             </Row>
@@ -289,7 +289,7 @@ function CalendarView() {
           <div className="col">
             <Card className="card-calendar">
               <CardHeader>
-                <h5 className="h3 mb-0">Calendar</h5>
+                <h5 className="h3 mb-0">Calendario</h5>
               </CardHeader>
               <CardBody className="p-0">
                 <div
@@ -308,17 +308,17 @@ function CalendarView() {
               <div className="modal-body">
                 <form className="new-event--form">
                   <FormGroup>
-                    <label className="form-control-label">Event title</label>
+                    <label className="form-control-label">Turno</label>
                     <Input
                       className="form-control-alternative new-event--title"
-                      placeholder="Event Title"
+                      placeholder="Nombre del turno"
                       type="text"
                       onChange={(e) => setEventTitle(e.target.value)}
                     />
                   </FormGroup>
                   <FormGroup className="mb-0">
                     <label className="form-control-label d-block mb-3">
-                      Status color
+                      Color
                     </label>
                     <ButtonGroup
                       className="btn-group-toggle btn-group-colors event-tag"
@@ -383,7 +383,7 @@ function CalendarView() {
                   type="button"
                   onClick={addNewEvent}
                 >
-                  Add event
+                  Agregar Turno
                 </Button>
                 <Button
                   className="ml-auto"
@@ -391,7 +391,7 @@ function CalendarView() {
                   type="button"
                   onClick={() => setModalAdd(false)}
                 >
-                  Close
+                  Cerrar
                 </Button>
               </div>
             </Modal>
@@ -403,10 +403,10 @@ function CalendarView() {
               <div className="modal-body">
                 <Form className="edit-event--form">
                   <FormGroup>
-                    <label className="form-control-label">Event title</label>
+                    <label className="form-control-label">Turno</label>
                     <Input
                       className="form-control-alternative edit-event--title"
-                      placeholder="Event Title"
+                      placeholder="Nombre del turno"
                       type="text"
                       defaultValue={eventTitle}
                       onChange={(e) => setEventTitle(e.target.value)}
@@ -414,7 +414,7 @@ function CalendarView() {
                   </FormGroup>
                   <FormGroup>
                     <label className="form-control-label d-block mb-3">
-                      Status color
+                      Color
                     </label>
                     <ButtonGroup
                       className="btn-group-toggle btn-group-colors event-tag mb-0"
@@ -471,7 +471,7 @@ function CalendarView() {
                     </ButtonGroup>
                   </FormGroup>
                   <FormGroup>
-                    <label className="form-control-label">Description</label>
+                    <label className="form-control-label">Descripcion</label>
                     <Input
                       className="form-control-alternative edit-event--description textarea-autosize"
                       placeholder="Event Desctiption"
@@ -485,9 +485,9 @@ function CalendarView() {
                 </Form>
               </div>
               <div className="modal-footer">
-                <Button color="primary" onClick={changeEvent}>
+                {/* <Button color="primary" onClick={changeEvent}>
                   Update
-                </Button>
+                </Button> */}
                 <Button
                   color="danger"
                   onClick={() => {
@@ -495,14 +495,14 @@ function CalendarView() {
                     deleteEventSweetAlert();
                   }}
                 >
-                  Delete
+                  Cancelar Turno
                 </Button>
                 <Button
                   className="ml-auto"
                   color="link"
                   onClick={() => setModalChange(false)}
                 >
-                  Close
+                  Cerrar
                 </Button>
               </div>
             </Modal>
