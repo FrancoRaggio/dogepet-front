@@ -25,6 +25,8 @@ import {
   CardImg,
   CardTitle,
   FormGroup,
+  Collapse,
+  Table,
   Form,
   Input,
   ListGroupItem,
@@ -36,8 +38,10 @@ import {
 } from "reactstrap";
 // core components
 import ProfileHeader from "components/Headers/ProfileHeader.js";
+import ReactToPrint from "react-to-print";
 
-function Profile() {
+
+function HistoriaClinica() {
   return (
     <>
       <ProfileHeader />
@@ -47,7 +51,7 @@ function Profile() {
             <Card className="card-profile">
               <CardImg
                 alt="..."
-                src={require("assets/img/theme/img-1-1000x600.jpg").default}
+                src={require("assets/img/theme/colagetit.jpeg").default}
                 top
               />
               <Row className="justify-content-center">
@@ -56,8 +60,9 @@ function Profile() {
                     <a href="#pablo" onClick={(e) => e.preventDefault()}>
                       <img
                         alt="..."
-                        className="rounded-circle"
-                        src={require("assets/img/theme/team-4.jpg").default}
+                        class="rounded-circle" 
+                        width="500" height="150"
+                        src={require("assets/img/theme/titan.jfif").default}
                       />
                     </a>
                   </div>
@@ -68,35 +73,45 @@ function Profile() {
                   <div className="col">
                     <div className="card-profile-stats d-flex justify-content-center">
                       <div>
-                        <span className="heading">-</span>
-                        <span className="description"></span>
+                        <span className="heading"></span>
+                        <span className="description">-</span>
                       </div>
                     </div>
                   </div>
                 </Row>
                 <div className="text-center">
                   <h5 className="h3">
-                    Jessica Jones
-                    <span className="font-weight-light"></span>
+                    Titan Mendez
+                    <span className="font-weight-light"> , 3</span>
                   </h5>
-                 
+                  
                 </div>
               </CardBody>
             </Card>
           </Col>
           <Col className="order-xl-1" xl="8">
-            <Card>
+          <Card>
               <CardHeader>
                 <Row className="align-items-center">
                   <Col xs="8">
-                    <h3 className="mb-0">Editar Perfil</h3>
+                    <h3 className="mb-0">Historial Clinico</h3>
+                  </Col>
+                  <Col className="text-right" xs="4">
+                    <Button
+                      color="primary"
+                      href="http://localhost:3000/admin/MenuMascota"
+                      // onClick={(e) => e.preventDefault()}
+                      size="sm"
+                    >
+                      Volver A Menu Mascota
+                    </Button>
                   </Col>
                 </Row>
               </CardHeader>
               <CardBody>
                 <Form>
                   <h6 className="heading-small text-muted mb-4">
-                    Informacion de usuario
+                    Informacion de Mascota
                   </h6>
                   <div className="pl-lg-4">
                     <Row>
@@ -109,106 +124,103 @@ function Profile() {
                             Nombre
                           </label>
                           <Input
-                            defaultValue="lucky.jesse"
+                            defaultValue="Titan"
                             id="input-username"
                             placeholder="Username"
                             type="text"
                           />
                         </FormGroup>
                       </Col>
-                      <Col lg="6">
-                        <FormGroup>
-                          <label
-                            className="form-control-label"
-                            htmlFor="input-last-name"
-                          >
-                            Apellido
-                          </label>
-                          <Input
-                            defaultValue="Jesse"
-                            id="input-last-name"
-                            placeholder="Last name"
-                            type="text"
-                          />
-                        </FormGroup>
-                      </Col>
-                      <Col lg="6">
+                      <Col lg="2">
                         <FormGroup>
                           <label
                             className="form-control-label"
                             htmlFor="input-email"
                           >
-                            Email
+                            Edad
                           </label>
                           <Input
-                            id="input-email"
-                            placeholder="jesse@example.com"
-                            type="email"
+                            id="input"
+                            placeholder="3"
+                            type="number"
                           />
                         </FormGroup>
                       </Col>
-                      <Col lg="6">
-                        <FormGroup>
-                          <label
-                            className="form-control-label"
-                            htmlFor="input-phone"
-                          >
-                            Telefono
-                          </label>
-                          <Input
-                            defaultValue="221:"
-                            id="input-phone"
-                            placeholder="Phone"
-                            type="text"
-                          />
-                        </FormGroup>
-                      </Col>
+                      
                     </Row>
                   </div>
                   <hr className="my-4" />
 
                   <h6 className="heading-small text-muted mb-4">
-                    Informacion de Contacto
+                    Controles Peso
                   </h6>
-                  <div className="pl-lg-4">
-                    <Row>
-                      <Col md="12">
-                        <FormGroup>
-                          <label
-                            className="form-control-label"
-                            htmlFor="input-address"
-                          >
-                            Direccion
-                          </label>
-                          <Input
-                            defaultValue="Bld Mihail Kogalniceanu, nr. 8 Bl 1, Sc 1, Ap 09"
-                            id="input-address"
-                            placeholder="Home Address"
-                            type="text"
-                          />
-                        </FormGroup>
-                      </Col>
-                    </Row>
-                    <Row>
-                      <Col md="12">
-                        <FormGroup>
-                          <label
-                            className="form-control-label"
-                            htmlFor="input-city"
-                          >
-                            Ciudad
-                          </label>
-                          <Input
-                            defaultValue="New York"
-                            id="input-city"
-                            placeholder="City"
-                            type="text"
-                          />
-                        </FormGroup>
-                      </Col>
-                    </Row>
-                  </div>
+                  {/* <div className="pl-lg-8"> */}
+                  <table class="table table-responsive table-striped">
+                  <thead>
+                      <tr>
+                          <th>Fecha</th>
+                          <th>Peso</th>
+                          <th></th>
+                      </tr>
+                  </thead>
+                  <tbody>
+                      <tr>
+                          <td>24/6/19</td>
+                          <td>1,170 Kg</td>
+                      </tr>
+                      <tr>
+                      <td>24/3/21</td>
+                          <td>5,170 Kg</td>
+                      </tr>
+                      <tr>
+                      <td>24/6/21</td>
+                          <td>8,500 Kg</td>
+                      </tr>
+                     
+                  </tbody>
+              </table>       
+              <hr className="my-4" />
+              <h6 className="heading-small text-muted mb-4">
+                    Vacunas
+                  </h6>   
+                  <tr class="collapse multi-collapse1" 
+                   data-toggle="collapse"
+                    data-target=".multi-collapse1"
+                  aria-controls="multiCollapseExample1" id="">
+                    <td>Child col 1</td>
+                    <td>Child col 2</td>
+                    <td>Child col 3</td>
+                </tr>
+               
+               {/* </div> */}
                   <hr className="my-4" />
+                  <div className="d-flex justify-content-between">
+                  {/* <Button
+                    className="mr-4"
+                    color="danger"
+                    href=""
+                    onClick={(e) => e.preventDefault()}
+                    size="sm"
+                  >
+                    Cancelar
+                  </Button> */}
+                   <div>
+        {/* <ReactToPrint
+          trigger={() => <button>Print this out!</button>}
+          content={() => this.componentRef}
+        />
+        <HistoriaClinica ref={(el) => (this.componentRef = el)} /> */}
+      </div>
+                  <Button
+                    className="float-left"
+                    color="default"
+                    href=""
+                    onClick={(e) => e.preventDefault()}
+                    size="sm"
+                  >
+                    Imprimir
+                  </Button>
+                </div>
                 </Form>
               </CardBody>
             </Card>
@@ -219,4 +231,4 @@ function Profile() {
   );
 }
 
-export default Profile;
+export default HistoriaClinica;
