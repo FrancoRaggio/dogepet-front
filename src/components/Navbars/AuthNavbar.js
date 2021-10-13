@@ -44,7 +44,7 @@ function AdminNavbar() {
           <NavbarBrand to="/" tag={Link}>
             <img
               alt="..."
-              src={require("assets/img/brand/argon-react-white.png").default}
+              src={require("assets/img/brand/dogepet.png").default}
             />
           </NavbarBrand>
           <button

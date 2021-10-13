@@ -31,7 +31,7 @@ function AdminFooter() {
                 © {new Date().getFullYear()}{" "}
                 <a
                   className="font-weight-bold ml-1"
-                  href="https://www.youtube.com/watch?v=4qj5lRxSAWI"
+                  href="/"
                   target="_blank"
                 >
                   DogePet

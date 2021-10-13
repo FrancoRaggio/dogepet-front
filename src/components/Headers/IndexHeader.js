@@ -47,7 +47,7 @@ function IndexHeader() {
                       to="/admin/dashboard"
                       tag={Link}
                     >
-                      Explora el Home
+                      Explora el Inicio
                     </Button>
                     {/* <Button
                       className="my-2"

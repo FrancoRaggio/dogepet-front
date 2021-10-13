@@ -16,3 +16,10 @@ main {
 	margin: 50px auto;
 	overflow: hidden;
 }
+
+.corrousel {
+	border: 5px solid black;
+}
+.titulo-home {
+	margin-bottom: 10px;
+}

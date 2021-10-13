@@ -44,7 +44,7 @@ function AdminNavbar() {
           <NavbarBrand to="/" tag={Link}>
             <img
               alt="..."
-              src={require("assets/img/brand/argon-react-white.png").default}
+              src={require("assets/img/brand/dogepet.png").default}
             />
           </NavbarBrand>
           <button
@@ -70,7 +70,7 @@ function AdminNavbar() {
                   <Link to="/admin/dashboard">
                     <img
                       alt="..."
-                      src={require("assets/img/brand/blue.png").default}
+                      src={require("assets/img/brand/dogepet.png").default}
                     />
                   </Link>
                 </Col>
@@ -94,14 +94,14 @@ function AdminNavbar() {
             <Nav className="mr-auto" navbar>
               <NavItem>
                 <NavLink to="/admin/dashboard" tag={Link}>
-                  <span className="nav-link-inner--text">Dashboard</span>
+                  <span className="nav-link-inner--text">Inicio</span>
                 </NavLink>
               </NavItem>
-              <NavItem>
+              {/*<NavItem>
                 <NavLink to="/auth/pricing" tag={Link}>
                   <span className="nav-link-inner--text">Pricing</span>
                 </NavLink>
-              </NavItem>
+              </NavItem>*/}
               <NavItem>
                 <NavLink to="/auth/login" tag={Link}>
                   <span className="nav-link-inner--text">Login</span>
@@ -112,11 +112,11 @@ function AdminNavbar() {
                   <span className="nav-link-inner--text">Register</span>
                 </NavLink>
               </NavItem>
-              <NavItem>
+              {/*<NavItem>
                 <NavLink to="/auth/lock" tag={Link}>
                   <span className="nav-link-inner--text">Lock</span>
                 </NavLink>
-              </NavItem>
+              </NavItem>*/}
             </Nav>
             <hr className="d-lg-none" />
             <Nav className="align-items-lg-center ml-lg-auto" navbar>
@@ -133,7 +133,7 @@ function AdminNavbar() {
                   </span>
                 </NavLink>
                 <UncontrolledTooltip delay={0} target="tooltip601201423">
-                  Like us on Facebook
+                  Siguenos en Facebook
                 </UncontrolledTooltip>
               </NavItem>
               <NavItem>
@@ -149,10 +149,10 @@ function AdminNavbar() {
                   </span>
                 </NavLink>
                 <UncontrolledTooltip delay={0} target="tooltip871243015">
-                  Follow us on Instagram
+                Siguenos en Instagram
                 </UncontrolledTooltip>
               </NavItem>
-              <NavItem>
+              {/* <NavItem>
                 <NavLink
                   className="nav-link-icon"
                   href="https://twitter.com/creativetim?ref=creative-tim"
@@ -194,7 +194,7 @@ function AdminNavbar() {
                   </span>
                   <span className="nav-link-inner--text">Purchase now</span>
                 </Button>
-              </NavItem>
+              </NavItem> */}
             </Nav>
           </UncontrolledCollapse>
         </Container>

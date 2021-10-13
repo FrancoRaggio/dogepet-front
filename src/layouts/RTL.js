@@ -88,7 +88,7 @@ function RTL() {
         sidenavOpen={sidenavOpen}
         logo={{
           innerLink: "/",
-          imgSrc: require("assets/img/brand/argon-react.png").default,
+          imgSrc: require("assets/img/brand/dogepet.png").default,
           imgAlt: "...",
         }}
         rtlActive

@@ -155,26 +155,29 @@ function CalendarView() {
       <ReactBSAlert
         warning
         style={{ display: "block", marginTop: "-100px" }}
-        title="Are you sure?"
+        title="Estas seguro de eliminar el turno?"
         onConfirm={() => {
           setAlert(false);
           setRadios("bg-info");
           setEventTitle(undefined);
           setEventDescription(undefined);
           setEventId(undefined);
+          let newEvents = events.filter((prop) => prop.id + "" !== eventId);
+          setEvents(newEvents);
         }}
         onCancel={() => deleteEvent()}
         confirmBtnCssClass="btn-secondary"
         cancelBtnBsStyle="danger"
-        confirmBtnText="Cancel"
-        cancelBtnText="Yes, delete it"
+        confirmBtnText="Cancelar"
+        cancelBtnText="Si, eliminar"
         showCancel
         btnSize=""
       >
-        You won't be able to revert this!
+        ¡No podrás revertir esto!
       </ReactBSAlert>
     );
   };
+  console.log(events);
   const deleteEvent = () => {
     var newEvents = events.filter((prop) => prop.id + "" !== eventId);
     setEvent(undefined);
@@ -182,14 +185,14 @@ function CalendarView() {
       <ReactBSAlert
         success
         style={{ display: "block", marginTop: "-100px" }}
-        title="Success"
+        title="Eliminado"
         onConfirm={() => setAlert(null)}
         onCancel={() => setAlert(null)}
         confirmBtnBsStyle="primary"
         confirmBtnText="Ok"
         btnSize=""
       >
-        A few words about this sweet alert ...
+        El turno fue elminado con exito
       </ReactBSAlert>
     );
     setModalChange(false);
@@ -223,7 +226,7 @@ function CalendarView() {
                   </BreadcrumbItem>
                   <BreadcrumbItem>
                     <a href="#pablo" onClick={(e) => e.preventDefault()}>
-                      Dashboard
+                      Inicio
                     </a>
                   </BreadcrumbItem>
                   <BreadcrumbItem aria-current="page" className="active">
@@ -488,6 +491,15 @@ function CalendarView() {
                 {/* <Button color="primary" onClick={changeEvent}>
                   Update
                 </Button> */}
+                 <Button
+                  color="primary"
+                  onClick={() => {
+                    setModalChange(false);
+                    changeEvent();
+                  }}
+                >
+                  Cambiar turno
+                </Button>
                 <Button
                   color="danger"
                   onClick={() => {
