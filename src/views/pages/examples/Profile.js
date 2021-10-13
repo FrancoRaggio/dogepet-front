@@ -68,8 +68,8 @@ function Profile() {
                   <div className="col">
                     <div className="card-profile-stats d-flex justify-content-center">
                       <div>
-                        <span className="heading">22</span>
-                        <span className="description">Pets</span>
+                        <span className="heading">-</span>
+                        <span className="description"></span>
                       </div>
                     </div>
                   </div>
@@ -77,12 +77,9 @@ function Profile() {
                 <div className="text-center">
                   <h5 className="h3">
                     Jessica Jones
-                    <span className="font-weight-light">, 27</span>
+                    <span className="font-weight-light"></span>
                   </h5>
-                  <div className="h5 font-weight-300">
-                    <i className="ni location_pin mr-2" />
-                    Bucharest, Romania
-                  </div>
+                 
                 </div>
               </CardBody>
             </Card>

@@ -31,6 +31,7 @@ import Login from "views/pages/examples/Login.js";
 import Notifications from "views/pages/components/Notifications.js";
 import Pricing from "views/pages/examples/Pricing.js";
 import Profile from "views/pages/examples/Profile.js";
+import ProfileM from "views/pages/examples/ProfileM.js";
 import ReactBSTables from "views/pages/tables/ReactBSTables.js";
 import Register from "views/pages/examples/Register.js";
 import RTLSupport from "views/pages/examples/RTLSupport.js";
@@ -41,6 +42,11 @@ import Typography from "views/pages/components/Typography.js";
 import Validation from "views/pages/forms/Validation.js";
 import Vector from "views/pages/maps/Vector.js";
 import Widgets from "views/pages/Widgets.js";
+
+import MenuMascota from "views/pages/examples/MenuMascota.js";
+import HistoriaClinica from "views/pages/examples/HistoriaClinica.js";
+
+
 
 const routes = [
   
@@ -71,6 +77,29 @@ const routes = [
         component: Profile,
         layout: "/admin",
       },
+      {
+        path: "/MenuMascota",
+        name: "Mascotas ",
+        miniName: "M",
+        component: MenuMascota,
+        layout: "/admin",
+      },
+      {
+        path: "/profileM",
+        name: "Perfil Mascota",
+        miniName: "PM",
+        component: ProfileM,
+        layout: "/admin",
+        
+      },
+      {
+        path: "/HistoriaClinica",
+        name: "Historia Clinica",
+        miniName: "HC",
+        component: HistoriaClinica,
+        layout: "/admin",
+      },
+      
       // {
       //   path: "/buttons",
       //   name: "Buttons",
