@@ -99,8 +99,8 @@ function HistoriaClinica() {
                   <Col className="text-right" xs="4">
                     <Button
                       color="primary"
-                      href="http://localhost:3000/admin/MenuMascota"
-                      // onClick={(e) => e.preventDefault()}
+                      // href="http://localhost:3000/admin/MenuMascota"
+                      onClick={(e) => window.location.href = "/admin/MenuMascota"}
                       size="sm"
                     >
                       Volver A Menu Mascota
