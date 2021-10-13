@@ -204,32 +204,27 @@ function ReactBSTables() {
                 columns={[
                   {
                     dataField: "name",
-                    text: "Name",
+                    text: "Mascota",
                     sort: true,
                   },
                   {
                     dataField: "position",
-                    text: "Position",
+                    text: "Duenio",
                     sort: true,
                   },
                   {
                     dataField: "office",
-                    text: "Office",
-                    sort: true,
-                  },
-                  {
-                    dataField: "age",
-                    text: "Age",
+                    text: "Vacuna",
                     sort: true,
                   },
                   {
                     dataField: "start_date",
-                    text: "Start date",
+                    text: "Fecha",
                     sort: true,
                   },
                   {
                     dataField: "salary",
-                    text: "Salary",
+                    text: "Observacion",
                     sort: true,
                   },
                 ]}
