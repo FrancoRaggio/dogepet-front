@@ -26,7 +26,7 @@ var d = today.getDate();
 const events = [
   {
     id: 1,
-    title: "Call with Dave",
+    title: "Turno de Martin",
     start: new Date(y, m, 1),
     allDay: true,
     className: "bg-red",
@@ -36,7 +36,7 @@ const events = [
 
   {
     id: 2,
-    title: "Lunch meeting",
+    title: "Revision Panchito (Franco)",
     start: new Date(y, m, d - 1, 10, 30),
     allDay: true,
     className: "bg-orange",
@@ -46,8 +46,8 @@ const events = [
 
   {
     id: 3,
-    title: "All day conference",
-    start: new Date(y, m, d + 7, 12, 0),
+    title: "Feriado",
+    start: new Date(y, m, 15),
     allDay: true,
     className: "bg-green",
     description:
@@ -56,7 +56,7 @@ const events = [
 
   {
     id: 4,
-    title: "Meeting with Mary",
+    title: "Reunion con Mary",
     start: new Date(y, m, d - 2),
     allDay: true,
     className: "bg-blue",
@@ -66,38 +66,17 @@ const events = [
 
   {
     id: 5,
-    title: "Winter Hackaton",
+    title: "Dia de vacunas",
     start: new Date(y, m, d + 1, 19, 0),
     allDay: true,
     className: "bg-red",
     description:
       "Nullam id dolor id nibh ultricies vehicula ut id elit. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.",
   },
-
-  {
-    id: 6,
-    title: "Digital event",
-    start: new Date(y, m, 21),
-    allDay: true,
-    className: "bg-warning",
-    description:
-      "Nullam id dolor id nibh ultricies vehicula ut id elit. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.",
-  },
-
-  {
-    id: 7,
-    title: "Marketing event",
-    start: new Date(y, m, 21),
-    allDay: true,
-    className: "bg-purple",
-    description:
-      "Nullam id dolor id nibh ultricies vehicula ut id elit. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.",
-  },
-
   {
     id: 8,
-    title: "Dinner with Family",
-    start: new Date(y, m, 19),
+    title: "Receta para Milo",
+    start: new Date(y, m, 6),
     allDay: true,
     className: "bg-red",
     description:
@@ -106,7 +85,7 @@ const events = [
 
   {
     id: 9,
-    title: "Black Friday",
+    title: "Turno Ever Pippino",
     start: new Date(y, m, 23),
     allDay: true,
     className: "bg-blue",
@@ -116,7 +95,7 @@ const events = [
 
   {
     id: 10,
-    title: "Cyber Week",
+    title: "Vacuna de Pepito",
     start: new Date(y, m, 2),
     allDay: true,
     className: "bg-yellow",

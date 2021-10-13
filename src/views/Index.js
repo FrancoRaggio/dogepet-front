@@ -45,15 +45,12 @@ function Index() {
             <Row className="justify-content-center text-center">
               <Col md="6">
                 <h2 className="display-3 text-white">
-                  A complete React solution
+                 La solucion que venimos a realizar 
                 </h2>
                 <p className="lead text-white">
-                  Argon is a completly new product built on our newest re-built
-                  from scratch framework structure that is meant to make our
-                  products more intuitive, more adaptive and, needless to say,
-                  so much easier to customize. Let Argon amaze you with its cool
-                  features and build tools and get your project to a whole new
-                  level.
+                Tener la disponibilidad en todo momento de la historia clínica de la mascota por parte de la veterinaria o del dueño de la misma.
+                Gestionar eficientemente por parte de la veterinaria, turnos para evitar aglomeraciones innecesarias. 
+                Optimizar la comunicación entre la veterinaria y sus clientes.
                 </p>
               </Col>
             </Row>
@@ -151,7 +148,7 @@ function Index() {
             </Row>
           </Container>
         </section>
-        <section className="py-6">
+        {/* <section className="py-6">
           <Container>
             <Row className="row-grid align-items-center">
               <Col className="order-md-2" md="6">
@@ -211,8 +208,8 @@ function Index() {
               </Col>
             </Row>
           </Container>
-        </section>
-        <section className="py-6">
+        </section> */}
+        {/* <section className="py-6">
           <Container>
             <Row className="row-grid align-items-center">
               <Col md="6">
@@ -240,8 +237,8 @@ function Index() {
               </Col>
             </Row>
           </Container>
-        </section>
-        <section className="py-6">
+        </section> */}
+        {/* <section className="py-6">
           <Container>
             <Row className="row-grid align-items-center">
               <Col className="order-md-2" md="6">
@@ -271,8 +268,8 @@ function Index() {
               </Col>
             </Row>
           </Container>
-        </section>
-        <section className="py-7 section-nucleo-icons bg-white overflow-hidden">
+        </section> */}
+        {/* <section className="py-7 section-nucleo-icons bg-white overflow-hidden">
           <Container>
             <Row className="justify-content-center">
               <Col className="text-center" lg="8">
@@ -332,12 +329,12 @@ function Index() {
               </a>
             </div>
           </Container>
-        </section>
+        </section> */}
         <section className="py-7">
           <Container>
             <Row className="row-grid justify-content-center">
               <Col className="text-center" lg="8">
-                <h2 className="display-3">
+                {/* <h2 className="display-3">
                   Do you love this awesome{" "}
                   <span className="text-success">
                     Dashboard for Bootstrap 4, React and Reactstrap?
@@ -376,10 +373,10 @@ function Index() {
                       $89
                     </Badge>
                   </Button>
-                </div>
+                </div> */}
                 <div className="text-center">
                   <h4 className="display-4 mb-5 mt-5">
-                    Available on these technologies
+                    Tecnologias que utilizamos
                   </h4>
                   <Row className="justify-content-center">
                     <Col className="my-2" md="2" xs="3">
@@ -417,7 +414,7 @@ function Index() {
                     </Col>
                     <Col className="my-2" md="2" xs="3">
                       <a
-                        href="https://www.creative-tim.com/product/argon-dashboard-pro-nodejs?ref=adpr-index-page"
+                        href="https://aws.amazon.com/es/co-marketing/"
                         id="tooltip374813716"
                         target="_blank"
                       >
@@ -449,7 +446,7 @@ function Index() {
                         Laravel - The PHP Framework For Web Artisans
                       </UncontrolledTooltip>
                     </Col>
-                    <Col className="my-2" md="2" xs="3">
+                    {/* <Col className="my-2" md="2" xs="3">
                       <a
                         href="https://www.creative-tim.com/product/vue-argon-dashboard-pro?ref=adpr-index-page"
                         id="tooltip616015001"
@@ -513,7 +510,7 @@ function Index() {
                         Adobe Photoshop - Software for digital images
                         manipulation
                       </UncontrolledTooltip>
-                    </Col>
+                    </Col> */}
                   </Row>
                 </div>
               </Col>

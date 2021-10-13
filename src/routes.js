@@ -17,6 +17,7 @@
 import Alternative from "views/pages/dashboards/Alternative.js";
 import Buttons from "views/pages/components/Buttons.js";
 import Calendar from "views/pages/Calendar.js";
+import Chat from "views/pages/Chat.js";
 import Cards from "views/pages/components/Cards.js";
 import Charts from "views/pages/Charts.js";
 import Components from "views/pages/forms/Components.js";
@@ -42,9 +43,10 @@ import Vector from "views/pages/maps/Vector.js";
 import Widgets from "views/pages/Widgets.js";
 
 const routes = [
+  
   {
     collapse: true,
-    name: "Dashboards",
+    name: "Inicio",
     icon: "ni ni-shop text-primary",
     state: "dashboardsCollapse",
     views: [
@@ -62,9 +64,30 @@ const routes = [
         component: Alternative,
         layout: "/admin",
       },
+      {
+        path: "/profile",
+        name: "Perfil",
+        miniName: "P",
+        component: Profile,
+        layout: "/admin",
+      },
+      // {
+      //   path: "/buttons",
+      //   name: "Buttons",
+      //   miniName: "B",
+      //   component: Buttons,
+      //   layout: "/admin",
+      // },
+      // {
+      //   path: "/icons",
+      //   name: "Icons",
+      //   miniName: "I",
+      //   component: Icons,
+      //   layout: "/admin",
+      // },
     ],
   },
-  {
+  /*{
     collapse: true,
     name: "Examples",
     icon: "ni ni-ungroup text-orange",
@@ -128,13 +151,6 @@ const routes = [
     state: "componentsCollapse",
     views: [
       {
-        path: "/buttons",
-        name: "Buttons",
-        miniName: "B",
-        component: Buttons,
-        layout: "/admin",
-      },
-      {
         path: "/cards",
         name: "Cards",
         miniName: "C",
@@ -156,13 +172,6 @@ const routes = [
         layout: "/admin",
       },
       {
-        path: "/icons",
-        name: "Icons",
-        miniName: "I",
-        component: Icons,
-        layout: "/admin",
-      },
-      {
         path: "/typography",
         name: "Typography",
         miniName: "T",
@@ -178,19 +187,19 @@ const routes = [
           {
             path: "#pablo",
             name: "Third level menu",
-            component: () => {},
+            component: () => { },
             layout: "/",
           },
           {
             path: "#pablo",
             name: "Just another link",
-            component: () => {},
+            component: () => { },
             layout: "/",
           },
           {
             path: "#pablo",
             name: "One last link",
-            component: () => {},
+            component: () => { },
             layout: "/",
           },
         ],
@@ -290,13 +299,27 @@ const routes = [
     icon: "ni ni-chart-pie-35 text-info",
     component: Charts,
     layout: "/admin",
-  },
+  },*/
   {
     path: "/calendar",
-    name: "Calendar",
+    name: "Calendario",
     icon: "ni ni-calendar-grid-58 text-red",
     component: Calendar,
     layout: "/admin",
+  },
+  {
+    path: "/login",
+    name: "Login",
+    miniName: "L",
+    component: Login,
+    layout: "/auth",
+  },
+  {
+    path: "/register",
+    name: "Register",
+    miniName: "R",
+    component: Register,
+    layout: "/auth",
   },
 ];
 

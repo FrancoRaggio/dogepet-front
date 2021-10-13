@@ -70,7 +70,6 @@ function Auth() {
           <Redirect from="*" to="/auth/login" />
         </Switch>
       </div>
-      <AuthFooter />
     </>
   );
 }

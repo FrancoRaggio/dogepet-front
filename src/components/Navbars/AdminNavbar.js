@@ -19,6 +19,7 @@ import React from "react";
 import classnames from "classnames";
 // nodejs library to set properties for components
 import PropTypes from "prop-types";
+import { Link } from "react-router-dom";
 // reactstrap components
 import {
   Collapse,
@@ -90,7 +91,7 @@ function AdminNavbar({ theme, sidenavOpen, toggleSidenav }) {
                 { "navbar-search-dark": theme === "light" }
               )}
             >
-              <FormGroup className="mb-0">
+              {/* <FormGroup className="mb-0">
                 <InputGroup className="input-group-alternative input-group-merge">
                   <InputGroupAddon addonType="prepend">
                     <InputGroupText>
@@ -99,7 +100,7 @@ function AdminNavbar({ theme, sidenavOpen, toggleSidenav }) {
                   </InputGroupAddon>
                   <Input placeholder="Search" type="text" />
                 </InputGroup>
-              </FormGroup>
+              </FormGroup> */}
               <button
                 aria-label="Close"
                 className="close"
@@ -134,121 +135,13 @@ function AdminNavbar({ theme, sidenavOpen, toggleSidenav }) {
               </NavItem>
               <UncontrolledDropdown nav>
                 <DropdownToggle className="nav-link" color="" tag="a">
-                  <i className="ni ni-basket" /> {/* //ni-bell-55// */}
+                  <i className="ni ni-send" />
                 </DropdownToggle>
                 <DropdownMenu
                   className="dropdown-menu-xl py-0 overflow-hidden"
                   right
                 >  
-                  <div className="px-3 py-3">
-                    <h6 className="text-sm text-muted m-0">
-                      Tienes <strong className="text-info">2</strong>{" "}
-                      productos.
-                    </h6>
-                    
-                    <ol style={{ padding: 10 }} >
-                      <li > 
-                       
-                      <dl><dt>Pro Plan</dt><dd style={{fontSize: 10 }}> Cantidad: 1 </dd></dl>
-                    </li>
-                    <li >
-                    <dl><dt>Correa </dt><dd style={{fontSize: 10 }}> Cantidad: 1 </dd></dl>
-                     </li>
-                    <li alt="3"> 
-                    <dl><dt>Pipeta</dt><dd style={{fontSize: 10 }}> Cantidad: 2 </dd></dl>
-                    </li>
-                    </ol>
-                    
-                  </div>
-
                   <ListGroup flush>
-                    <ListGroupItem
-                      className="list-group-item-action"
-                      href="#pablo"
-                      onClick={(e) => e.preventDefault()}
-                      tag="a"
-                    >
-                      <Row className="align-items-center">
-                        {/* <Col className="col-auto">
-                          <img
-                            alt="..."
-                            className="avatar rounded-circle"
-                            src={require("assets/img/theme/team-1.jpg").default}
-                          />
-                        </Col> */}
-                        {/* <div className="col ml--2">
-                          <div className="d-flex justify-content-between align-items-center">
-                            <div>
-                              <h4 className="mb-0 text-sm">John Snow</h4>
-                            </div>
-                            <div className="text-right text-muted">
-                              <small>2 hrs ago</small>
-                            </div>
-                          </div>
-                          <p className="text-sm mb-0">
-                            Let's meet at Starbucks at 11:30. Wdyt?
-                          </p>
-                        </div> */}
-                      </Row>
-                    </ListGroupItem>
-                    {/* <ListGroupItem
-                      className="list-group-item-action"
-                      href="#pablo"
-                      onClick={(e) => e.preventDefault()}
-                      tag="a"
-                    >
-                      <Row className="align-items-center">
-                        <Col className="col-auto">
-                          <img
-                            alt="..."
-                            className="avatar rounded-circle"
-                            src={require("assets/img/theme/team-2.jpg").default}
-                          />
-                        </Col>
-                        <div className="col ml--2">
-                          <div className="d-flex justify-content-between align-items-center">
-                            <div>
-                              <h4 className="mb-0 text-sm">John Snow</h4>
-                            </div>
-                            <div className="text-right text-muted">
-                              <small>3 hrs ago</small>
-                            </div>
-                          </div>
-                          <p className="text-sm mb-0">
-                            A new issue has been reported for Argon.
-                          </p>
-                        </div>
-                      </Row>
-                    </ListGroupItem> */}
-                    {/* <ListGroupItem
-                      className="list-group-item-action"
-                      href="#pablo"
-                      onClick={(e) => e.preventDefault()}
-                      tag="a"
-                    >
-                      <Row className="align-items-center">
-                        <Col className="col-auto">
-                          <img
-                            alt="..."
-                            className="avatar rounded-circle"
-                            src={require("assets/img/theme/team-3.jpg").default}
-                          />
-                        </Col>
-                        <div className="col ml--2">
-                          <div className="d-flex justify-content-between align-items-center">
-                            <div>
-                              <h4 className="mb-0 text-sm">John Snow</h4>
-                            </div>
-                            <div className="text-right text-muted">
-                              <small>5 hrs ago</small>
-                            </div>
-                          </div>
-                          <p className="text-sm mb-0">
-                            Your posts have been liked a lot.
-                          </p>
-                        </div>
-                      </Row>
-                    </ListGroupItem>
                     <ListGroupItem
                       className="list-group-item-action"
                       href="#pablo"
@@ -266,19 +159,19 @@ function AdminNavbar({ theme, sidenavOpen, toggleSidenav }) {
                         <div className="col ml--2">
                           <div className="d-flex justify-content-between align-items-center">
                             <div>
-                              <h4 className="mb-0 text-sm">John Snow</h4>
+                              <h4 className="mb-0 text-sm">Franco Raggio</h4>
                             </div>
                             <div className="text-right text-muted">
-                              <small>2 hrs ago</small>
+                              <small>2 hs</small>
                             </div>
                           </div>
                           <p className="text-sm mb-0">
-                            Let's meet at Starbucks at 11:30. Wdyt?
+                            Necesitaria un turno para la semana que viene
                           </p>
                         </div>
                       </Row>
-                    </ListGroupItem> */}
-                    {/* <ListGroupItem
+                    </ListGroupItem>
+                    <ListGroupItem
                       className="list-group-item-action"
                       href="#pablo"
                       onClick={(e) => e.preventDefault()}
@@ -289,24 +182,82 @@ function AdminNavbar({ theme, sidenavOpen, toggleSidenav }) {
                           <img
                             alt="..."
                             className="avatar rounded-circle"
-                            src={require("assets/img/theme/team-5.jpg").default}
+                            src={require("assets/img/theme/team-2.jpg").default}
                           />
                         </Col>
                         <div className="col ml--2">
                           <div className="d-flex justify-content-between align-items-center">
                             <div>
-                              <h4 className="mb-0 text-sm">John Snow</h4>
+                              <h4 className="mb-0 text-sm">Ever Pippino</h4>
                             </div>
                             <div className="text-right text-muted">
-                              <small>3 hrs ago</small>
+                              <small>22 hs</small>
                             </div>
                           </div>
                           <p className="text-sm mb-0">
-                            A new issue has been reported for Argon.
+                            La medicacion le hizo bien a mi mascota
                           </p>
                         </div>
                       </Row>
-                    </ListGroupItem> */}
+                    </ListGroupItem>
+                    <ListGroupItem
+                      className="list-group-item-action"
+                      href="#pablo"
+                      onClick={(e) => e.preventDefault()}
+                      tag="a"
+                    >
+                      <Row className="align-items-center">
+                        <Col className="col-auto">
+                          <img
+                            alt="..."
+                            className="avatar rounded-circle"
+                            src={require("assets/img/theme/team-3.jpg").default}
+                          />
+                        </Col>
+                        <div className="col ml--2">
+                          <div className="d-flex justify-content-between align-items-center">
+                            <div>
+                              <h4 className="mb-0 text-sm">Carolina Mendez</h4>
+                            </div>
+                            <div className="text-right text-muted">
+                              <small>2 dias</small>
+                            </div>
+                          </div>
+                          <p className="text-sm mb-0">
+                           Ayer mi mascota tuvo un problema
+                          </p>
+                        </div>
+                      </Row>
+                    </ListGroupItem>
+                    <ListGroupItem
+                      className="list-group-item-action"
+                      href="#pablo"
+                      onClick={(e) => e.preventDefault()}
+                      tag="a"
+                    >
+                      <Row className="align-items-center">
+                        <Col className="col-auto">
+                          <img
+                            alt="..."
+                            className="avatar rounded-circle"
+                            src={require("assets/img/theme/team-1.jpg").default}
+                          />
+                        </Col>
+                        <div className="col ml--2">
+                          <div className="d-flex justify-content-between align-items-center">
+                            <div>
+                              <h4 className="mb-0 text-sm">Martin Tito</h4>
+                            </div>
+                            <div className="text-right text-muted">
+                              <small>2 dias</small>
+                            </div>
+                          </div>
+                          <p className="text-sm mb-0">
+                            Habria un turno disponible?
+                          </p>
+                        </div>
+                      </Row>
+                    </ListGroupItem>
                   </ListGroup>
 
                   <DropdownItem
@@ -315,7 +266,7 @@ function AdminNavbar({ theme, sidenavOpen, toggleSidenav }) {
                     onClick={(e) => e.preventDefault()}
                   >
                     
-                    View all
+                    Ver todos
                   </DropdownItem>
                 </DropdownMenu>
               </UncontrolledDropdown>
@@ -330,8 +281,7 @@ function AdminNavbar({ theme, sidenavOpen, toggleSidenav }) {
                   <Row className="shortcuts px-4">
                     <Col
                       className="shortcut-item"
-                      href="#pablo"
-                      onClick={(e) => e.preventDefault()}
+                      onClick={(e) => window.location.href = "/admin/calendar"}
                       xs="4"
                       tag="a"
                     >
@@ -342,19 +292,17 @@ function AdminNavbar({ theme, sidenavOpen, toggleSidenav }) {
                     </Col>
                     <Col
                       className="shortcut-item"
-                      href="#pablo"
-                      onClick={(e) => e.preventDefault()}
+                      onClick={(e) => window.location.href = "http://3.131.200.100/chat"}
                       xs="4"
                       tag="a"
                     >
                       <span className="shortcut-media avatar rounded-circle bg-gradient-orange">
                         <i className="ni ni-email-83" />
                       </span>
-                      <small>Email</small>
+                      <small>Chat</small>
                     </Col>
                     <Col
                       className="shortcut-item"
-                      href="#pablo"
                       onClick={(e) => e.preventDefault()}
                       xs="4"
                       tag="a"
@@ -362,9 +310,9 @@ function AdminNavbar({ theme, sidenavOpen, toggleSidenav }) {
                       <span className="shortcut-media avatar rounded-circle bg-gradient-info">
                         <i className="ni ni-credit-card" />
                       </span>
-                      <small>Payments</small>
+                      <small>Historial clinico</small>
                     </Col>
-                    <Col
+                    {/* <Col
                       className="shortcut-item"
                       href="#pablo"
                       onClick={(e) => e.preventDefault()}
@@ -399,7 +347,7 @@ function AdminNavbar({ theme, sidenavOpen, toggleSidenav }) {
                         <i className="ni ni-basket" />
                       </span>
                       <small>Shop</small>
-                    </Col>
+                    </Col> */}
                   </Row>
                 </DropdownMenu>
               </UncontrolledDropdown>
@@ -416,7 +364,7 @@ function AdminNavbar({ theme, sidenavOpen, toggleSidenav }) {
                     </span>
                     <Media className="ml-2 d-none d-lg-block">
                       <span className="mb-0 text-sm font-weight-bold">
-                        Login
+                        Usuario
                       </span>
                     </Media>
                   </Media>
@@ -425,43 +373,19 @@ function AdminNavbar({ theme, sidenavOpen, toggleSidenav }) {
                 </DropdownToggle>
                 <DropdownMenu right>
                   <DropdownItem className="noti-title" header tag="div">
-                    <h6 className="text-overflow m-0">Welcome!</h6>
+                    <h6 className="text-overflow m-0">Bienvenido</h6>
                   </DropdownItem>
                   <DropdownItem
-                    href="#pablo"
-                    onClick={(e) => e.preventDefault()}
+                    onClick={(e) => window.location.href = "/admin/profile"}
                   >
                     <i className="ni ni-single-02" />
-                    <span>My profile</span>
+                      <span>Mi Perfil</span>
                   </DropdownItem>
                   <DropdownItem
-                    href="#pablo"
-                    onClick={(e) => e.preventDefault()}
+                    onClick={(e) => window.location.href = "/auth/login"}
                   >
-                    <i className="ni ni-settings-gear-65" />
-                    <span>Settings</span>
-                  </DropdownItem>
-                  <DropdownItem
-                    href="#pablo"
-                    onClick={(e) => e.preventDefault()}
-                  >
-                    <i className="ni ni-calendar-grid-58" />
-                    <span>Activity</span>
-                  </DropdownItem>
-                  <DropdownItem
-                    href="#pablo"
-                    onClick={(e) => e.preventDefault()}
-                  >
-                    <i className="ni ni-support-16" />
-                    <span>Support</span>
-                  </DropdownItem>
-                  <DropdownItem divider />
-                  <DropdownItem
-                    href="#pablo"
-                    onClick={(e) => e.preventDefault()}
-                  >
-                    <i className="ni ni-user-run" />
-                    <span>Logout</span>
+                    <i className="ni ni-curved-next" />
+                    <span>Cerrar sesion</span>
                   </DropdownItem>
                 </DropdownMenu>
               </UncontrolledDropdown>
@@ -474,7 +398,7 @@ function AdminNavbar({ theme, sidenavOpen, toggleSidenav }) {
 }
 
 AdminNavbar.defaultProps = {
-  toggleSidenav: () => {},
+  toggleSidenav: () => { },
   sidenavOpen: false,
   theme: "dark",
 };

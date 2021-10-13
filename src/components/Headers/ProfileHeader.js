@@ -25,7 +25,7 @@ function ProfileHeader() {
       <div
         className="header pb-6 d-flex align-items-center"
         style={{
-          minHeight: "500px",
+          minHeight: "50px",
           backgroundImage:
             'url("' +
             require("assets/img/theme/profile-cover.jpg").default +
@@ -37,13 +37,9 @@ function ProfileHeader() {
         <span className="mask bg-gradient-info opacity-8" />
 
         <Container className="d-flex align-items-center" fluid>
-          <Row>
+          {/* <Row>
             <Col lg="7" md="10">
               <h1 className="display-2 text-white">Hello Jesse</h1>
-              <p className="text-white mt-0 mb-5">
-                This is your profile page. You can see the progress you've made
-                with your work and manage your projects or assigned tasks
-              </p>
               <Button
                 className="btn-neutral"
                 color="default"
@@ -53,7 +49,7 @@ function ProfileHeader() {
                 Edit profile
               </Button>
             </Col>
-          </Row>
+          </Row> */}
         </Container>
       </div>
     </>

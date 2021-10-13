@@ -75,9 +75,9 @@ function Grid() {
             </Card>
 
             <Card>
-              <CardHeader>
+              {/* <CardHeader>
                 <h3 className="mb-0">Setting one column width</h3>
-              </CardHeader>
+              </CardHeader> */}
               <CardBody>
                 <Row className="row-example">
                   <Col>
