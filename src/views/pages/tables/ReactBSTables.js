@@ -133,7 +133,7 @@ function ReactBSTables() {
                 columns={[
                   {
                     dataField: "name",
-                    text: "Name",
+                    text: "Imagen",
                     sort: true,
                   },
                   {
@@ -146,21 +146,26 @@ function ReactBSTables() {
                     text: "Office",
                     sort: true,
                   },
-                  {
-                    dataField: "age",
-                    text: "Age",
-                    sort: true,
-                  },
+                  // {
+                  //   dataField: "age",
+                  //   text: "Age",
+                  //   sort: true,
+                  // },
                   {
                     dataField: "start_date",
                     text: "Start date",
                     sort: true,
                   },
                   {
-                    dataField: "salary",
-                    text: "Salary",
+                    dataField: "end_date",
+                    text: "Start date",
                     sort: true,
                   },
+                  // {
+                  //   dataField: "salary",
+                  //   text: "Salary",
+                  //   sort: true,
+                  // },
                 ]}
                 search
               >
@@ -207,11 +212,11 @@ function ReactBSTables() {
                     text: "Mascota",
                     sort: true,
                   },
-                  {
-                    dataField: "position",
-                    text: "Duenio",
-                    sort: true,
-                  },
+                  // {
+                  //   dataField: "position",
+                  //   text: "Duenio",
+                  //   sort: true,
+                  // },
                   {
                     dataField: "office",
                     text: "Vacuna",
@@ -219,14 +224,23 @@ function ReactBSTables() {
                   },
                   {
                     dataField: "start_date",
-                    text: "Fecha",
+                    text: "Fecha2",
                     sort: true,
                   },
                   {
-                    dataField: "salary",
-                    text: "Observacion",
+                    dataField: "end_date",
+                    text: "Fecha",
                     sort: true,
                   },
+                  // {
+                  //   dataField: "salary",
+                  //   text: "Observacion",
+                  //   sort: true,
+                  // },
+                  // 
+
+
+
                 ]}
                 search
               >

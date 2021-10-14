@@ -30,6 +30,7 @@ import {
   UncontrolledTooltip,
   Table,
   Form,
+  Modal,
   Input,
   ListGroupItem,
   pagination,
@@ -38,6 +39,9 @@ import {
   ListGroup,
   Progress,
   Container,
+  InputGroupAddon,
+  InputGroupText,
+  InputGroup,
   Row,
   Col,
 } from "reactstrap";
@@ -52,42 +56,21 @@ import ToolkitProvider, { Search } from "react-bootstrap-table2-toolkit";
 import ReactBSAlert from "react-bootstrap-sweetalert";
 
 import SimpleHeader from "components/Headers/SimpleHeader.js";
+import classnames from "classnames";
 
 import { dataTable } from "variables/general";
-
-// const pagination = paginationFactory({
-//   page: 1,
-//   alwaysShowAllBtns: true,
-//   showTotal: true,
-//   withFirstAndLast: false,
-//   sizePerPageRenderer: ({ options, currSizePerPage, onSizePerPageChange }) => (
-//     <div className="dataTables_length" id="datatable-basic_length">
-//       <label>
-//         Show{" "}
-//         {
-//           <select
-//             name="datatable-basic_length"
-//             aria-controls="datatable-basic"
-//             className="form-control form-control-sm"
-//             onChange={(e) => onSizePerPageChange(e.target.value)}
-//           >
-//             <option value="10">10</option>
-//             <option value="25">25</option>
-//             <option value="50">50</option>
-//             <option value="100">100</option>
-//           </select>
-//         }{" "}
-//         entries.
-//       </label>
-//     </div>
-//   ),
-// });
 const { SearchBar } = Search;
 
 
-function HistoriaClinica() {
+function EditHistoria() {
   const [alert, setAlert] = React.useState(null);
-
+  const [focusedEmail, setFocusedEmail] = React.useState(false);
+  const [focusedPassword, setFocusedPassword] = React.useState(false);
+  const [defaultModal, setdefaultModal] = React.useState(false);
+  const [notificationModal, setnotificationModal] = React.useState(false);
+  const [formModal, setformModal] = React.useState(false);
+  // const [alert, setalert] = React.useState(false);
+  const notificationAlertRef = React.useRef(null);
   const componentRef = React.useRef(null);
   const copyToClipboardAsTable = (el) => {
     var body = document.body,
@@ -131,72 +114,29 @@ function HistoriaClinica() {
       <ProfileHeader />
       <Container className="mt--6" fluid>
         <Row>
-          <Col className="order-xl-2" xl="4">
-            <Card className="card-profile">
-              <CardImg
-                alt="..."
-                src={require("assets/img/theme/colagetit.jpeg").default}
-                top
-              />
-              <Row className="justify-content-center">
-                <Col className="order-lg-2" lg="3">
-                  <div className="card-profile-image">
-                    <a href="#pablo" onClick={(e) => e.preventDefault()}>
-                      <img
-                        alt="..."
-                        class="rounded-circle" 
-                        width="500" height="150"
-                        src={require("assets/img/theme/titan.jfif").default}
-                      />
-                    </a>
-                  </div>
-                </Col>
-              </Row>
-              <CardBody className="pt-0">
-                <Row>
-                  <div className="col">
-                    <div className="card-profile-stats d-flex justify-content-center">
-                      <div>
-                        <span className="heading"></span>
-                        <span className="description">-</span>
-                      </div>
-                    </div>
-                  </div>
-                </Row>
-                <div className="text-center">
-                  <h5 className="h3">
-                    Titan Mendez
-                    <span className="font-weight-light"> , 3</span>
-                  </h5>
-                  
-                </div>
-              </CardBody>
-            </Card>
-          </Col>
-          <Col className="order-xl-1" xl="8">
+         
+          <Col className="order-xl-12" xl="12">
           <Card>
               <CardHeader>
                 <Row className="align-items-center">
                   <Col xs="8">
-                    <h3 className="mb-0">Historial Clinico</h3>
+                    <h3 className="mb-0">Editar Historial Clinico</h3>
                   </Col>
                   <Col className="text-right" xs="4">
                     <Button
                       color="primary"
                       // href="http://localhost:3000/admin/MenuMascota"
-                      onClick={(e) => window.location.href = "/admin/MenuMascota"}
+                      onClick={(e) => window.location.href = "/admin/HistoriaClinicaVete"}
                       size="sm"
                     >
-                      Volver A Menu Mascota
+                      Volver A Menu Clientes
                     </Button>
                   </Col>
                 </Row>
               </CardHeader>
               <CardBody>
                 <Form >
-                  <h6 className="heading-small text-muted mb-4">
-                    Informacion de Mascota
-                  </h6>
+                  
                   {alert}
       {/* <SimpleHeader name="React Tables" parentName="Tables" /> */}
       {/* <Container > */}
@@ -241,77 +181,176 @@ function HistoriaClinica() {
                 search
               >
                 {(props) => (
-                  <div className="py-4 table-responsive" >
+                  <div className=" table-responsive" >
                     
                     {/* <hr className="my-0" /> */}
                     {/* //  */}
-                    <div className="pl-lg-4">
+                    
+                  <Card>
+              {/* <CardHeader>
+               <h3 className="mb-0">Modals</h3> 
+              </CardHeader> */}
+              <CardBody>
+              <div className="pl-lg-4">
                     <Row>
-                      <Col lg="6">
-                        <FormGroup>
-                          <label
-                            className="form-control-label"
-                            htmlFor="input-username"
-                          >
-                            Nombre
-                          </label>
-                          <Input
-                            defaultValue="Titan"
-                            id="input-username"
-                            placeholder="Username"
-                            type="text"
-                          />
-                        </FormGroup>
-                      </Col>
-                      <Col lg="2">
-                        <FormGroup>
-                          <label
+                    <div class="form-group">
+                        {/* <label for="inputState" class="col-xs-2 col-form-label">Raza</label> */}
+                        <label
                             className="form-control-label"
                             htmlFor="input-email"
-                          >
-                            Edad
-                          </label>
-                          <Input
-                            id="input"
-                            placeholder="3"
-                            type="number"
-                          />
-                        </FormGroup>
-                      </Col>
+                          >Nombre</label>
+                        <div class="col-xs-10">
+                            <select id="inputState" class="form-control">
+                                <option selected > Seleccionar</option>
+                                <option value="value1" >Titan</option>
+                         <option value="value2" >Kira</option>
+                         <option value="value3">Ram</option>
+                            </select>
+                        </div>
+                        
+                    </div>
                       
+                    {/* <Col className="py-5 pl-lg-4">
+                        
+                        <Button
+                      color="primary"
+                      // href="http://localhost:3000/admin/MenuMascota"
+                      onClick={(e) => window.location.href = ""}
+                      size="sm"
+                    >
+                      Editar
+                    </Button>
+                         
+                      </Col> */}
                     </Row>
                   </div>
-                  <hr className="my-4" />
-                  {/* { Peso}  */}
-                  <h6 className="heading-small text-muted mb-4 text-center">
-                    Controles Peso
-                  </h6>
-                   <div className="pl-lg-9  "> 
-                  <table class="table table-responsive table-striped text-center">
-                  <thead>
-                      <tr>
-                          <th>Fecha</th>
-                          <th>Peso</th>
-                          <th></th>
-                      </tr>
-                  </thead>
-                  <tbody>
-                      <tr>
-                          <td>24/6/19</td>
-                          <td>1,170 Kg</td>
-                      </tr>
-                      <tr>
-                      <td>24/3/21</td>
-                          <td>5,170 Kg</td>
-                      </tr>
-                      <tr>
-                      <td>24/6/21</td>
-                          <td>8,500 Kg</td>
-                      </tr>
-                     
-                  </tbody>
-              </table>      
-              </div> 
+                <Row>
+                  <Col md="4">
+                    <Button
+                      block
+                      color="default"
+                      onClick={() => setformModal(true)}
+                    >
+                      Agregar
+                    </Button>
+                    <Modal
+                      className="modal-dialog-centered"
+                      size="sm"
+                      isOpen={formModal}
+                      toggle={() => setformModal(false)}
+                    >
+                      <div className="modal-body p-0">
+                        <Card className="bg-secondary border-0 mb-0">
+                          <CardHeader className="bg-transparent pb-1">
+                            <div className="text text-center mt-2 mb-3">
+                              <large>Agregar Vacuna</large>
+                            </div>
+                          </CardHeader>
+                          <CardBody className="px-lg-5 py-lg-5">
+                            <div className="text-center text-muted mb-4">
+                              <small>Fecha Aplicación</small>
+                            </div>
+                            <Form role="form">
+                              <FormGroup
+                              >
+                                <InputGroup className="input-group-merge input-group-alternative">
+                                  <InputGroupAddon addonType="prepend">
+                                    <InputGroupText>
+                                      <i className="ni ni-calendar-grid-58" />
+                                    </InputGroupText>
+                                  </InputGroupAddon>
+                                  <Input
+                                    placeholder="Fecha Aplicacion"
+                                    type="date"
+                                    // onFocus={() => setFocusedEmail(true)}
+                                    // onBlur={() => setFocusedEmail(false)}
+                                  />
+                                </InputGroup>
+                              </FormGroup>
+                              <div className="text-center text-muted mb-4">
+                              <small>Fecha Vencimiento</small>
+                            </div>
+                              <FormGroup>
+                                <InputGroup className="input-group-merge input-group-alternative">
+                                  <InputGroupAddon addonType="prepend">
+                                    <InputGroupText>
+                                      <i className="ni ni-calendar-grid-58" />
+                                    </InputGroupText>
+                                  </InputGroupAddon>
+                                  <Input
+                                    placeholder="Fecha Vencimiento"
+                                    type="date"
+                                    // onFocus={() => setFocusedEmail(true)}
+                                    // onBlur={() => setFocusedEmail(false)}
+                                  />
+                                </InputGroup>
+                              </FormGroup>
+                              <div className="text-center text-muted mb-4">
+                              <small>Vacuna</small>
+                            </div>
+                              <FormGroup
+                                className={classnames({
+                                  focused: focusedPassword,
+                                })}
+                              >
+                                <InputGroup className="input-group-merge input-group-alternative">
+                                  <InputGroupAddon addonType="prepend">
+                                    <InputGroupText>
+                                      <i className="ni ni-ruler-pencil" />
+                                    </InputGroupText>
+                                  </InputGroupAddon>
+                                  <Input
+                                    placeholder="Vacuna"
+                                    type="text"
+                                    // onFocus={() => setFocusedPassword(true)}
+                                    // onBlur={() => setFocusedPassword(false)}
+                                  />
+                                </InputGroup>
+                              </FormGroup>
+                             
+                              <FormGroup >
+                                <label
+                                  className="form-control-label"
+                                  htmlFor="input-address"
+                                >
+                                  Cargar Imagen
+                                </label>
+                                <Input
+                                  id="input-ph"
+                                  placeholder=""
+                                  type="file"
+                                />
+                              </FormGroup>
+
+                            
+                              <div className="text-center">
+                                <Button
+                                  className="my-4"
+                                  color="primary"
+                                  type="button"
+                                >
+                                  Guardar
+                                </Button>
+                              </div>
+                              <div className="text-center">
+                                <Button
+                                  className="my-4"
+                                  color="danger"
+                                  type="button"
+                                  onClick={(e) => window.location.href = "/admin/EditHistoria"}
+                                >
+                                  Cancelar
+                                </Button>
+                              </div>
+                            </Form>
+                          </CardBody>
+                        </Card>
+                      </div>
+                    </Modal>
+                  </Col>
+                </Row>
+              </CardBody>
+            </Card>
               <hr className="my-4" />
               <h6 className="heading-small text-muted mb-4 text-center">
                     Vacunas
@@ -330,10 +369,10 @@ function HistoriaClinica() {
                     
                   
                   
-                    <Container fluid>
+                    {/* <Container fluid>
                       <Row>
                         <Col xs={12} sm={6}> 
-                          <ButtonGroup>
+                          <ButtonGroup> */}
                             {/* <Button
                               className="buttons-copy buttons-html5"
                               color="default"
@@ -347,7 +386,7 @@ function HistoriaClinica() {
                             >
                               <span>Copiar</span>
                             </Button> */}
-                            <ReactToPrint
+                            {/* <ReactToPrint
                               trigger={() => (
                                 <Button
                                   color="default"
@@ -366,14 +405,14 @@ function HistoriaClinica() {
                             target="print-tooltip"
                           >
                            Imprimir
-                          </UncontrolledTooltip>
+                          </UncontrolledTooltip> */}
                           {/* <UncontrolledTooltip
                             placement="top"
                             target="copy-tooltip"
                           >
                             Copiar todo
                           </UncontrolledTooltip> */}
-                        </Col>
+                        {/* </Col>
                         <Col xs={12} sm={6}>
                           <div
                             id="datatable-basic_filter"
@@ -390,7 +429,7 @@ function HistoriaClinica() {
                           </div>
                         </Col>
                       </Row>
-                    </Container>
+                    </Container> */}
                     </div>
                   
                 )}
@@ -448,4 +487,4 @@ function HistoriaClinica() {
   );
 }
 
-export default HistoriaClinica;
+export default EditHistoria;
