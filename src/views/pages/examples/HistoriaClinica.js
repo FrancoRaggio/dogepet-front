@@ -115,13 +115,13 @@ function HistoriaClinica() {
       <ReactBSAlert
         success
         style={{ display: "block", marginTop: "-100px" }}
-        title="Good job!"
+        title="Ok!"
         onConfirm={() => setAlert(null)}
         onCancel={() => setAlert(null)}
         confirmBtnBsStyle="info"
         btnSize=""
       >
-        Copied to clipboard!
+        Copiado a portapepeles!
       </ReactBSAlert>
     );
   };
@@ -177,7 +177,7 @@ function HistoriaClinica() {
             <Card>
               <CardHeader>
                 <Row className="align-items-center">
-                  <Col xs="8">
+                  <Col xs="8" >
                     <h3 className="mb-0">Historial Clinico</h3>
                   </Col>
                   <Col className="text-right" xs="4">
@@ -193,15 +193,15 @@ function HistoriaClinica() {
                 </Row>
               </CardHeader>
               <CardBody>
-                <Form >
+                <Form>
                   <h6 className="heading-small text-muted mb-4">
                     Informacion de Mascota
                   </h6>
                   {alert}
                   {/* <SimpleHeader name="React Tables" parentName="Tables" /> */}
                   {/* <Container > */}
-                  <Row>
-                    <div className="col">
+                  <Row >
+                    <div className="col ">
 
                       <Card >
                         {/* <CardHeader>
@@ -241,7 +241,7 @@ function HistoriaClinica() {
                           search
                         >
                           {(props) => (
-                            <div className="py-4 table-responsive"
+                            <div className="py-4 px--1 table-responsive overflow-hidden" id='imp'
                               ref={componentRef} >
 
                               {/* <hr className="my-0" /> */}
@@ -325,7 +325,7 @@ function HistoriaClinica() {
                                 {...props.baseProps}
                                 bootstrap4={true}
                                 // pagination={pagination}
-                                bordered={false}
+                                bordered={true}
                                 id="react-bs-table"
                               />
                               <Container fluid>
@@ -347,6 +347,20 @@ function HistoriaClinica() {
                                         <span>Copiar</span>
                                       </Button>
                                       <ReactToPrint
+                                       pageStyle='@page { size: auto; margin: 10mm; }
+                                        @media print { body 
+                                        {   -webkit-print-color-adjust: exact; padding: 50px !important; } 
+                                        #imp { margin: 10px;
+                                          border: medium double #FFFF;
+                                          border-bottom-width: 1px;     
+                                          border-bottom-style: solid;
+                                          } }'
+                                          // background-image: url("https://cdn-icons-png.flaticon.com/512/603/603272.png");
+                                          // background-repeat: no-repeat;
+                                          // opacity:0,6
+                                        // background-image: url("D:/Codigo/dogepet-front/src/assets/img/brand/dogepet.png");
+
+
                                         trigger={() => (
                                           <Button
                                           style={{margin: 5}}
