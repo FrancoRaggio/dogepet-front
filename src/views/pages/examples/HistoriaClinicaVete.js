@@ -55,33 +55,6 @@ import SimpleHeader from "components/Headers/SimpleHeader.js";
 
 import { dataTable } from "variables/general";
 
-// const pagination = paginationFactory({
-//   page: 1,
-//   alwaysShowAllBtns: true,
-//   showTotal: true,
-//   withFirstAndLast: false,
-//   sizePerPageRenderer: ({ options, currSizePerPage, onSizePerPageChange }) => (
-//     <div className="dataTables_length" id="datatable-basic_length">
-//       <label>
-//         Show{" "}
-//         {
-//           <select
-//             name="datatable-basic_length"
-//             aria-controls="datatable-basic"
-//             className="form-control form-control-sm"
-//             onChange={(e) => onSizePerPageChange(e.target.value)}
-//           >
-//             <option value="10">10</option>
-//             <option value="25">25</option>
-//             <option value="50">50</option>
-//             <option value="100">100</option>
-//           </select>
-//         }{" "}
-//         entries.
-//       </label>
-//     </div>
-//   ),
-// });
 const { SearchBar } = Search;
 
 
@@ -173,205 +146,49 @@ function HistoriaClinica() {
                     className="avatar rounded-circle mr-3"
                     src={require("assets/img/theme/team-m.png").default}
                   />
-                  <b>Carolina Mendez</b>
-                </td>
-                <td>
-                  {/* <span className="text-muted">
-                    10/09/{new Date().getFullYear()}
-                  </span> */}
-                  <span className="text-muted">
-                    38909794
-                  </span>
-                </td>
-                {/* <td>
-                  <a
-                    className="font-weight-bold"
-                    href="#pablo"
-                    onClick={(e) => e.preventDefault()}
-                  >
-                    Argon Dashboard PRO
-                  </a>
-                </td> */}
-                <td className="table-actions">
-                  <a
-                    className="table-action"
-                    href="/admin/EditHistoria"
-                    id="tooltip123539273"
-                    // onClick={(e) => e.preventDefault()}
-                  >
-                    <i className="fas fa-user-edit" />
-                  </a>
-                  <UncontrolledTooltip delay={0} target="tooltip123539273">
-                    Editar Historial Mascota
-                  </UncontrolledTooltip>
-                  
-                </td>
-              </tr>
-              <tr>
-                <td className="table-user">
-                  <img
-                    alt="..."
-                    className="avatar rounded-circle mr-3"
-                    src={require("assets/img/theme/team-mas.png").default}
-                  />
-                  <b>Martin Tito Giras</b>
-                </td>
-                <td>
-                  {/* <span className="text-muted">
-                    08/09/{new Date().getFullYear()}
-                  </span> */}
-                  <span className="text-muted">
-                    35909764
-                  </span>
-                </td>
-                {/* <td>
-                  <a
-                    className="font-weight-bold"
-                    href="#pablo"
-                    onClick={(e) => e.preventDefault()}
-                  >
-                    Argon Design System
-                  </a>
-                </td> */}
-                <td className="table-actions">
-                  <a
-                    className="table-action"
-                    href="#pablo"
-                    id="tooltip123539273"
-                    onClick={(e) => e.preventDefault()}
-                  >
-                    <i className="fas fa-user-edit" />
-                  </a>
-                  <UncontrolledTooltip delay={0} target="tooltip123539273">
-                    Editar Historial Mascota
-                  </UncontrolledTooltip>
-                  
-                </td>
-              </tr>
-              <tr>
-                <td className="table-user">
-                  <img
-                    alt="..."
-                    className="avatar rounded-circle mr-3"
-                    src={require("assets/img/theme/team-m.png").default}
-                  />
-                  <b>Samantha Ivy</b>
-                </td>
-                <td>
-                  {/* <span className="text-muted">
-                    30/08/{new Date().getFullYear()}
-                  </span> */}
-                  <span className="text-muted">
-                    33900069
-                  </span>
-                </td>
-                {/* <td>
-                  <a
-                    className="font-weight-bold"
-                    href="#pablo"
-                    onClick={(e) => e.preventDefault()}
-                  >
-                    Black Dashboard
-                  </a>
-                </td> */}
-                <td className="table-actions">
-                  <a
-                    className="table-action"
-                    href="#pablo"
-                    id="tooltip123539273"
-                    onClick={(e) => e.preventDefault()}
-                  >
-                    <i className="fas fa-user-edit" />
-                  </a>
-                  <UncontrolledTooltip delay={0} target="tooltip123539273">
-                    Editar Historial Mascota
-                  </UncontrolledTooltip>
-                  
-                </td>
-              </tr>
-              <tr>
-                <td className="table-user">
-                  <img
-                    alt="..."
-                    className="avatar rounded-circle mr-3"
-                    src={require("assets/img/theme/team-m.png").default}
-                  />
-                  <b>Marcel Ivy</b>
-                </td>
-                <td>
-                  {/* <span className="text-muted">
-                    10/09/{new Date().getFullYear()}
-                  </span> */}
-                  <span className="text-muted">
-                    11908772
-                  </span>
-                </td>
-                {/* <td>
-                  <a
-                    className="font-weight-bold"
-                    href="#pablo"
-                    onClick={(e) => e.preventDefault()}
-                  >
-                    Argon Dashboard PRO
-                  </a>
-                </td> */}
-               <td className="table-actions">
-                  <a
-                    className="table-action"
-                    href="#pablo"
-                    id="tooltip123539273"
-                    onClick={(e) => e.preventDefault()}
-                  >
-                    <i className="fas fa-user-edit" />
-                  </a>
-                  <UncontrolledTooltip delay={0} target="tooltip123539273">
-                    Editar Historial Mascota
-                  </UncontrolledTooltip>
-                  
-                </td>
-              </tr>
-              <tr>
-                <td className="table-user">
-                  <img
-                    alt="..."
-                    className="avatar rounded-circle mr-3"
-                    src={require("assets/img/theme/team-mas.png").default}
-                  />
-                  <b>John Michael</b>
-                </td>
-                <td>
-                  {/* <span className="text-muted">
-                    10/09/{new Date().getFullYear()}
-                  </span> */}
-                   <span className="text-muted">
-                    38909764
-                  </span>
-                </td>
-                {/* <td>
-                  <a
-                    className="font-weight-bold"
-                    href="#pablo"
-                    onClick={(e) => e.preventDefault()}
-                  >
-                  </a>
-                </td> */}
-                <td className="table-actions">
-                  <a
-                    className="table-action"
-                    href="#pablo"
-                    id="tooltip123539273"
-                    onClick={(e) => e.preventDefault()}
-                  >
-                    <i className="fas fa-user-edit" />
-                  </a>
-                  <UncontrolledTooltip delay={0} target="tooltip123539273">
-                    Editar Historial Mascota
-                  </UncontrolledTooltip>
-                  
-                </td>
-              </tr>
-            </tbody>
-          </Table>
+                </label>
+              </div>
+           
+          <div className="pl-lg-3 bg-white  ">
+            <Table class="table table-responsive table-striped text-center">
+              <thead className="thead-light">
+                <tr>
+                  <th>Cliente</th>
+                  <th>DNI</th>
+                  {/* <th>Product</th> */}
+                  <th />
+                </tr>
+              </thead>
+              <tbody className="">
+                {users.map((user) => (<tr>
+                  <td className="table-user">
+                    <img
+                      alt="..."
+                      className="avatar rounded-circle mr-3"
+                      src={require("assets/img/theme/team-m.png").default}
+                    />
+                    <b>{user.name + ' ' + user.lastname}</b>
+                  </td>
+                  <td>
+                    <span className="text-muted">
+                    {user.dni}
+                    </span>
+                  </td>
+                  <td className="table-actions">
+                    <a
+                      className="table-action"
+                      href="/admin/EditHistoria"
+                      id="tooltip123539273"
+                    >
+                      <i className="fas fa-user-edit" />
+                    </a>
+                    <UncontrolledTooltip delay={0} target="tooltip123539273">
+                      Editar Historial Mascota
+                    </UncontrolledTooltip>
+                  </td>
+                </tr>))}
+              </tbody>
+            </Table>
           </div>
           </row>
           </Container>
