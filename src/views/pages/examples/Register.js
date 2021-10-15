@@ -37,7 +37,7 @@ import {
 import AuthHeader from "components/Headers/AuthHeader.js";
 import { emailValidation, nameValidation, lastNameValidation, addressValidation, cityValidation, phoneValidation, dniValidation } from "../../../validations/Register";
 import Validation from "../forms/Validation";
-import { RepositoryFactory } from "api/RepositoryFactory";
+import { RepositoryFactory } from "repositories/RepositoryFactory";
 const authRepository = RepositoryFactory.get('auth');
 
 
