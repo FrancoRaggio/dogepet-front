@@ -323,7 +323,7 @@ function ProfileM() {
               <CardHeader>
                 <Row className="align-items-center">
                   <Col xs="8">
-                    <h3 className="mb-0">Edit profile</h3>
+                    <h3 className="mb-0">Editar Mascota</h3>
                   </Col>
                   <Col className="text-right" xs="4">
                     <Button
@@ -361,25 +361,7 @@ function ProfileM() {
                         </FormGroup>
                       </Col>
                       <Col lg="5">
-                        {/* <FormGroup>
-                          <label
-                            className="form-control-label"
-                            htmlFor="input-email"
-                          >
-                            Raza
-                          </label>
-                         <select name="select">
-                         <option value="value1">Pitbull</option>
-                         <option value="value2" >Dogo</option>
-                         <option value="value3">Caniche Toy</option>
-                         <option value="value4" selected >Seleccionar</option>
-                        </select>
-                         <Input
-                            id="input-email"
-                            placeholder="checkbox"
-                            type="email"
-                          /> 
-                        </FormGroup> */}
+                        
                         <div class="form-group">
                         {/* <label for="inputState" class="col-xs-2 col-form-label">Raza</label> */}
                         <label
@@ -454,60 +436,6 @@ function ProfileM() {
                         </FormGroup>
                       </Col>
                     </Row>
-                  {/* <div className="pl-lg-4">
-                    
-                    <Row>
-                      <Col lg="4">
-                        <FormGroup>
-                          <label
-                            className="form-control-label"
-                            htmlFor="input-city"
-                          >
-                            City
-                          </label>
-                          <Input
-                            defaultValue="New York"
-                            id="input-city"
-                            placeholder="City"
-                            type="text"
-                          />
-                        </FormGroup>
-                      </Col>
-                      <Col lg="4">
-                        <FormGroup>
-                          <label
-                            className="form-control-label"
-                            htmlFor="input-country"
-                          >
-                            Country
-                          </label>
-                          <Input
-                            defaultValue="United States"
-                            id="input-country"
-                            placeholder="Country"
-                            type="text"
-                          />
-                        </FormGroup>
-                      </Col>
-                      <Col lg="4">
-                        <FormGroup>
-                          <label
-                            className="form-control-label"
-                            htmlFor="input-country"
-                          >
-                            Postal code
-                          </label>
-                          <Input
-                            id="input-postal-code"
-                            placeholder="Postal code"
-                            type="number"
-                          />
-                        </FormGroup>
-                      </Col>
-                    </Row>
-                  </div> 
-                  <hr className="my-4" />
-                  <h6 className="heading-small text-muted mb-4">About me</h6>*/}
                   <div className="pl-lg-4">
                     <FormGroup>
                       <label className="form-control-label">Más sobre tu mascota</label>

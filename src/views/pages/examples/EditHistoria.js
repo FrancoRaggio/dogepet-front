@@ -69,6 +69,8 @@ function EditHistoria() {
   const [defaultModal, setdefaultModal] = React.useState(false);
   const [notificationModal, setnotificationModal] = React.useState(false);
   const [formModal, setformModal] = React.useState(false);
+  const [formModal2, setformModal2] = React.useState(false);
+
   // const [alert, setalert] = React.useState(false);
   const notificationAlertRef = React.useRef(null);
   const componentRef = React.useRef(null);
@@ -216,15 +218,15 @@ function EditHistoria() {
                     <Button
                       block
                       color="default"
-                      onClick={() => setformModal(true)}
+                      onClick={() => setformModal2(true)}
                     >
                       Agregar Peso
                     </Button>
                     <Modal
                       className="modal-dialog-centered"
                       size="sm"
-                      isOpen={formModal}
-                      toggle={() => setformModal(true)}
+                      isOpen={formModal2}
+                      toggle={() => setformModal2(true)}
                     >
                       <div className="modal-body p-0">
                         <Card className="bg-secondary border-0 mb-0">
@@ -289,7 +291,7 @@ function EditHistoria() {
                                   className="my-4"
                                   color="danger"
                                   type="button"
-                                  onClick={(e) => window.location.href = "/admin/EditHistoria"}
+                                  onClick={() => setformModal2(false)}
                                 >
                                   Cancelar
                                 </Button>
@@ -414,7 +416,7 @@ function EditHistoria() {
                                   className="my-4"
                                   color="danger"
                                   type="button"
-                                  onClick={(e) => window.location.href = "/admin/EditHistoria"}
+                                  onClick={() => setformModal(false)}
                                 >
                                   Cancelar
                                 </Button>
@@ -432,8 +434,6 @@ function EditHistoria() {
               <h6 className="heading-small text-muted mb-4 text-center">
                     Vacunas
                   </h6>   
-
-
                   <hr className="my-4" />
                     <BootstrapTable
                       ref={componentRef} 
@@ -443,70 +443,7 @@ function EditHistoria() {
                       bordered={false}
                       id="react-bs-table"
                     />
-                    
-                  
-                  
-                    {/* <Container fluid>
-                      <Row>
-                        <Col xs={12} sm={6}> 
-                          <ButtonGroup> */}
-                            {/* <Button
-                              className="buttons-copy buttons-html5"
-                              color="default"
-                              size="sm"
-                              id="copy-tooltip"
-                              onClick={() =>
-                                copyToClipboardAsTable(
-                                  document.getElementById("react-bs-table")
-                                )
-                              }
-                            >
-                              <span>Copiar</span>
-                            </Button> */}
-                            {/* <ReactToPrint
-                              trigger={() => (
-                                <Button
-                                  color="default"
-                                  size="sm"
-                                  className="buttons-copy buttons-html5"
-                                  id="print-tooltip"
-                                >
-                                  Imprimir
-                                </Button>
-                              )}
-                              content={() => componentRef.current} 
-                            />
-                          </ButtonGroup>
-                          <UncontrolledTooltip
-                            placement="top"
-                            target="print-tooltip"
-                          >
-                           Imprimir
-                          </UncontrolledTooltip> */}
-                          {/* <UncontrolledTooltip
-                            placement="top"
-                            target="copy-tooltip"
-                          >
-                            Copiar todo
-                          </UncontrolledTooltip> */}
-                        {/* </Col>
-                        <Col xs={12} sm={6}>
-                          <div
-                            id="datatable-basic_filter"
-                            className="dataTables_filter px-4 pb-1 float-right "
-                          >
-                            <label>
-                              Search:
-                              <SearchBar
-                                className="form-control-sm"
-                                placeholder=""
-                                {...props.searchProps}
-                              />
-                            </label>
-                          </div>
-                        </Col>
-                      </Row>
-                    </Container> */}
+                   
                     </div>
                   
                 )}
@@ -516,43 +453,15 @@ function EditHistoria() {
         </Row>
                   
 
-                 
-                  {/* return ( */}
     <>
      
-      {/* </Container> */}
     </>
  
-
-               
-               {/* </div> */}
                   <hr className="my-4" />
                   <div className="d-flex justify-content-between">
-                  {/* <Button
-                    className="mr-4"
-                    color="danger"
-                    href=""
-                    onClick={(e) => e.preventDefault()}
-                    size="sm"
-                  >
-                    Cancelar
-                  </Button> */}
-                   <div>
-        {/* <ReactToPrint
-          trigger={() => <button>Print this out!</button>}
-          content={() => this.componentRef}
-        />
-        <HistoriaClinica ref={(el) => (this.componentRef = el)} /> */}
-      </div>
-                  <Button
-                    className="float-left"
-                    color="default"
-                    href=""
-                    onClick={(e) => e.preventDefault()}
-                    size="sm"
-                  >
-                    Imprimir
-                  </Button>
+                 
+               
+                  
                 </div>
                 </Form>
               </CardBody>
