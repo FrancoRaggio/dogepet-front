@@ -209,21 +209,98 @@ function EditHistoria() {
                         </div>
                         
                     </div>
-                      
-                    {/* <Col className="py-5 pl-lg-4">
-                        
-                        <Button
-                      color="primary"
-                      // href="http://localhost:3000/admin/MenuMascota"
-                      onClick={(e) => window.location.href = ""}
-                      size="sm"
-                    >
-                      Editar
-                    </Button>
-                         
-                      </Col> */}
                     </Row>
                   </div>
+                  <Row>
+                  <Col md="4">
+                    <Button
+                      block
+                      color="default"
+                      onClick={() => setformModal(true)}
+                    >
+                      Agregar Peso
+                    </Button>
+                    <Modal
+                      className="modal-dialog-centered"
+                      size="sm"
+                      isOpen={formModal}
+                      toggle={() => setformModal(true)}
+                    >
+                      <div className="modal-body p-0">
+                        <Card className="bg-secondary border-0 mb-0">
+                          <CardHeader className="bg-transparent pb-1">
+                            <div className="text text-center mt-2 mb-3">
+                              <large>Agregar Peso</large>
+                            </div>
+                          </CardHeader>
+                          <CardBody className="px-lg-5 py-lg-5">
+                            <div className="text-center text-muted mb-4">
+                              <small>Fecha </small>
+                            </div>
+                            <Form role="form">
+                              <FormGroup
+                              >
+                                <InputGroup className="input-group-merge input-group-alternative">
+                                  <InputGroupAddon addonType="prepend">
+                                    <InputGroupText>
+                                      <i className="ni ni-calendar-grid-58" />
+                                    </InputGroupText>
+                                  </InputGroupAddon>
+                                  <Input
+                                    placeholder="Fecha"
+                                    type="date"
+                                    
+                                  />
+                                </InputGroup>
+                              </FormGroup>
+                              <div className="text-center text-muted mb-4">
+                              <small>Peso</small>
+                            </div>
+                              <FormGroup
+                                className={classnames({
+                                  focused: focusedPassword,
+                                })}
+                              >
+                                <InputGroup className="input-group-merge input-group-alternative">
+                                  <InputGroupAddon addonType="prepend">
+                                    <InputGroupText>
+                                      <i className="ni ni-ruler-pencil" />
+                                    </InputGroupText>
+                                  </InputGroupAddon>
+                                  <Input
+                                    placeholder="Peso"
+                                    type="text"
+                                    // onFocus={() => setFocusedPassword(true)}
+                                    // onBlur={() => setFocusedPassword(false)}
+                                  />
+                                </InputGroup>
+                              </FormGroup>
+                              <div className="text-center">
+                                <Button
+                                  className="my-4"
+                                  color="primary"
+                                  type="button"
+                                >
+                                  Guardar
+                                </Button>
+                              </div>
+                              <div className="text-center">
+                                <Button
+                                  className="my-4"
+                                  color="danger"
+                                  type="button"
+                                  onClick={(e) => window.location.href = "/admin/EditHistoria"}
+                                >
+                                  Cancelar
+                                </Button>
+                              </div>
+                            </Form>
+                          </CardBody>
+                        </Card>
+                      </div>
+                    </Modal>
+                    </Col>
+                    </Row>
                 <Row>
                   <Col md="4">
                     <Button
@@ -231,7 +308,7 @@ function EditHistoria() {
                       color="default"
                       onClick={() => setformModal(true)}
                     >
-                      Agregar
+                      Agregar Vacuna
                     </Button>
                     <Modal
                       className="modal-dialog-centered"
