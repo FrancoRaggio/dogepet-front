@@ -13,33 +13,6 @@ import { Search } from "react-bootstrap-table2-toolkit";
 import { RepositoryFactory } from "repositories/RepositoryFactory";
 const userRepository = RepositoryFactory.get('user');
 
-// const pagination = paginationFactory({
-//   page: 1,
-//   alwaysShowAllBtns: true,
-//   showTotal: true,
-//   withFirstAndLast: false,
-//   sizePerPageRenderer: ({ options, currSizePerPage, onSizePerPageChange }) => (
-//     <div className="dataTables_length" id="datatable-basic_length">
-//       <label>
-//         Show{" "}
-//         {
-//           <select
-//             name="datatable-basic_length"
-//             aria-controls="datatable-basic"
-//             className="form-control form-control-sm"
-//             onChange={(e) => onSizePerPageChange(e.target.value)}
-//           >
-//             <option value="10">10</option>
-//             <option value="25">25</option>
-//             <option value="50">50</option>
-//             <option value="100">100</option>
-//           </select>
-//         }{" "}
-//         entries.
-//       </label>
-//     </div>
-//   ),
-// });
 const { SearchBar } = Search;
 
 function HistoriaClinica() {
@@ -107,35 +80,21 @@ function HistoriaClinica() {
                     <b>{user.name + ' ' + user.lastname}</b>
                   </td>
                   <td>
-                    {/* <span className="text-muted">
-                    10/09/{new Date().getFullYear()}
-                  </span> */}
                     <span className="text-muted">
                     {user.dni}
                     </span>
                   </td>
-                  {/* <td>
-                  <a
-                    className="font-weight-bold"
-                    href="#pablo"
-                    onClick={(e) => e.preventDefault()}
-                  >
-                    Argon Dashboard PRO
-                  </a>
-                </td> */}
                   <td className="table-actions">
                     <a
                       className="table-action"
                       href="/admin/EditHistoria"
                       id="tooltip123539273"
-                    // onClick={(e) => e.preventDefault()}
                     >
                       <i className="fas fa-user-edit" />
                     </a>
                     <UncontrolledTooltip delay={0} target="tooltip123539273">
                       Editar Historial Mascota
                     </UncontrolledTooltip>
-
                   </td>
                 </tr>))}
               </tbody>
