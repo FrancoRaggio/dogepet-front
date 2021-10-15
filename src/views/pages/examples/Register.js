@@ -37,7 +37,7 @@ import {
 import AuthHeader from "components/Headers/AuthHeader.js";
 import { emailValidation, nameValidation, lastNameValidation, addressValidation, cityValidation, phoneValidation, dniValidation } from "../../../validations/Register";
 import Validation from "../forms/Validation";
-import { RepositoryFactory } from "Api/RepositoryFactory";
+import { RepositoryFactory } from "api/RepositoryFactory";
 const authRepository = RepositoryFactory.get('auth');
 
 
@@ -62,6 +62,7 @@ function Register() {
     let cityV = await cityValidation(city);
     let phoneV = await phoneValidation(phone);
     let dniV = await dniValidation(dni);
+    
     setValidation({
       ...validation,
       email: emailV,
@@ -72,17 +73,18 @@ function Register() {
       phone: phoneV,
       dni: dniV
     })
-    console.log(emailV, nameV, lastNameV, addressV, cityV, phoneV, dniV);
 
     let data = {
       email,
       name,
-      lastName,
+      lastname: lastName,
       password,
+      address,
       phone,
       dni,
       city,
     }
+
     let response = await authRepository.signUp(data)
     
     window.location.href = "/auth/login"

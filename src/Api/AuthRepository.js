@@ -14,6 +14,12 @@ export default {
     return response;
   },
 
+  async logout() {
+    let response = await Repository.get(`${resource}/logout`);
+
+    return response;
+  },
+  
   async userData() {
     let response = await Repository.get(`${resource}/user`);
 

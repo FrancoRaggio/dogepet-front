@@ -35,7 +35,7 @@ import {
 } from "reactstrap";
 // core components
 import AuthHeader from "components/Headers/AuthHeader.js";
-import { RepositoryFactory } from "Api/RepositoryFactory";
+import { RepositoryFactory } from "api/RepositoryFactory";
 
 
 const authRepository = RepositoryFactory.get('auth');
@@ -51,9 +51,9 @@ function Login() {
   }
 
   const loginFunction = async () => {
-    window.location.href = "/admin/dashboard"
     let response = await authRepository.signIn({email, password})
-
+    
+    window.location.href = "/admin/dashboard"
   }
 
   return (

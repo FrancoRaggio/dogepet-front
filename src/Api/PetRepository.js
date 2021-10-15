@@ -1,21 +1,27 @@
 import Repository from './Repository';
-const resource = '/turns';
+const resource = '/pets';
 
 export default {
-  async getTurns() {
+  async getPets() {
     let response = await Repository.get(`${resource}`);
 
     return response;
   },
 
-  async createTurn(data) {
+  async getPetsByUser() {
+    let response = await Repository.get(`${resource}/user`);
+
+    return response;
+  },
+
+  async createPet(data) {
     let response = await Repository.post(`${resource}/create`, data);
 
     return response;
   },
 
-  async turnsByUser(id) {
-    let response = await Repository.get(`${resource}/${id}`);
+  async updatePet(data) {
+    let response = await Repository.put(`${resource}/update`, data);
 
     return response;
   },
