@@ -1,4 +1,5 @@
 import axios from 'axios';
+import Swal from 'sweetalert2'
 
 const provider = axios.create({ baseURL: process.env.REACT_APP_URL_BACKEND });
 
@@ -32,7 +33,12 @@ provider.interceptors.response.use(
   },
   function (error) {
     console.log('Response error: ', error.response.data);
-    alert(error.response.data.message)
+    Swal.fire({
+      title: 'Error!',
+      text: error.response.data.message,
+      icon: 'error',
+      confirmButtonText: 'Ok'
+    })
     return Promise.reject(error);
   },
 );

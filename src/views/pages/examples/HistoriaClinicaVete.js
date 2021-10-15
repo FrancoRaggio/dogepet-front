@@ -104,7 +104,7 @@ function HistoriaClinica() {
                       className="avatar rounded-circle mr-3"
                       src={require("assets/img/theme/team-m.png").default}
                     />
-                    <b>{user.name}</b>
+                    <b>{user.name + ' ' + user.lastname}</b>
                   </td>
                   <td>
                     {/* <span className="text-muted">
