@@ -68,7 +68,7 @@ function CardsHeader({ name, parentName }) {
 
 
              <Row style={{ alignContent:"center" }}>
-              <Col md="12" xl="12" className="slid" style={{  maxWidth:'1000px', overflow:'hidden' , display : 'block' , 
+              <Col md="12" xl="12" className="slid" style={{  maxWidth:'100vw', overflow:'hidden' , display : 'block' , 
             textAlign: 'center', marginLeft: '3%'}}>
               
                 <Slhead />

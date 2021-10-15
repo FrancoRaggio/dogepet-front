@@ -162,10 +162,11 @@ function CalendarView() {
           setEventTitle(undefined);
           setEventDescription(undefined);
           setEventId(undefined);
-          let newEvents = events.filter((prop) => prop.id + "" !== eventId);
-          setEvents(newEvents);
         }}
-        onCancel={() => deleteEvent()}
+        onCancel={() => {
+          console.log('Franco se la come')
+          deleteEvent()
+        }}
         confirmBtnCssClass="btn-secondary"
         cancelBtnBsStyle="danger"
         confirmBtnText="Cancelar"
@@ -178,6 +179,7 @@ function CalendarView() {
     );
   };
   console.log(events);
+
   const deleteEvent = () => {
     var newEvents = events.filter((prop) => prop.id + "" !== eventId);
     setEvent(undefined);
@@ -192,7 +194,7 @@ function CalendarView() {
         confirmBtnText="Ok"
         btnSize=""
       >
-        El turno fue elminado con exito
+        El turno fue eliminado con exito
       </ReactBSAlert>
     );
     setModalChange(false);

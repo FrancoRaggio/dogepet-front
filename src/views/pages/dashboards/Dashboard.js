@@ -83,10 +83,7 @@ function Dashboard() {
               <CardHeader className="bg-transparent">
                 <Row className="align-items-center">
                   <div className="col">
-                    <h6 className="text-light text-uppercase ls-1 mb-1">
-                      Overview
-                    </h6>
-                    <h5 className="h3 text-white mb-0">Sales value</h5>
+                    <h5 className="h3 text-white mb-0">Cantidad de usuarios registrados</h5>
                   </div>
                   <div className="col">
                     <Nav className="justify-content-end" pills>
@@ -98,7 +95,7 @@ function Dashboard() {
                           href="#pablo"
                           onClick={(e) => toggleNavs(e, 1)}
                         >
-                          <span className="d-none d-md-block">Month</span>
+                          <span className="d-none d-md-block">Mes</span>
                           <span className="d-md-none">M</span>
                         </NavLink>
                       </NavItem>
@@ -111,7 +108,7 @@ function Dashboard() {
                           href="#pablo"
                           onClick={(e) => toggleNavs(e, 2)}
                         >
-                          <span className="d-none d-md-block">Week</span>
+                          <span className="d-none d-md-block">Semana</span>
                           <span className="d-md-none">W</span>
                         </NavLink>
                       </NavItem>

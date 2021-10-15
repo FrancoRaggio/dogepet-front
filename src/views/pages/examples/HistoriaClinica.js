@@ -144,7 +144,7 @@ function HistoriaClinica() {
                     <a href="#pablo" onClick={(e) => e.preventDefault()}>
                       <img
                         alt="..."
-                        class="rounded-circle" 
+                        class="rounded-circle"
                         width="500" height="150"
                         src={require("assets/img/theme/titan.jfif").default}
                       />
@@ -168,13 +168,13 @@ function HistoriaClinica() {
                     Titan Mendez
                     <span className="font-weight-light"> , 3</span>
                   </h5>
-                  
+
                 </div>
               </CardBody>
             </Card>
           </Col>
           <Col className="order-xl-1" xl="8">
-          <Card>
+            <Card>
               <CardHeader>
                 <Row className="align-items-center">
                   <Col xs="8">
@@ -198,246 +198,193 @@ function HistoriaClinica() {
                     Informacion de Mascota
                   </h6>
                   {alert}
-      {/* <SimpleHeader name="React Tables" parentName="Tables" /> */}
-      {/* <Container > */}
-        <Row>
-          <div className="col"> 
-            
-            <Card >
-              {/* <CardHeader>
+                  {/* <SimpleHeader name="React Tables" parentName="Tables" /> */}
+                  {/* <Container > */}
+                  <Row>
+                    <div className="col">
+
+                      <Card >
+                        {/* <CardHeader>
                 <h3 className="mb-0">Vacunas</h3>
                 <p className="text-sm mb-0">
                   
                 </p>
               </CardHeader> */}
-              
-              <ToolkitProvider
-                data={dataTable}
-                keyField="name"
-                columns={[
-                  {
-                    dataField: "label",
-                    text: "Imagen",
-                    sort: true,
-                  },
-                  
-                  {
-                    dataField: "office",
-                    text: "Vacuna",
-                    sort: true,
-                  },
-                  {
-                    dataField: "start_date",
-                    text: "Fecha",
-                    sort: true,
-                  },
-                  {
-                    dataField: "end_date",
-                    text: "Vencimiento",
-                    sort: true,
-                  },
-                  
-                ]}
-                search
-              >
-                {(props) => (
-                  <div className="py-4 table-responsive" >
-                    
-                    {/* <hr className="my-0" /> */}
-                    {/* //  */}
-                    <div className="pl-lg-4">
-                    <Row>
-                      <Col lg="6">
-                        <FormGroup>
-                          <label
-                            className="form-control-label"
-                            htmlFor="input-username"
-                          >
-                            Nombre
-                          </label>
-                          <Input
-                            defaultValue="Titan"
-                            id="input-username"
-                            placeholder="Username"
-                            type="text"
-                          />
-                        </FormGroup>
-                      </Col>
-                      <Col lg="2">
-                        <FormGroup>
-                          <label
-                            className="form-control-label"
-                            htmlFor="input-email"
-                          >
-                            Edad
-                          </label>
-                          <Input
-                            id="input"
-                            placeholder="3"
-                            type="number"
-                          />
-                        </FormGroup>
-                      </Col>
-                      
-                    </Row>
-                  </div>
-                  <hr className="my-4" />
-                  {/* { Peso}  */}
-                  <h6 className="heading-small text-muted mb-4 text-center">
-                    Controles Peso
-                  </h6>
-                   <div className="pl-lg-9  "> 
-                  <table class="table table-responsive table-striped text-center">
-                  <thead>
-                      <tr>
-                          <th>Fecha</th>
-                          <th>Peso</th>
-                          <th></th>
-                      </tr>
-                  </thead>
-                  <tbody>
-                      <tr>
-                          <td>24/6/19</td>
-                          <td>1,170 Kg</td>
-                      </tr>
-                      <tr>
-                      <td>24/3/21</td>
-                          <td>5,170 Kg</td>
-                      </tr>
-                      <tr>
-                      <td>24/6/21</td>
-                          <td>8,500 Kg</td>
-                      </tr>
-                     
-                  </tbody>
-              </table>      
-              </div> 
-              <hr className="my-4" />
-              <h6 className="heading-small text-muted mb-4 text-center">
-                    Vacunas
-                  </h6>   
+
+                        <ToolkitProvider
+                          data={dataTable}
+                          keyField="name"
+                          columns={[
+                            {
+                              dataField: "label",
+                              text: "Imagen",
+                              sort: true,
+                            },
+
+                            {
+                              dataField: "office",
+                              text: "Vacuna",
+                              sort: true,
+                            },
+                            {
+                              dataField: "start_date",
+                              text: "Fecha",
+                              sort: true,
+                            },
+                            {
+                              dataField: "end_date",
+                              text: "Vencimiento",
+                              sort: true,
+                            },
+
+                          ]}
+                          search
+                        >
+                          {(props) => (
+                            <div className="py-4 table-responsive"
+                              ref={componentRef} >
+
+                              {/* <hr className="my-0" /> */}
+                              {/* //  */}
+                              <div className="pl-lg-4">
+                                <Row>
+                                  <Col lg="6">
+                                    <FormGroup>
+                                      <label
+                                        className="form-control-label"
+                                        htmlFor="input-username"
+                                      >
+                                        Nombre
+                                      </label>
+                                      <Input
+                                        defaultValue="Titan"
+                                        id="input-username"
+                                        placeholder="Username"
+                                        type="text"
+                                      />
+                                    </FormGroup>
+                                  </Col>
+                                  <Col lg="2">
+                                    <FormGroup>
+                                      <label
+                                        className="form-control-label"
+                                        htmlFor="input-email"
+                                      >
+                                        Edad
+                                      </label>
+                                      <Input
+                                        id="input"
+                                        placeholder="3"
+                                        type="number"
+                                      />
+                                    </FormGroup>
+                                  </Col>
+
+                                </Row>
+                              </div>
+                              <hr className="my-4" />
+                              {/* { Peso}  */}
+                              <h6 className="heading-small text-muted mb-4 text-center">
+                                Controles Peso
+                              </h6>
+                              <div className="pl-lg-9  ">
+                                <table class="table table-responsive table-striped text-center">
+                                  <thead>
+                                    <tr>
+                                      <th>Fecha</th>
+                                      <th>Peso</th>
+                                      <th></th>
+                                    </tr>
+                                  </thead>
+                                  <tbody>
+                                    <tr>
+                                      <td>24/6/19</td>
+                                      <td>1,170 Kg</td>
+                                    </tr>
+                                    <tr>
+                                      <td>24/3/21</td>
+                                      <td>5,170 Kg</td>
+                                    </tr>
+                                    <tr>
+                                      <td>24/6/21</td>
+                                      <td>8,500 Kg</td>
+                                    </tr>
+
+                                  </tbody>
+                                </table>
+                              </div>
+                              <hr className="my-4" />
+                              <h6 className="heading-small text-muted mb-4 text-center">
+                                Vacunas
+                              </h6>
 
 
-                  <hr className="my-4" />
-                    <BootstrapTable
-                      ref={componentRef} 
-                      {...props.baseProps}
-                      bootstrap4={true}
-                      // pagination={pagination}
-                      bordered={false}
-                      id="react-bs-table"
-                    />
-                    
-                  
-                  
-                    <Container fluid>
-                      <Row>
-                        <Col xs={12} sm={6}> 
-                          <ButtonGroup>
-                            {/* <Button
-                              className="buttons-copy buttons-html5"
-                              color="default"
-                              size="sm"
-                              id="copy-tooltip"
-                              onClick={() =>
-                                copyToClipboardAsTable(
-                                  document.getElementById("react-bs-table")
-                                )
-                              }
-                            >
-                              <span>Copiar</span>
-                            </Button> */}
-                            <ReactToPrint
-                              trigger={() => (
-                                <Button
-                                  color="default"
-                                  size="sm"
-                                  className="buttons-copy buttons-html5"
-                                  id="print-tooltip"
-                                >
-                                  Imprimir
-                                </Button>
-                              )}
-                              content={() => componentRef.current} 
-                            />
-                          </ButtonGroup>
-                          <UncontrolledTooltip
-                            placement="top"
-                            target="print-tooltip"
-                          >
-                           Imprimir
-                          </UncontrolledTooltip>
-                          {/* <UncontrolledTooltip
-                            placement="top"
-                            target="copy-tooltip"
-                          >
-                            Copiar todo
-                          </UncontrolledTooltip> */}
-                        </Col>
-                        <Col xs={12} sm={6}>
-                          <div
-                            id="datatable-basic_filter"
-                            className="dataTables_filter px-4 pb-1 float-right "
-                          >
-                            <label>
-                              Search:
-                              <SearchBar
-                                className="form-control-sm"
-                                placeholder=""
-                                {...props.searchProps}
+                              <hr className="my-4" />
+                              <BootstrapTable
+                                ref={componentRef}
+                                {...props.baseProps}
+                                bootstrap4={true}
+                                // pagination={pagination}
+                                bordered={false}
+                                id="react-bs-table"
                               />
-                            </label>
-                          </div>
-                        </Col>
-                      </Row>
-                    </Container>
+                              <Container fluid>
+                                <Row>
+                                  <Col xs={12} sm={6}>
+                                    <ButtonGroup>
+                                      <Button
+                                        className="buttons-copy buttons-html5"
+                                        color="default"
+                                        size="sm"
+                                        style={{margin: 5}}
+                                        id="copy-tooltip"
+                                        onClick={() =>
+                                          copyToClipboardAsTable(
+                                            document.getElementById("react-bs-table")
+                                          )
+                                        }
+                                      >
+                                        <span>Copiar</span>
+                                      </Button>
+                                      <ReactToPrint
+                                        trigger={() => (
+                                          <Button
+                                          style={{margin: 5}}
+                                            color="default"
+                                            size="sm"
+                                            className="buttons-copy buttons-html5"
+                                            id="print-tooltip"
+                                          >
+                                            Imprimir
+                                          </Button>
+                                        )}
+                                        content={() => componentRef.current}
+                                      />
+                                    </ButtonGroup>
+                                  </Col>
+                                  <Col xs={12} sm={6}>
+                                    <div
+                                      id="datatable-basic_filter"
+                                      className="dataTables_filter px-4 pb-1 float-right "
+                                    >
+                                      <label>
+                                        Buscar:
+                                        <SearchBar
+                                          className="form-control-sm"
+                                          placeholder="Buscar"
+                                          {...props.searchProps}
+                                        />
+                                      </label>
+                                    </div>
+                                  </Col>
+                                </Row>
+                              </Container>
+                            </div>
+                          )}
+                        </ToolkitProvider>
+                      </Card>
                     </div>
-                  
-                )}
-              </ToolkitProvider>
-            </Card>
-          </div> 
-        </Row>
-                  
-
-                 
-                  {/* return ( */}
-    <>
-     
-      {/* </Container> */}
-    </>
- 
-
-               
-               {/* </div> */}
-                  <hr className="my-4" />
-                  <div className="d-flex justify-content-between">
-                  {/* <Button
-                    className="mr-4"
-                    color="danger"
-                    href=""
-                    onClick={(e) => e.preventDefault()}
-                    size="sm"
-                  >
-                    Cancelar
-                  </Button> */}
-                   <div>
-        {/* <ReactToPrint
-          trigger={() => <button>Print this out!</button>}
-          content={() => this.componentRef}
-        />
-        <HistoriaClinica ref={(el) => (this.componentRef = el)} /> */}
-      </div>
-                  <Button
-                    className="float-left"
-                    color="default"
-                    href=""
-                    onClick={(e) => e.preventDefault()}
-                    size="sm"
-                  >
-                    Imprimir
-                  </Button>
-                </div>
+                  </Row>
                 </Form>
               </CardBody>
             </Card>
