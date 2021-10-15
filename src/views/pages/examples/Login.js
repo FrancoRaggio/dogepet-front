@@ -35,7 +35,7 @@ import {
 } from "reactstrap";
 // core components
 import AuthHeader from "components/Headers/AuthHeader.js";
-import { RepositoryFactory } from "api/RepositoryFactory";
+import { RepositoryFactory } from "repositories/RepositoryFactory";
 
 
 const authRepository = RepositoryFactory.get('auth');

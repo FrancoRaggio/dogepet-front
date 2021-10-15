@@ -10,7 +10,7 @@ import {
   Col,
 } from "reactstrap";
 import { Search } from "react-bootstrap-table2-toolkit";
-import { RepositoryFactory } from "api/RepositoryFactory";
+import { RepositoryFactory } from "repositories/RepositoryFactory";
 const userRepository = RepositoryFactory.get('user');
 
 // const pagination = paginationFactory({
