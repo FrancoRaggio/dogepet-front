@@ -219,6 +219,7 @@ function EditHistoria() {
                       block
                       color="default"
                       onClick={() => setformModal2(true)}
+                      style={{marginBottom: 5}}
                     >
                       Agregar Peso
                     </Button>
