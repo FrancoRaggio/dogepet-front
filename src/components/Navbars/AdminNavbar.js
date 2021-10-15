@@ -73,6 +73,13 @@ function AdminNavbar({ theme, sidenavOpen, toggleSidenav }) {
     }, 500);
   };
 
+  const logout = () => {
+
+    localStorage.removeItem('token')
+
+    window.location.href = "/auth/login"
+  }
+
   return (
     <>
       <Navbar
@@ -303,7 +310,7 @@ function AdminNavbar({ theme, sidenavOpen, toggleSidenav }) {
                     </Col>
                     <Col
                       className="shortcut-item"
-                      onClick={(e) => e.preventDefault()}
+                      onClick={(e) => window.location.href = "/admin/HistoriaClinicaVete"}
                       xs="4"
                       tag="a"
                     >
@@ -382,7 +389,7 @@ function AdminNavbar({ theme, sidenavOpen, toggleSidenav }) {
                       <span>Mi Perfil</span>
                   </DropdownItem>
                   <DropdownItem
-                    onClick={(e) => window.location.href = "/auth/login"}
+                    onClick={(e) => logout()}
                   >
                     <i className="ni ni-curved-next" />
                     <span>Cerrar sesion</span>

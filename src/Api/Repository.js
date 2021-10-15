@@ -31,8 +31,8 @@ provider.interceptors.response.use(
     return response.data.data;
   },
   function (error) {
-    console.log('Response error: ', error);
-    alert(error)
+    console.log('Response error: ', error.response.data);
+    alert(error.response.data.message)
     return Promise.reject(error);
   },
 );
