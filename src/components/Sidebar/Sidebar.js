@@ -95,7 +95,8 @@ function Sidebar({ toggleSidenav, sidenavOpen, routes, logo, rtlActive }) {
   // this function creates the links and collapses that appear in the sidebar (left menu)
   const createLinks = (routes) => {
     return routes.map((prop, key) => {
-      if(prop.path == "/login" || prop.path == "/register" || prop.path == "/profileM" || prop.path == "/HistoriaClinica"|| prop.path == "/EditHistoria"){
+      if(prop.path == "/login" || prop.path == "/register" || prop.path == "/profileM" || prop.path == "/HistoriaClinica"|| prop.path == "/EditHistoria" 
+      || prop.path == "/BmCliente" ){
         return null
       }
       if (prop.redirect) {

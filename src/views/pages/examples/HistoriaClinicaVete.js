@@ -9,15 +9,15 @@ import {
   Row,
   Col,
 } from "reactstrap";
-import { Search } from "react-bootstrap-table2-toolkit";
+// import { Search } from "react-bootstrap-table2-toolkit";
 import { RepositoryFactory } from "repositories/RepositoryFactory";
 const userRepository = RepositoryFactory.get('user');
 
-const { SearchBar } = Search;
+// const { SearchBar } = Search;
 
 function HistoriaClinica() {
 
-  const [alert, setAlert] = React.useState(null);
+  // const [alert, setAlert] = React.useState(null);
   const [users, setUsers] = useState([])
 
   const getUsers = async () => {
@@ -87,14 +87,26 @@ function HistoriaClinica() {
                   <td className="table-actions">
                     <a
                       className="table-action"
-                      href="/admin/EditHistoria"
+                      href="/admin/BmCliente"
                       id="tooltip123539273"
                     >
                       <i className="fas fa-user-edit" />
                     </a>
                     <UncontrolledTooltip delay={0} target="tooltip123539273">
-                      Editar Historial Mascota
+                      Editar Cliente 
                     </UncontrolledTooltip>
+
+                    <a
+                      className="table-action table-action-delete"
+                      href="/admin/EditHistoria"
+                      id="tooltip601065234"
+                    >
+                      <i className="fas fa-trash" />
+                    </a>
+                    <UncontrolledTooltip delay={0} target="tooltip601065234">
+                      Borrar Cliente
+                    </UncontrolledTooltip>
+                    
                   </td>
                 </tr>))}
               </tbody>

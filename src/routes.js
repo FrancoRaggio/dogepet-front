@@ -48,6 +48,9 @@ import HistoriaClinica from "views/pages/examples/HistoriaClinica.js";
 
 import HistoriaClinicaVete from "views/pages/examples/HistoriaClinicaVete.js";
 import EditHistoria from "views/pages/examples/EditHistoria.js";
+import AddMascota from "views/pages/examples/AddMascota.js";
+
+import BmCliente from "views/pages/examples/BmCliente";
 
 
 const routes = [
@@ -104,8 +107,8 @@ const routes = [
       },
       {
         path: "/HistoriaClinicaVete",
-        name: "Historia Clinica Vete",
-        miniName: "HCV",
+        name: "Cliente",
+        miniName: "CL",
         component: HistoriaClinicaVete,
         layout: "/admin",
         
@@ -115,6 +118,23 @@ const routes = [
         name: "EditHistoria",
         miniName: "HCV",
         component: EditHistoria,
+        layout: "/admin",
+        
+      },
+
+      {
+        path: "/AddMascota",
+        name: "AddMascota",
+        miniName: "Agregar Mascota",
+        component: AddMascota,
+        layout: "/admin",
+        
+      },
+      {
+        path: "/BmCliente",
+        name: "BmCliente",
+        miniName: "BmClientes",
+        component: BmCliente,
         layout: "/admin",
         
       },
