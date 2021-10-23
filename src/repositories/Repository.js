@@ -7,7 +7,7 @@ let auth = localStorage.getItem('token');
 
 if (auth) {
 //   const token = JSON.parse(auth)?.token;
-//   provider.defaults.headers.common['Authorization'] = `Bearer ${token}`;
+  provider.defaults.headers.common['Authorization'] = `Bearer ${auth.access_token}`;
 } else {
   delete provider.defaults.headers.common['Authorization'];
 }

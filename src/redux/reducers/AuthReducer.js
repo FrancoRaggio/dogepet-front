@@ -2,7 +2,7 @@ const auth = JSON.parse(localStorage.getItem('auth'));
 
 //cada reducer tiene su propio state
 const initialState = {
-    token: auth ? auth.token : '',
+    token: auth ? auth.access_token : '',
     user: auth ? auth.user : null,
 }
 

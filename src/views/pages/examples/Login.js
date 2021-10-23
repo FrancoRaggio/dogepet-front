@@ -63,7 +63,7 @@ function Login() {
     dispatch(setAuthAction(response));
     localStorage.setItem('auth', JSON.stringify(response))
 
-    // window.location.href = "/admin/dashboard"
+    window.location.href = "/admin/dashboard"
   }
 
   return (
