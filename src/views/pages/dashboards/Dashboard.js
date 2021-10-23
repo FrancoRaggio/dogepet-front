@@ -58,8 +58,10 @@ import {
   chartExample2,
 } from "variables/charts.js";
 import ShoppingCart from "components/Headers/ShoppingCart";
+import { useSelector } from 'react-redux';
 
 function Dashboard() {
+  const auth = useSelector(state => state.auth)
   const [activeNav, setActiveNav] = React.useState(1);
   const [chartExample1Data, setChartExample1Data] = React.useState("data1");
   const toggleNavs = (e, index) => {
@@ -68,6 +70,8 @@ function Dashboard() {
     setChartExample1Data(chartExample1Data === "data1" ? "data2" : "data1");
   };
 
+
+  console.log('auth', auth)
   
   if (window.Chart) {
     parseOptions(Chart, chartOptions());

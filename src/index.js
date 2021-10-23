@@ -38,15 +38,21 @@ import RTLLayout from "layouts/RTL.js";
 import AuthLayout from "layouts/Auth.js";
 import IndexView from "views/Index.js";
 
+//Redux
+import { Provider } from 'react-redux';
+import store from './store';
+
 ReactDOM.render(
   <BrowserRouter>
-    <Switch>
-      <Route path="/admin" render={(props) => <AdminLayout {...props} />} />
-      <Route path="/rtl" render={(props) => <RTLLayout {...props} />} />
-      <Route path="/auth" render={(props) => <AuthLayout {...props} />} />
-      <Route path="/" render={(props) => <IndexView {...props} />} />
-      <Redirect from="*" to="/" />
-    </Switch>
+    <Provider store={store} >
+      <Switch>
+        <Route path="/admin" render={(props) => <AdminLayout {...props} />} />
+        <Route path="/rtl" render={(props) => <RTLLayout {...props} />} />
+        <Route path="/auth" render={(props) => <AuthLayout {...props} />} />
+        <Route path="/" render={(props) => <IndexView {...props} />} />
+        <Redirect from="*" to="/" />
+      </Switch>
+    </Provider>
   </BrowserRouter>,
   document.getElementById("root")
 );

@@ -36,6 +36,9 @@ import {
 // core components
 import AuthHeader from "components/Headers/AuthHeader.js";
 import { RepositoryFactory } from "repositories/RepositoryFactory";
+import { useDispatch } from 'react-redux';
+// Actions de Redux
+import { setAuthAction } from '../../../redux/actions/AuthAction';
 
 
 const authRepository = RepositoryFactory.get('auth');
@@ -46,6 +49,9 @@ function Login() {
   const [email, setEmail] = React.useState("");
   const [password, setPassword] = React.useState("");
 
+  // Utilizar use dispatch
+  const dispatch = useDispatch();
+
   function proof() {
     console.log(email, password);
   }
@@ -53,7 +59,11 @@ function Login() {
   const loginFunction = async () => {
     let response = await authRepository.signIn({email, password})
     
-    window.location.href = "/admin/dashboard"
+    // Mandar a llamar el action de productoAction
+    dispatch(setAuthAction(response));
+    localStorage.setItem('auth', JSON.stringify(response))
+
+    // window.location.href = "/admin/dashboard"
   }
 
   return (
