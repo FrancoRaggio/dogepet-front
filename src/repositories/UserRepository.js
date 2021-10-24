@@ -8,8 +8,14 @@ export default {
     return response;
   },
 
-  async updateUser(data) {
-    let response = await Repository.put(`${resource}/update`, data);
+  async updateUser(data, id) {
+    let response = await Repository.put(`${resource}/`+id, data);
+
+    return response;
+  },
+
+  async deleteUser(id) {
+    let response = await Repository.delete(`${resource}/`+id);
 
     return response;
   }

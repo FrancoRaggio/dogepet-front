@@ -3,7 +3,7 @@ import Swal from 'sweetalert2'
 
 const provider = axios.create({ baseURL: process.env.REACT_APP_URL_BACKEND });
 
-let auth = localStorage.getItem('token');
+let auth = JSON.parse(localStorage.getItem('auth'));
 
 if (auth) {
 //   const token = JSON.parse(auth)?.token;

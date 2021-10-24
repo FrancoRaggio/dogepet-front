@@ -26,6 +26,14 @@ function HistoriaClinica() {
     return
   }
 
+  const deleteCustomer = async (id) => {
+    await userRepository.deleteUser(id)
+
+    let newUsers = users.filter((u) => u.id != id)
+    
+    setUsers(newUsers)
+  }
+
   useEffect(() => {
     getUsers()
   }, [])
@@ -98,7 +106,7 @@ function HistoriaClinica() {
 
                     <a
                       className="table-action table-action-delete"
-                      href="/admin/EditHistoria"
+                      onClick={() => deleteCustomer(user.id)}
                       id="tooltip601065234"
                     >
                       <i className="fas fa-trash" />

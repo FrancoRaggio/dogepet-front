@@ -75,7 +75,7 @@ function AdminNavbar({ theme, sidenavOpen, toggleSidenav }) {
 
   const logout = () => {
 
-    localStorage.removeItem('token')
+    localStorage.removeItem('auth')
 
     window.location.href = "/auth/login"
   }

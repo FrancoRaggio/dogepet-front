@@ -116,9 +116,9 @@ function EditHistoria() {
       <ProfileHeader />
       <Container className="mt--6" fluid>
         <Row>
-         
+
           <Col className="order-xl-12" xl="12">
-          <Card>
+            <Card>
               <CardHeader>
                 <Row className="align-items-center">
                   <Col xs="8">
@@ -138,332 +138,332 @@ function EditHistoria() {
               </CardHeader>
               <CardBody>
                 <Form >
-                  
+
                   {alert}
-      {/* <SimpleHeader name="React Tables" parentName="Tables" /> */}
-      {/* <Container > */}
-        <Row>
-          <div className="col"> 
-            
-            <Card >
-              {/* <CardHeader>
+                  {/* <SimpleHeader name="React Tables" parentName="Tables" /> */}
+                  {/* <Container > */}
+                  <Row>
+                    <div className="col">
+
+                      <Card >
+                        {/* <CardHeader>
                 <h3 className="mb-0">Vacunas</h3>
                 <p className="text-sm mb-0">
                   
                 </p>
               </CardHeader> */}
-              
-              <ToolkitProvider
-                data={dataTable}
-                keyField="name"
-                columns={[
-                  {
-                    dataField: "label",
-                    text: "Imagen",
-                    sort: true,
-                  },
-                  
-                  {
-                    dataField: "office",
-                    text: "Vacuna",
-                    sort: true,
-                  },
-                  {
-                    dataField: "start_date",
-                    text: "Fecha",
-                    sort: true,
-                  },
-                  {
-                    dataField: "end_date",
-                    text: "Vencimiento",
-                    sort: true,
-                  },
-                  
-                ]}
-                search
-              >
-                {(props) => (
-                  <div className=" table-responsive" >
-                    
-                    {/* <hr className="my-0" /> */}
-                    {/* //  */}
-                    
-                  <Card>
-              {/* <CardHeader>
+
+                        <ToolkitProvider
+                          data={dataTable}
+                          keyField="name"
+                          columns={[
+                            {
+                              dataField: "label",
+                              text: "Imagen",
+                              sort: true,
+                            },
+
+                            {
+                              dataField: "office",
+                              text: "Vacuna",
+                              sort: true,
+                            },
+                            {
+                              dataField: "start_date",
+                              text: "Fecha",
+                              sort: true,
+                            },
+                            {
+                              dataField: "end_date",
+                              text: "Vencimiento",
+                              sort: true,
+                            },
+
+                          ]}
+                          search
+                        >
+                          {(props) => (
+                            <div className=" table-responsive" >
+
+                              {/* <hr className="my-0" /> */}
+                              {/* //  */}
+
+                              <Card>
+                                {/* <CardHeader>
                <h3 className="mb-0">Modals</h3> 
               </CardHeader> */}
-              <CardBody>
-              <div className="pl-lg-4">
-                    <Row>
-                    <div class="form-group">
-                        {/* <label for="inputState" class="col-xs-2 col-form-label">Raza</label> */}
-                        <label
-                            className="form-control-label"
-                            htmlFor="input-email"
-                          >Nombre</label>
-                        <div class="col-xs-10">
-                            <select id="inputState" class="form-control">
-                                <option selected > Seleccionar</option>
-                                <option value="value1" >Titan</option>
-                         <option value="value2" >Kira</option>
-                         <option value="value3">Ram</option>
-                            </select>
-                        </div>
-                        
-                    </div>
-                    </Row>
-                  </div>
-                  <Row>
-                  <Col md="4">
-                    <Button
-                      block
-                      color="default"
-                      onClick={() => setformModal2(true)}
-                      style={{marginBottom: 5}}
-                    >
-                      Agregar Peso
-                    </Button>
-                    <Modal
-                      className="modal-dialog-centered"
-                      size="sm"
-                      isOpen={formModal2}
-                      toggle={() => setformModal2(true)}
-                    >
-                      <div className="modal-body p-0">
-                        <Card className="bg-secondary border-0 mb-0">
-                          <CardHeader className="bg-transparent pb-1">
-                            <div className="text text-center mt-2 mb-3">
-                              <large>Agregar Peso</large>
-                            </div>
-                          </CardHeader>
-                          <CardBody className="px-lg-5 py-lg-5">
-                            <div className="text-center text-muted mb-4">
-                              <small>Fecha </small>
-                            </div>
-                            <Form role="form">
-                              <FormGroup
-                              >
-                                <InputGroup className="input-group-merge input-group-alternative">
-                                  <InputGroupAddon addonType="prepend">
-                                    <InputGroupText>
-                                      <i className="ni ni-calendar-grid-58" />
-                                    </InputGroupText>
-                                  </InputGroupAddon>
-                                  <Input
-                                    placeholder="Fecha"
-                                    type="date"
-                                    
-                                  />
-                                </InputGroup>
-                              </FormGroup>
-                              <div className="text-center text-muted mb-4">
-                              <small>Peso</small>
-                            </div>
-                              <FormGroup
-                                className={classnames({
-                                  focused: focusedPassword,
-                                })}
-                              >
-                                <InputGroup className="input-group-merge input-group-alternative">
-                                  <InputGroupAddon addonType="prepend">
-                                    <InputGroupText>
-                                      <i className="ni ni-ruler-pencil" />
-                                    </InputGroupText>
-                                  </InputGroupAddon>
-                                  <Input
-                                    placeholder="Peso"
-                                    type="text"
-                                    // onFocus={() => setFocusedPassword(true)}
-                                    // onBlur={() => setFocusedPassword(false)}
-                                  />
-                                </InputGroup>
-                              </FormGroup>
-                              <div className="text-center">
-                                <Button
-                                  className="my-4"
-                                  color="primary"
-                                  type="button"
-                                >
-                                  Guardar
-                                </Button>
-                              </div>
-                              <div className="text-center">
-                                <Button
-                                  className="my-4"
-                                  color="danger"
-                                  type="button"
-                                  onClick={() => setformModal2(false)}
-                                >
-                                  Cancelar
-                                </Button>
-                              </div>
-                            </Form>
-                          </CardBody>
-                        </Card>
-                      </div>
-                    </Modal>
-                    </Col>
-                    </Row>
-                <Row>
-                  <Col md="4">
-                    <Button
-                      block
-                      color="default"
-                      onClick={() => setformModal(true)}
-                    >
-                      Agregar Vacuna
-                    </Button>
-                    <Modal
-                      className="modal-dialog-centered"
-                      size="sm"
-                      isOpen={formModal}
-                      toggle={() => setformModal(false)}
-                    >
-                      <div className="modal-body p-0">
-                        <Card className="bg-secondary border-0 mb-0">
-                          <CardHeader className="bg-transparent pb-1">
-                            <div className="text text-center mt-2 mb-3">
-                              <large>Agregar Vacuna</large>
-                            </div>
-                          </CardHeader>
-                          <CardBody className="px-lg-5 py-lg-5">
-                            <div className="text-center text-muted mb-4">
-                              <small>Fecha Aplicación</small>
-                            </div>
-                            <Form role="form">
-                              <FormGroup
-                              >
-                                <InputGroup className="input-group-merge input-group-alternative">
-                                  <InputGroupAddon addonType="prepend">
-                                    <InputGroupText>
-                                      <i className="ni ni-calendar-grid-58" />
-                                    </InputGroupText>
-                                  </InputGroupAddon>
-                                  <Input
-                                    placeholder="Fecha Aplicacion"
-                                    type="date"
-                                    // onFocus={() => setFocusedEmail(true)}
-                                    // onBlur={() => setFocusedEmail(false)}
-                                  />
-                                </InputGroup>
-                              </FormGroup>
-                              <div className="text-center text-muted mb-4">
-                              <small>Fecha Vencimiento</small>
-                            </div>
-                              <FormGroup>
-                                <InputGroup className="input-group-merge input-group-alternative">
-                                  <InputGroupAddon addonType="prepend">
-                                    <InputGroupText>
-                                      <i className="ni ni-calendar-grid-58" />
-                                    </InputGroupText>
-                                  </InputGroupAddon>
-                                  <Input
-                                    placeholder="Fecha Vencimiento"
-                                    type="date"
-                                    // onFocus={() => setFocusedEmail(true)}
-                                    // onBlur={() => setFocusedEmail(false)}
-                                  />
-                                </InputGroup>
-                              </FormGroup>
-                              <div className="text-center text-muted mb-4">
-                              <small>Vacuna</small>
-                            </div>
-                              <FormGroup
-                                className={classnames({
-                                  focused: focusedPassword,
-                                })}
-                              >
-                                <InputGroup className="input-group-merge input-group-alternative">
-                                  <InputGroupAddon addonType="prepend">
-                                    <InputGroupText>
-                                      <i className="ni ni-ruler-pencil" />
-                                    </InputGroupText>
-                                  </InputGroupAddon>
-                                  <Input
-                                    placeholder="Vacuna"
-                                    type="text"
-                                    // onFocus={() => setFocusedPassword(true)}
-                                    // onBlur={() => setFocusedPassword(false)}
-                                  />
-                                </InputGroup>
-                              </FormGroup>
-                             
-                              <FormGroup >
-                                <label
-                                  className="form-control-label"
-                                  htmlFor="input-address"
-                                >
-                                  Cargar Imagen
-                                </label>
-                                <Input
-                                  id="input-ph"
-                                  placeholder=""
-                                  type="file"
-                                />
-                              </FormGroup>
+                                <CardBody>
+                                  <div className="pl-lg-4">
+                                    <Row>
+                                      <div class="form-group">
+                                        {/* <label for="inputState" class="col-xs-2 col-form-label">Raza</label> */}
+                                        <label
+                                          className="form-control-label"
+                                          htmlFor="input-email"
+                                        >Nombre</label>
+                                        <div class="col-xs-10">
+                                          <select id="inputState" class="form-control">
+                                            <option selected > Seleccionar</option>
+                                            <option value="value1" >Titan</option>
+                                            <option value="value2" >Kira</option>
+                                            <option value="value3">Ram</option>
+                                          </select>
+                                        </div>
 
-                            
-                              <div className="text-center">
-                                <Button
-                                  className="my-4"
-                                  color="primary"
-                                  type="button"
-                                >
-                                  Guardar
-                                </Button>
-                              </div>
-                              <div className="text-center">
-                                <Button
-                                  className="my-4"
-                                  color="danger"
-                                  type="button"
-                                  onClick={() => setformModal(false)}
-                                >
-                                  Cancelar
-                                </Button>
-                              </div>
-                            </Form>
-                          </CardBody>
-                        </Card>
-                      </div>
-                    </Modal>
-                  </Col>
-                </Row>
-              </CardBody>
-            </Card>
-              <hr className="my-4" />
-              <h6 className="heading-small text-muted mb-4 text-center">
-                    Vacunas
-                  </h6>   
-                  <hr className="my-4" />
-                    <BootstrapTable
-                      ref={componentRef} 
-                      {...props.baseProps}
-                      bootstrap4={true}
-                      // pagination={pagination}
-                      bordered={false}
-                      id="react-bs-table"
-                    />
-                   
-                    </div>
-                  
-                )}
-              </ToolkitProvider>
-            </Card>
-          </div> 
-        </Row>
-                  
+                                      </div>
+                                    </Row>
+                                  </div>
+                                  <Row>
+                                    <Col md="4">
+                                      <Button
+                                        block
+                                        color="default"
+                                        onClick={() => setformModal2(true)}
+                                        style={{ marginBottom: 5 }}
+                                      >
+                                        Agregar Peso
+                                      </Button>
+                                      <Modal
+                                        className="modal-dialog-centered"
+                                        size="sm"
+                                        isOpen={formModal2}
+                                        toggle={() => setformModal2(true)}
+                                      >
+                                        <div className="modal-body p-0">
+                                          <Card className="bg-secondary border-0 mb-0">
+                                            <CardHeader className="bg-transparent pb-1">
+                                              <div className="text text-center mt-2 mb-3">
+                                                <large>Agregar Peso</large>
+                                              </div>
+                                            </CardHeader>
+                                            <CardBody className="px-lg-5 py-lg-5">
+                                              <div className="text-center text-muted mb-4">
+                                                <small>Fecha </small>
+                                              </div>
+                                              <Form role="form">
+                                                <FormGroup
+                                                >
+                                                  <InputGroup className="input-group-merge input-group-alternative">
+                                                    <InputGroupAddon addonType="prepend">
+                                                      <InputGroupText>
+                                                        <i className="ni ni-calendar-grid-58" />
+                                                      </InputGroupText>
+                                                    </InputGroupAddon>
+                                                    <Input
+                                                      placeholder="Fecha"
+                                                      type="date"
 
-    <>
-     
-    </>
- 
+                                                    />
+                                                  </InputGroup>
+                                                </FormGroup>
+                                                <div className="text-center text-muted mb-4">
+                                                  <small>Peso</small>
+                                                </div>
+                                                <FormGroup
+                                                  className={classnames({
+                                                    focused: focusedPassword,
+                                                  })}
+                                                >
+                                                  <InputGroup className="input-group-merge input-group-alternative">
+                                                    <InputGroupAddon addonType="prepend">
+                                                      <InputGroupText>
+                                                        <i className="ni ni-ruler-pencil" />
+                                                      </InputGroupText>
+                                                    </InputGroupAddon>
+                                                    <Input
+                                                      placeholder="Peso"
+                                                      type="text"
+                                                    // onFocus={() => setFocusedPassword(true)}
+                                                    // onBlur={() => setFocusedPassword(false)}
+                                                    />
+                                                  </InputGroup>
+                                                </FormGroup>
+                                                <div className="text-center">
+                                                  <Button
+                                                    className="my-4"
+                                                    color="primary"
+                                                    type="button"
+                                                  >
+                                                    Guardar
+                                                  </Button>
+                                                </div>
+                                                <div className="text-center">
+                                                  <Button
+                                                    className="my-4"
+                                                    color="danger"
+                                                    type="button"
+                                                    onClick={() => setformModal2(false)}
+                                                  >
+                                                    Cancelar
+                                                  </Button>
+                                                </div>
+                                              </Form>
+                                            </CardBody>
+                                          </Card>
+                                        </div>
+                                      </Modal>
+                                    </Col>
+                                  </Row>
+                                  <Row>
+                                    <Col md="4">
+                                      <Button
+                                        block
+                                        color="default"
+                                        onClick={() => setformModal(true)}
+                                      >
+                                        Agregar Vacuna
+                                      </Button>
+                                      <Modal
+                                        className="modal-dialog-centered"
+                                        size="sm"
+                                        isOpen={formModal}
+                                        toggle={() => setformModal(false)}
+                                      >
+                                        <div className="modal-body p-0">
+                                          <Card className="bg-secondary border-0 mb-0">
+                                            <CardHeader className="bg-transparent pb-1">
+                                              <div className="text text-center mt-2 mb-3">
+                                                <large>Agregar Vacuna</large>
+                                              </div>
+                                            </CardHeader>
+                                            <CardBody className="px-lg-5 py-lg-5">
+                                              <div className="text-center text-muted mb-4">
+                                                <small>Fecha Aplicación</small>
+                                              </div>
+                                              <Form role="form">
+                                                <FormGroup
+                                                >
+                                                  <InputGroup className="input-group-merge input-group-alternative">
+                                                    <InputGroupAddon addonType="prepend">
+                                                      <InputGroupText>
+                                                        <i className="ni ni-calendar-grid-58" />
+                                                      </InputGroupText>
+                                                    </InputGroupAddon>
+                                                    <Input
+                                                      placeholder="Fecha Aplicacion"
+                                                      type="date"
+                                                    // onFocus={() => setFocusedEmail(true)}
+                                                    // onBlur={() => setFocusedEmail(false)}
+                                                    />
+                                                  </InputGroup>
+                                                </FormGroup>
+                                                <div className="text-center text-muted mb-4">
+                                                  <small>Fecha Vencimiento</small>
+                                                </div>
+                                                <FormGroup>
+                                                  <InputGroup className="input-group-merge input-group-alternative">
+                                                    <InputGroupAddon addonType="prepend">
+                                                      <InputGroupText>
+                                                        <i className="ni ni-calendar-grid-58" />
+                                                      </InputGroupText>
+                                                    </InputGroupAddon>
+                                                    <Input
+                                                      placeholder="Fecha Vencimiento"
+                                                      type="date"
+                                                    // onFocus={() => setFocusedEmail(true)}
+                                                    // onBlur={() => setFocusedEmail(false)}
+                                                    />
+                                                  </InputGroup>
+                                                </FormGroup>
+                                                <div className="text-center text-muted mb-4">
+                                                  <small>Vacuna</small>
+                                                </div>
+                                                <FormGroup
+                                                  className={classnames({
+                                                    focused: focusedPassword,
+                                                  })}
+                                                >
+                                                  <InputGroup className="input-group-merge input-group-alternative">
+                                                    <InputGroupAddon addonType="prepend">
+                                                      <InputGroupText>
+                                                        <i className="ni ni-ruler-pencil" />
+                                                      </InputGroupText>
+                                                    </InputGroupAddon>
+                                                    <Input
+                                                      placeholder="Vacuna"
+                                                      type="text"
+                                                    // onFocus={() => setFocusedPassword(true)}
+                                                    // onBlur={() => setFocusedPassword(false)}
+                                                    />
+                                                  </InputGroup>
+                                                </FormGroup>
+
+                                                <FormGroup >
+                                                  <label
+                                                    className="form-control-label"
+                                                    htmlFor="input-address"
+                                                  >
+                                                    Cargar Imagen
+                                                  </label>
+                                                  <Input
+                                                    id="input-ph"
+                                                    placeholder=""
+                                                    type="file"
+                                                  />
+                                                </FormGroup>
+
+
+                                                <div className="text-center">
+                                                  <Button
+                                                    className="my-4"
+                                                    color="primary"
+                                                    type="button"
+                                                  >
+                                                    Guardar
+                                                  </Button>
+                                                </div>
+                                                <div className="text-center">
+                                                  <Button
+                                                    className="my-4"
+                                                    color="danger"
+                                                    type="button"
+                                                    onClick={() => setformModal(false)}
+                                                  >
+                                                    Cancelar
+                                                  </Button>
+                                                </div>
+                                              </Form>
+                                            </CardBody>
+                                          </Card>
+                                        </div>
+                                      </Modal>
+                                    </Col>
+                                  </Row>
+                                </CardBody>
+                              </Card>
+                              <hr className="my-4" />
+                              <h6 className="heading-small text-muted mb-4 text-center">
+                                Vacunas
+                              </h6>
+                              <hr className="my-4" />
+                              <BootstrapTable
+                                ref={componentRef}
+                                {...props.baseProps}
+                                bootstrap4={true}
+                                // pagination={pagination}
+                                bordered={false}
+                                id="react-bs-table"
+                              />
+
+                            </div>
+
+                          )}
+                        </ToolkitProvider>
+                      </Card>
+                    </div>
+                  </Row>
+
+
+                  <>
+
+                  </>
+
                   <hr className="my-4" />
                   <div className="d-flex justify-content-between">
-                 
-               
-                  
-                </div>
+
+
+
+                  </div>
                 </Form>
               </CardBody>
             </Card>

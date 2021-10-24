@@ -14,7 +14,7 @@
 * The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
 
 */
-import React from "react";
+import React, {useState} from "react";
 
 // reactstrap components
 import {
@@ -36,8 +36,26 @@ import {
 } from "reactstrap";
 // core components
 import ProfileHeader from "components/Headers/ProfileHeader.js";
+import { useSelector } from 'react-redux';
+import { RepositoryFactory } from "repositories/RepositoryFactory";
+const userRepository = RepositoryFactory.get('user');
 
 function Profile() {
+  const user = useSelector(state => state.auth.user)
+  const [form, setForm] = useState({
+    name: user?.name,
+    lastname: user?.lastname,
+    email: user?.email,
+    phone: user?.phone,
+    address: user?.address,
+    city: user?.city,
+  })
+
+  const updateUser = async () => {
+    console.log(form)
+    await userRepository.updateUser(form, user.id)
+  }
+  
   return (
     <>
       <ProfileHeader />
@@ -76,7 +94,7 @@ function Profile() {
                 </Row>
                 <div className="text-center">
                   <h5 className="h3">
-                    Jessica Jones
+                    {form.name + ' ' + form.lastname }
                     <span className="font-weight-light"></span>
                   </h5>
                  
@@ -113,6 +131,12 @@ function Profile() {
                             id="input-username"
                             placeholder="Username"
                             type="text"
+                            value={form.name}
+                            name="name"
+                            onChange={(e) => setForm({
+                              ...form,
+                              [e.target.name]: e.target.value
+                            })}
                           />
                         </FormGroup>
                       </Col>
@@ -129,6 +153,12 @@ function Profile() {
                             id="input-last-name"
                             placeholder="Last name"
                             type="text"
+                            value={form.lastname}
+                            name="lastname"
+                            onChange={(e) => setForm({
+                              ...form,
+                              [e.target.name]: e.target.value
+                            })}
                           />
                         </FormGroup>
                       </Col>
@@ -144,6 +174,12 @@ function Profile() {
                             id="input-email"
                             placeholder="jesse@example.com"
                             type="email"
+                            value={form.email}
+                            name="email"
+                            onChange={(e) => setForm({
+                              ...form,
+                              [e.target.name]: e.target.value
+                            })}
                           />
                         </FormGroup>
                       </Col>
@@ -156,10 +192,15 @@ function Profile() {
                             Telefono
                           </label>
                           <Input
-                            defaultValue="221:"
                             id="input-phone"
-                            placeholder="Phone"
+                            placeholder="Telefono"
                             type="text"
+                            value={form.phone}
+                            name="phone"
+                            onChange={(e) => setForm({
+                              ...form,
+                              phone: e.target.value
+                            })}
                           />
                         </FormGroup>
                       </Col>
@@ -181,10 +222,16 @@ function Profile() {
                             Direccion
                           </label>
                           <Input
-                            defaultValue="Bld Mihail Kogalniceanu, nr. 8 Bl 1, Sc 1, Ap 09"
+                            defaultValue="Calle 72 856"
                             id="input-address"
                             placeholder="Home Address"
                             type="text"
+                            value={form.address}
+                            name="address"
+                            onChange={(e) => setForm({
+                              ...form,
+                              address: e.target.value
+                            })}
                           />
                         </FormGroup>
                       </Col>
@@ -199,15 +246,28 @@ function Profile() {
                             Ciudad
                           </label>
                           <Input
-                            defaultValue="New York"
+                            defaultValue="La Plata"
                             id="input-city"
                             placeholder="City"
                             type="text"
+                            value={form.city}
+                            name="city"
+                            onChange={(e) => setForm({
+                              ...form,
+                              city: e.target.value
+                            })}
                           />
                         </FormGroup>
                       </Col>
                     </Row>
                   </div>
+                  <Button
+                    color="primary"
+                    type="button"
+                    onClick={() => updateUser()}
+                  >
+                    Guardar
+                  </Button>
                   <hr className="my-4" />
                 </Form>
               </CardBody>

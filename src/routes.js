@@ -124,7 +124,7 @@ const routes = [
 
       {
         path: "/AddMascota",
-        name: "AddMascota",
+        name: "Agregar Mascota",
         miniName: "Agregar Mascota",
         component: AddMascota,
         layout: "/admin",

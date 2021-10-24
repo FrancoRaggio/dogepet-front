@@ -23,8 +23,10 @@ import AdminFooter from "components/Footers/AdminFooter.js";
 import Sidebar from "components/Sidebar/Sidebar.js";
 
 import routes from "routes.js";
+import { useSelector } from 'react-redux';
 
 function Admin() {
+  const user = useSelector(state => state.auth.user)
   const [sidenavOpen, setSidenavOpen] = React.useState(true);
   const location = useLocation();
   const mainContentRef = React.useRef(null);
@@ -35,19 +37,36 @@ function Admin() {
   }, [location]);
   const getRoutes = (routes) => {
     return routes.map((prop, key) => {
-      if (prop.collapse) {
-        return getRoutes(prop.views);
-      }
-      if (prop.layout === "/admin" && prop.path !== 'login') {
-        return (
-          <Route
-            path={prop.layout + prop.path}
-            component={prop.component}
-            key={key}
-          />
-        );
+      if(user.role.id == 1){
+        if (prop.collapse) {
+          return getRoutes(prop.views);
+        }
+        if (prop.layout === "/admin" && prop.path !== 'login' ) {
+          return (
+            <Route
+              path={prop.layout + prop.path}
+              component={prop.component}
+              key={key}
+            />
+          );
+        } else {
+          return null;
+        }
       } else {
-        return null;
+        if (prop.collapse) {
+          return getRoutes(prop.views);
+        }
+        if (prop.layout === "/admin" && prop.path !== 'login') {
+          return (
+            <Route
+              path={prop.layout + prop.path}
+              component={prop.component}
+              key={key}
+            />
+          );
+        } else {
+          return null;
+        }
       }
     });
   };
