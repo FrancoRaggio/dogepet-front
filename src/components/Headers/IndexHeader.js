@@ -1,19 +1,4 @@
-/*!
 
-=========================================================
-* Argon Dashboard PRO React - v1.2.0
-=========================================================
-
-* Product Page: https://www.creative-tim.com/product/argon-dashboard-pro-react
-* Copyright 2021 Creative Tim (https://www.creative-tim.com)
-
-* Coded by Creative Tim
-
-=========================================================
-
-* The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
-
-*/
 import React from "react";
 // react library for routing
 import { Link } from "react-router-dom";
@@ -23,7 +8,7 @@ import { Button, Card, CardBody, Container, Row, Col } from "reactstrap";
 function IndexHeader() {
   return (
     <>
-      <div className="header bg-info pt-5 pb-7">
+      <div className="header bg-info pt-0 pb-7">
         <Container>
           <div className="header-body">
             <Row className="align-items-center">

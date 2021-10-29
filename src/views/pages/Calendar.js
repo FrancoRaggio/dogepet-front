@@ -1,19 +1,4 @@
-/*!
 
-=========================================================
-* Argon Dashboard PRO React - v1.2.0
-=========================================================
-
-* Product Page: https://www.creative-tim.com/product/argon-dashboard-pro-react
-* Copyright 2021 Creative Tim (https://www.creative-tim.com)
-
-* Coded by Creative Tim
-
-=========================================================
-
-* The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
-
-*/
 import React from "react";
 // nodejs library that concatenates classes
 import classnames from "classnames";
@@ -40,13 +25,16 @@ import {
   Breadcrumb,
   BreadcrumbItem,
 } from "reactstrap";
-// core components
+import { useSelector } from 'react-redux';
 
 import { events as eventsVariables } from "variables/general.js";
 
 let calendar;
 
 function CalendarView() {
+
+  const user = useSelector(state => state.auth.user)
+
   const [events, setEvents] = React.useState(eventsVariables);
   const [alert, setAlert] = React.useState(null);
   const [modalAdd, setModalAdd] = React.useState(false);
@@ -75,10 +63,12 @@ function CalendarView() {
       headerToolbar: "",
       // Add new event
       select: (info) => {
-        setModalAdd(true);
-        setStartDate(info.startStr);
-        setEndDate(info.endStr);
-        setRadios("bg-info");
+        if(user?.role?.id == 1){
+          setModalAdd(true);
+          setStartDate(info.startStr);
+          setEndDate(info.endStr);
+          setRadios("bg-info");
+        }
       },
       // Edit calendar event action
       eventClick: ({ event }) => {
@@ -178,7 +168,6 @@ function CalendarView() {
       </ReactBSAlert>
     );
   };
-  console.log(events);
 
   const deleteEvent = () => {
     var newEvents = events.filter((prop) => prop.id + "" !== eventId);
@@ -369,27 +358,19 @@ function CalendarView() {
                         type="button"
                         onClick={() => setRadios("bg-default")}
                       />
-                      <Button
-                        className={classnames("bg-primary", {
-                          active: radios === "bg-primary",
-                        })}
-                        color=""
-                        type="button"
-                        onClick={() => setRadios("bg-primary")}
-                      />
                     </ButtonGroup>
                   </FormGroup>
                 </form>
               </div>
               <div className="modal-footer">
-                <Button
+                {user?.role?.id == 1 ? <Button
                   className="new-event--add"
                   color="primary"
                   type="button"
                   onClick={addNewEvent}
                 >
                   Agregar Turno
-                </Button>
+                </Button> : null}
                 <Button
                   className="ml-auto"
                   color="link"
@@ -409,19 +390,19 @@ function CalendarView() {
                 <Form className="edit-event--form">
                   <FormGroup>
                     <label className="form-control-label">Turno</label>
-                    <Input
+                    {user?.role?.id == 1 ? <Input
                       className="form-control-alternative edit-event--title"
                       placeholder="Nombre del turno"
                       type="text"
                       defaultValue={eventTitle}
                       onChange={(e) => setEventTitle(e.target.value)}
-                    />
+                    /> : <p className="form-control-label">{eventTitle}</p>}
                   </FormGroup>
                   <FormGroup>
                     <label className="form-control-label d-block mb-3">
                       Color
                     </label>
-                    <ButtonGroup
+                    {user?.role?.id == 1 ? <ButtonGroup
                       className="btn-group-toggle btn-group-colors event-tag mb-0"
                       data-toggle="buttons"
                     >
@@ -473,17 +454,24 @@ function CalendarView() {
                         type="button"
                         onClick={() => setRadios("bg-primary")}
                       />
-                    </ButtonGroup>
+                    </ButtonGroup> : <Button
+                        className={classnames("bg-info", {
+                          active: radios === "bg-info",
+                        })}
+                        color=""
+                        type="button"
+                        disabled
+                      />}
                   </FormGroup>
                   <FormGroup>
                     <label className="form-control-label">Descripcion</label>
-                    <Input
+                    {user?.role?.id == 1 ? <Input
                       className="form-control-alternative edit-event--description textarea-autosize"
                       placeholder="Event Desctiption"
                       type="textarea"
                       defaultValue={eventDescription}
                       onChange={(e) => setEventDescription(e.target.value)}
-                    />
+                    /> : <p>{eventDescription}</p>}
                     <i className="form-group--bar" />
                   </FormGroup>
                   <input className="edit-event--id" type="hidden" />
@@ -493,7 +481,7 @@ function CalendarView() {
                 {/* <Button color="primary" onClick={changeEvent}>
                   Update
                 </Button> */}
-                 <Button
+                {user?.role?.id == 1 ? <Button
                   color="primary"
                   onClick={() => {
                     setModalChange(false);
@@ -501,7 +489,7 @@ function CalendarView() {
                   }}
                 >
                   Cambiar turno
-                </Button>
+                </Button> : null}
                 <Button
                   color="danger"
                   onClick={() => {

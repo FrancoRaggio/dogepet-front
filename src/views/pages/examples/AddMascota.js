@@ -1,10 +1,4 @@
-
-
-
-import React from "react";
-// nodejs library that concatenates classes
-import classnames from "classnames";
-// reactstrap components
+import React, { useEffect } from "react";
 import {
   Button,
   Card,
@@ -13,19 +7,16 @@ import {
   FormGroup,
   Form,
   Input,
-  InputGroupAddon,
-  InputGroupText,
-  InputGroup,
   Container,
   Row,
   Col,
 } from "reactstrap";
 import { Search } from "react-bootstrap-table2-toolkit";
-
-
+import { RepositoryFactory } from "repositories/RepositoryFactory";
 import SimpleHeader from "components/Headers/SimpleHeader.js";
+const userRepository = RepositoryFactory.get('user')
 
-function AddMascota() {
+const AddMascota = () => {
   const { SearchBar } = Search;
   const [firstName, setfirstName] = React.useState("");
   const [firstNameState, setfirstNameState] = React.useState(null);
@@ -35,6 +26,15 @@ function AddMascota() {
   const [date, setDate] = React.useState('');
   const [color, setColor] = React.useState('');
   const [gender, setGender] = React.useState(true);
+  const [users, setUsers] = React.useState(true);
+
+  useEffect(() => {
+    getUsers()
+  }, [])
+
+  const getUsers = async () => {
+    setUsers(await userRepository.getUsers())
+  }
 
   const validateCustomStylesForm = () => {
     if (firstName === "") {
