@@ -55,8 +55,6 @@ function Dashboard() {
     setChartExample1Data(chartExample1Data === "data1" ? "data2" : "data1");
   };
 
-
-  console.log('auth', auth)
   
   if (window.Chart) {
     parseOptions(Chart, chartOptions());

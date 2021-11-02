@@ -26,16 +26,19 @@ import {
   BreadcrumbItem,
 } from "reactstrap";
 import { useSelector } from 'react-redux';
+import { RepositoryFactory } from "repositories/RepositoryFactory";
+const turnRepository = RepositoryFactory.get('turn')
 
-import { events as eventsVariables } from "variables/general.js";
+// import { events } from '../../variables/general'
 
+// console.log(events)
 let calendar;
 
 function CalendarView() {
 
   const user = useSelector(state => state.auth.user)
 
-  const [events, setEvents] = React.useState(eventsVariables);
+  const [events, setEvents] = React.useState([]);
   const [alert, setAlert] = React.useState(null);
   const [modalAdd, setModalAdd] = React.useState(false);
   const [modalChange, setModalChange] = React.useState(false);
@@ -44,22 +47,44 @@ function CalendarView() {
   const [radios, setRadios] = React.useState(null);
   const [eventId, setEventId] = React.useState(null);
   const [eventTitle, setEventTitle] = React.useState(null);
+  const [eventClient, setEventClient] = React.useState(null);
+  const [eventPet, setEventPet] = React.useState(null);
   const [eventDescription, setEventDescription] = React.useState(null);
   // eslint-disable-next-line
   const [event, setEvent] = React.useState(null);
   const [currentDate, setCurrentDate] = React.useState(null);
   const calendarRef = React.useRef(null);
-  React.useEffect(() => {
-    createCalendar();
+
+  React.useEffect( () => {
+    getEvents();
     // eslint-disable-next-line
   }, []);
-  const createCalendar = () => {
+
+  const getEvents = async () => {
+    let response
+    if (user?.role?.id == 2) {
+      response = await turnRepository.turnsByUser(user?.role?.id)
+    } else {
+      response = await turnRepository.getTurns()
+    }
+
+    for (const r of response) {
+      let date = r.start.split('-')
+      r.start = new Date(date[0],(date[1]-1),date[2])
+      console.log(r)
+    }
+
+    createCalendar(response);
+    setEvents(response)
+  }
+
+  const createCalendar = (response) => {
     calendar = new Calendar(calendarRef.current, {
       plugins: [interaction, dayGridPlugin],
       initialView: "dayGridMonth",
       selectable: true,
       editable: true,
-      events: events,
+      events: response,
       headerToolbar: "",
       // Add new event
       select: (info) => {
@@ -71,7 +96,7 @@ function CalendarView() {
         }
       },
       // Edit calendar event action
-      eventClick: ({ event }) => {
+      eventClick: ({ event}) => {
         setEventId(event.id);
         setEventTitle(event.title);
         setEventDescription(event.extendedProps.description);
@@ -81,27 +106,40 @@ function CalendarView() {
       },
     });
     calendar.render();
+
     setCurrentDate(calendar.view.title);
   };
+  
   const changeView = (newView) => {
     calendar.changeView(newView);
     setCurrentDate(calendar.view.title);
   };
-  const addNewEvent = () => {
+
+  const addNewEvent = async () => {
+
+    let calendarInfo = {
+      title: eventTitle,
+      client_id: 2,
+      pet_id: 1,
+      className: radios,
+      start: startDate,
+    }
+
+    await turnRepository.createTurn(calendarInfo)
+
+    window.location.reload()
     var newEvents = events;
     newEvents.push({
       title: eventTitle,
       start: startDate,
       end: endDate,
       className: radios,
-      id: events[events.length - 1] + 1,
     });
     calendar.addEvent({
       title: eventTitle,
       start: startDate,
       end: endDate,
       className: radios,
-      id: events[events.length - 1] + 1,
     });
     setModalAdd(false);
     setEvents(newEvents);
@@ -153,9 +191,9 @@ function CalendarView() {
           setEventDescription(undefined);
           setEventId(undefined);
         }}
-        onCancel={() => {
-          console.log('Franco se la come')
-          deleteEvent()
+        onCancel={async () => {
+          await turnRepository.deleteTurn(eventId)
+          window.location.reload()
         }}
         confirmBtnCssClass="btn-secondary"
         cancelBtnBsStyle="danger"
@@ -167,32 +205,6 @@ function CalendarView() {
         ¡No podrás revertir esto!
       </ReactBSAlert>
     );
-  };
-
-  const deleteEvent = () => {
-    var newEvents = events.filter((prop) => prop.id + "" !== eventId);
-    setEvent(undefined);
-    setAlert(
-      <ReactBSAlert
-        success
-        style={{ display: "block", marginTop: "-100px" }}
-        title="Eliminado"
-        onConfirm={() => setAlert(null)}
-        onCancel={() => setAlert(null)}
-        confirmBtnBsStyle="primary"
-        confirmBtnText="Ok"
-        btnSize=""
-      >
-        El turno fue eliminado con exito
-      </ReactBSAlert>
-    );
-    setModalChange(false);
-    setEvents(newEvents);
-    setRadios("bg-info");
-    setEventTitle(undefined);
-    setEventDescription(undefined);
-    setEventId(undefined);
-    setEvent(undefined);
   };
 
   return (
@@ -308,6 +320,24 @@ function CalendarView() {
                       placeholder="Nombre del turno"
                       type="text"
                       onChange={(e) => setEventTitle(e.target.value)}
+                    />
+                  </FormGroup>
+                  <FormGroup>
+                    <label className="form-control-label">Cliente</label>
+                    <Input
+                      className="form-control-alternative new-event--title"
+                      placeholder="Nombre del cliente"
+                      type="text"
+                      onChange={(e) => setEventClient(e.target.value)}
+                    />
+                  </FormGroup>
+                  <FormGroup>
+                    <label className="form-control-label">Mascota</label>
+                    <Input
+                      className="form-control-alternative new-event--title"
+                      placeholder="Nombre de la Mascota"
+                      type="text"
+                      onChange={(e) => setEventPet(e.target.value)}
                     />
                   </FormGroup>
                   <FormGroup className="mb-0">
@@ -492,9 +522,9 @@ function CalendarView() {
                 </Button> : null}
                 <Button
                   color="danger"
-                  onClick={() => {
+                  onClick={(e) => {
                     setModalChange(false);
-                    deleteEventSweetAlert();
+                    deleteEventSweetAlert(e);
                   }}
                 >
                   Cancelar Turno
