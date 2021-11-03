@@ -27,6 +27,9 @@ import {
 } from "reactstrap";
 import { useSelector } from 'react-redux';
 import { RepositoryFactory } from "repositories/RepositoryFactory";
+import Select from 'react-select';
+const userRepository = RepositoryFactory.get('user')
+
 const turnRepository = RepositoryFactory.get('turn')
 
 // import { events } from '../../variables/general'
@@ -54,11 +57,32 @@ function CalendarView() {
   const [event, setEvent] = React.useState(null);
   const [currentDate, setCurrentDate] = React.useState(null);
   const calendarRef = React.useRef(null);
+  const [username, setusername] = React.useState("");
+  const [users, setUsers] = React.useState(true);
+
 
   React.useEffect( () => {
     getEvents();
+    getUsers()
     // eslint-disable-next-line
   }, []);
+
+  // Select de clientes 
+  const getUsers = async () => {
+    let usersAux = await userRepository.getUsers()
+    let aux = []
+    for (const user of usersAux) {
+      aux.push({
+        label: user.name + " " + user.lastname,
+        value: user.id
+      })
+    }
+    setUsers(aux)
+  }
+  function handlerUser(e) {
+    setusername(e.value)
+  }
+
 
   const getEvents = async () => {
     let response
@@ -324,20 +348,38 @@ function CalendarView() {
                   </FormGroup>
                   <FormGroup>
                     <label className="form-control-label">Cliente</label>
-                    <Input
+                    {/* <Input
                       className="form-control-alternative new-event--title"
                       placeholder="Nombre del cliente"
                       type="text"
                       onChange={(e) => setEventClient(e.target.value)}
-                    />
+                    /> */}
+                     <Select
+                        className="basic-single"
+                        classNamePrefix="select"
+                        defaultValue={users[0]}
+                        // isSearchable={isSearchable}
+                        name="color"
+                        options={users}
+                        onChange= {(e) => handlerUser(e)}
+                      />
                   </FormGroup>
                   <FormGroup>
                     <label className="form-control-label">Mascota</label>
-                    <Input
+                    {/* <Input
                       className="form-control-alternative new-event--title"
                       placeholder="Nombre de la Mascota"
                       type="text"
                       onChange={(e) => setEventPet(e.target.value)}
+                    /> */}
+                    <Select
+                        className="basic-single"
+                        classNamePrefix="select"
+                        defaultValue={users[0]}
+                        // isSearchable={isSearchable}
+                        name="color"
+                        options={users}
+                        onChange= {(e) => handlerUser(e)}
                     />
                   </FormGroup>
                   <FormGroup className="mb-0">

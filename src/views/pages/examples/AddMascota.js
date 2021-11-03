@@ -1,4 +1,5 @@
 import React, { useEffect } from "react";
+import Fuse from 'fuse.js'
 import {
   Button,
   Card,
@@ -14,6 +15,7 @@ import {
 import { Search } from "react-bootstrap-table2-toolkit";
 import { RepositoryFactory } from "repositories/RepositoryFactory";
 import SimpleHeader from "components/Headers/SimpleHeader.js";
+import Select from 'react-select';
 const userRepository = RepositoryFactory.get('user')
 
 const AddMascota = () => {
@@ -27,14 +29,48 @@ const AddMascota = () => {
   const [color, setColor] = React.useState('');
   const [gender, setGender] = React.useState(true);
   const [users, setUsers] = React.useState(true);
+  const [client, setClient] = React.useState(null);
+  // Fuse buscador de cliente 
+  // function handleOnSearch(e) {
+
+  //   let wordSearch = e.target.value
+
+  //   if (wordSearch === '') {
+  //     return setClient(null);
+  //   }
+
+  //   const fuse = new Fuse(users, {
+  //     keys: ['name', 'lastname'],
+  //     includeScore: true
+  //   })
+  //   let clientResult = []
+
+  //   const results = fuse.search(wordSearch);
+    
+  //   for (let i = 0; i < results.length; i++) {
+  //     // clientResult = results[0].id
+  //     clientResult.push(results[i].item)
+  //   }
+  //   console.log(clientResult)
+  //   setClient(clientResult);
+  // }
 
   useEffect(() => {
     getUsers()
   }, [])
 
   const getUsers = async () => {
-    setUsers(await userRepository.getUsers())
+    let usersAux = await userRepository.getUsers()
+    let aux = []
+    for (const user of usersAux) {
+      aux.push({
+        label: user.name + " " + user.lastname,
+        value: user.id
+      })
+    }
+    setUsers(aux)
   }
+
 
   const validateCustomStylesForm = () => {
     if (firstName === "") {
@@ -56,12 +92,13 @@ const AddMascota = () => {
       gender: gender,
     }
 
-    console.log(data)
 
 
   };
-
-
+  function handlerUser(e) {
+    setusername(e.value)
+  }
+  console.log(username)
   return (
     <>
       <SimpleHeader name="Form validation" parentName="Forms" />
@@ -110,24 +147,16 @@ const AddMascota = () => {
                         >
                           Dueño
                         </label>
-                        <SearchBar
-                          className="form-control-label"
-                          htmlFor="validationCustomUsername"
-                          placeholder="Buscar"
-                          aria-describedby="inputGroupPrepend"
-                          id="validationCustomUsername"
-                          valid={usernameState === "valid"}
-                          invalid={usernameState === "invalid"}
-                          onChange={(e) => {
-                            setusername(e.target.value);
-                            if (e.target.value === "") {
-                              setusernameState("invalid");
-                            } else {
-                              setusernameState("valid");
-                            }
-                          }}
-                        />
+                        <Select
+                                  className="basic-single"
+                                  classNamePrefix="select"
+                                  defaultValue={users[0]}
 
+                                  // isSearchable={isSearchable}
+                                  name="color"
+                                  options={users}
+                                  onChange= {(e) => handlerUser(e)}
+                                />
                         <div className="invalid-feedback">
                           Carga Un Dueño!
                         </div>
