@@ -147,6 +147,9 @@ const AddMascota = () => {
                         >
                           Dueño
                         </label>
+                        {/* <div className="invalid-feedback">
+                          Carga Un Dueño!
+                        </div> */}
                         <Select
                                   className="basic-single"
                                   classNamePrefix="select"
@@ -157,9 +160,6 @@ const AddMascota = () => {
                                   options={users}
                                   onChange= {(e) => handlerUser(e)}
                                 />
-                        <div className="invalid-feedback">
-                          Carga Un Dueño!
-                        </div>
                       </Col>
                     </div>
                     <div className="form-row">

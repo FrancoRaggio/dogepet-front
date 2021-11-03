@@ -21,9 +21,9 @@ function TimelineHeader({ name, parentName }) {
             <Row className="align-items-center py-4">
               <Col lg="6" xs="7">
                 <h6 className="fullcalendar-title h2 text-white d-inline-block mb-0">
-                  {name}
+                  Formulario de mascota
                 </h6>{" "}
-                <Breadcrumb
+                {/* <Breadcrumb
                   className="d-none d-md-inline-block ml-lg-4"
                   listClassName="breadcrumb-links breadcrumb-dark"
                 >
@@ -40,16 +40,16 @@ function TimelineHeader({ name, parentName }) {
                   <BreadcrumbItem aria-current="page" className="active">
                     {name}
                   </BreadcrumbItem>
-                </Breadcrumb>
+                </Breadcrumb> */}
               </Col>
-              <Col className="mt-3 mt-md-0 text-md-right" lg="6" xs="5">
+              {/* <Col className="mt-3 mt-md-0 text-md-right" lg="6" xs="5">
                 <Button className="btn-neutral" color="default" size="sm">
                   New
                 </Button>
                 <Button className="btn-neutral" color="default" size="sm">
                   Filters
                 </Button>
-              </Col>
+              </Col> */}
             </Row>
           </div>
         </Container>
