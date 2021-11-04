@@ -1,4 +1,3 @@
-
 import React from "react";
 
 // reactstrap components
@@ -39,36 +38,7 @@ import ReactBSAlert from "react-bootstrap-sweetalert";
 import SimpleHeader from "components/Headers/SimpleHeader.js";
 
 import { dataTable } from "variables/general";
-
-// const pagination = paginationFactory({
-//   page: 1,
-//   alwaysShowAllBtns: true,
-//   showTotal: true,
-//   withFirstAndLast: false,
-//   sizePerPageRenderer: ({ options, currSizePerPage, onSizePerPageChange }) => (
-//     <div className="dataTables_length" id="datatable-basic_length">
-//       <label>
-//         Show{" "}
-//         {
-//           <select
-//             name="datatable-basic_length"
-//             aria-controls="datatable-basic"
-//             className="form-control form-control-sm"
-//             onChange={(e) => onSizePerPageChange(e.target.value)}
-//           >
-//             <option value="10">10</option>
-//             <option value="25">25</option>
-//             <option value="50">50</option>
-//             <option value="100">100</option>
-//           </select>
-//         }{" "}
-//         entries.
-//       </label>
-//     </div>
-//   ),
-// });
 const { SearchBar } = Search;
-
 
 function HistoriaClinica() {
   const [alert, setAlert] = React.useState(null);
@@ -130,7 +100,8 @@ function HistoriaClinica() {
                       <img
                         alt="..."
                         class="rounded-circle"
-                        width="500" height="150"
+                        width="500"
+                        height="150"
                         src={require("assets/img/theme/titan.jfif").default}
                       />
                     </a>
@@ -153,7 +124,6 @@ function HistoriaClinica() {
                     Titan Mendez
                     <span className="font-weight-light"> , 3</span>
                   </h5>
-
                 </div>
               </CardBody>
             </Card>
@@ -162,14 +132,16 @@ function HistoriaClinica() {
             <Card>
               <CardHeader>
                 <Row className="align-items-center">
-                  <Col xs="8" >
+                  <Col xs="8">
                     <h3 className="mb-0">Historial Clinico</h3>
                   </Col>
                   <Col className="text-right" xs="4">
                     <Button
                       color="primary"
                       // href="http://localhost:3000/admin/MenuMascota"
-                      onClick={(e) => window.location.href = "/admin/MenuMascota"}
+                      onClick={(e) =>
+                        (window.location.href = "/admin/MenuMascota")
+                      }
                       size="sm"
                     >
                       Volver A Menu Mascota
@@ -185,10 +157,9 @@ function HistoriaClinica() {
                   {alert}
                   {/* <SimpleHeader name="React Tables" parentName="Tables" /> */}
                   {/* <Container > */}
-                  <Row >
+                  <Row>
                     <div className="col ">
-
-                      <Card >
+                      <Card>
                         {/* <CardHeader>
                 <h3 className="mb-0">Vacunas</h3>
                 <p className="text-sm mb-0">
@@ -221,14 +192,15 @@ function HistoriaClinica() {
                               text: "Vencimiento",
                               sort: true,
                             },
-
                           ]}
                           search
                         >
                           {(props) => (
-                            <div className="py-4 px--1 table-responsive overflow-hidden" id='imp'
-                              ref={componentRef} >
-
+                            <div
+                              className="py-4 px--1 table-responsive overflow-hidden"
+                              id="imp"
+                              ref={componentRef}
+                            >
                               {/* <hr className="my-0" /> */}
                               {/* //  */}
                               <div className="pl-lg-4">
@@ -264,7 +236,6 @@ function HistoriaClinica() {
                                       />
                                     </FormGroup>
                                   </Col>
-
                                 </Row>
                               </div>
                               <hr className="my-4" />
@@ -294,7 +265,6 @@ function HistoriaClinica() {
                                       <td>24/6/21</td>
                                       <td>8,500 Kg</td>
                                     </tr>
-
                                   </tbody>
                                 </table>
                               </div>
@@ -302,7 +272,6 @@ function HistoriaClinica() {
                               <h6 className="heading-small text-muted mb-4 text-center">
                                 Vacunas
                               </h6>
-
 
                               <hr className="my-4" />
                               <BootstrapTable
@@ -321,34 +290,35 @@ function HistoriaClinica() {
                                         className="buttons-copy buttons-html5"
                                         color="default"
                                         size="sm"
-                                        style={{margin: 5}}
+                                        style={{ margin: 5 }}
                                         id="copy-tooltip"
                                         onClick={() =>
                                           copyToClipboardAsTable(
-                                            document.getElementById("react-bs-table")
+                                            document.getElementById(
+                                              "react-bs-table"
+                                            )
                                           )
                                         }
                                       >
                                         <span>Copiar</span>
                                       </Button>
                                       <ReactToPrint
-                                       pageStyle='@page { size: auto; margin: 10mm; }
+                                        pageStyle="@page { size: auto; margin: 10mm; }
                                         @media print { body 
                                         {   -webkit-print-color-adjust: exact; padding: 50px !important; } 
                                         #imp { margin: 10px;
                                           border: medium double #FFFF;
                                           border-bottom-width: 1px;     
                                           border-bottom-style: solid;
-                                          } }'
-                                          // background-image: url("https://cdn-icons-png.flaticon.com/512/603/603272.png");
-                                          // background-repeat: no-repeat;
-                                          // opacity:0,6
+                                          } }"
+                                        // background-image: url("https://cdn-icons-png.flaticon.com/512/603/603272.png");
+                                        // background-repeat: no-repeat;
+                                        // opacity:0,6
                                         // background-image: url("D:/Codigo/dogepet-front/src/assets/img/brand/dogepet.png");
-
 
                                         trigger={() => (
                                           <Button
-                                          style={{margin: 5}}
+                                            style={{ margin: 5 }}
                                             color="default"
                                             size="sm"
                                             className="buttons-copy buttons-html5"

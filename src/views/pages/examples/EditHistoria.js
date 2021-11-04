@@ -1,4 +1,3 @@
-
 import React from "react";
 
 // reactstrap components
@@ -44,10 +43,19 @@ import SimpleHeader from "components/Headers/SimpleHeader.js";
 import classnames from "classnames";
 
 import { dataTable } from "variables/general";
+import { RepositoryFactory } from "../../../repositories/RepositoryFactory";
+import Select from "react-select";
+const userRepository = RepositoryFactory.get("user");
+
 const { SearchBar } = Search;
 
-
 function EditHistoria() {
+  React.useEffect(() => {
+    getUsers();
+    // eslint-disable-next-line
+  }, []);
+  const [state, setState] = React.useState({});
+  const [picture, setPicture] = React.useState({});
   const [alert, setAlert] = React.useState(null);
   const [focusedEmail, setFocusedEmail] = React.useState(false);
   const [focusedPassword, setFocusedPassword] = React.useState(false);
@@ -55,7 +63,38 @@ function EditHistoria() {
   const [notificationModal, setnotificationModal] = React.useState(false);
   const [formModal, setformModal] = React.useState(false);
   const [formModal2, setformModal2] = React.useState(false);
-
+  const [username, setusername] = React.useState("");
+  const [users, setUsers] = React.useState(true);
+  // Select de clientes
+  const getUsers = async () => {
+    let usersAux = await userRepository.getUsers();
+    let aux = [];
+    for (const user of usersAux) {
+      aux.push({
+        label: user.name + " " + user.lastname,
+        value: user.id,
+      });
+    }
+    setUsers(aux);
+  };
+  function handlerUser(e) {
+    setusername(e.value);
+  }
+  const uploadPicture = (target) => {
+    setPicture({
+      /* this contains the file we want to send */
+      pictureAsFile: target.files[0],
+    });
+  };
+  const valueToState = (target) => {
+    setState({
+      ...state,
+      [target.name]: target.value,
+    });
+  };
+  const onSubmit = () => {
+    console.log(state, picture);
+  };
   // const [alert, setalert] = React.useState(false);
   const notificationAlertRef = React.useRef(null);
   const componentRef = React.useRef(null);
@@ -101,7 +140,6 @@ function EditHistoria() {
       <ProfileHeader />
       <Container className="mt--6" fluid>
         <Row>
-
           <Col className="order-xl-12" xl="12">
             <Card>
               <CardHeader>
@@ -113,7 +151,9 @@ function EditHistoria() {
                     <Button
                       color="primary"
                       // href="http://localhost:3000/admin/MenuMascota"
-                      onClick={(e) => window.location.href = "/admin/HistoriaClinicaVete"}
+                      onClick={(e) =>
+                        (window.location.href = "/admin/HistoriaClinicaVete")
+                      }
                       size="sm"
                     >
                       Volver A Menu Clientes
@@ -122,15 +162,13 @@ function EditHistoria() {
                 </Row>
               </CardHeader>
               <CardBody>
-                <Form >
-
+                <Form>
                   {alert}
                   {/* <SimpleHeader name="React Tables" parentName="Tables" /> */}
                   {/* <Container > */}
                   <Row>
                     <div className="col">
-
-                      <Card >
+                      <Card>
                         {/* <CardHeader>
                 <h3 className="mb-0">Vacunas</h3>
                 <p className="text-sm mb-0">
@@ -163,13 +201,11 @@ function EditHistoria() {
                               text: "Vencimiento",
                               sort: true,
                             },
-
                           ]}
                           search
                         >
                           {(props) => (
-                            <div className=" table-responsive" >
-
+                            <div className=" table-responsive">
                               {/* <hr className="my-0" /> */}
                               {/* //  */}
 
@@ -185,16 +221,26 @@ function EditHistoria() {
                                         <label
                                           className="form-control-label"
                                           htmlFor="input-email"
-                                        >Nombre</label>
+                                        >
+                                          Nombre
+                                        </label>
                                         <div class="col-xs-10">
-                                          <select id="inputState" class="form-control">
+                                          <Select
+                                            className="basic-single"
+                                            classNamePrefix="select"
+                                            defaultValue={users[0]}
+                                            // isSearchable={isSearchable}
+                                            name="name"
+                                            options={users}
+                                            onChange={(e) => handlerUser(e)}
+                                          />
+                                          {/* <select id="inputState" class="form-control">
                                             <option selected > Seleccionar</option>
                                             <option value="value1" >Titan</option>
                                             <option value="value2" >Kira</option>
                                             <option value="value3">Ram</option>
-                                          </select>
+                                          </select> */}
                                         </div>
-
                                       </div>
                                     </Row>
                                   </div>
@@ -226,8 +272,7 @@ function EditHistoria() {
                                                 <small>Fecha </small>
                                               </div>
                                               <Form role="form">
-                                                <FormGroup
-                                                >
+                                                <FormGroup>
                                                   <InputGroup className="input-group-merge input-group-alternative">
                                                     <InputGroupAddon addonType="prepend">
                                                       <InputGroupText>
@@ -235,9 +280,15 @@ function EditHistoria() {
                                                       </InputGroupText>
                                                     </InputGroupAddon>
                                                     <Input
+                                                      name="date"
+                                                      id="input-date"
                                                       placeholder="Fecha"
                                                       type="date"
-
+                                                      onChange={(event) =>
+                                                        valueToState(
+                                                          event.target
+                                                        )
+                                                      }
                                                     />
                                                   </InputGroup>
                                                 </FormGroup>
@@ -256,10 +307,15 @@ function EditHistoria() {
                                                       </InputGroupText>
                                                     </InputGroupAddon>
                                                     <Input
+                                                      name="name"
+                                                      id="input-name"
                                                       placeholder="Peso"
                                                       type="text"
-                                                    // onFocus={() => setFocusedPassword(true)}
-                                                    // onBlur={() => setFocusedPassword(false)}
+                                                      onChange={(event) =>
+                                                        valueToState(
+                                                          event.target
+                                                        )
+                                                      }
                                                     />
                                                   </InputGroup>
                                                 </FormGroup>
@@ -268,6 +324,7 @@ function EditHistoria() {
                                                     className="my-4"
                                                     color="primary"
                                                     type="button"
+                                                    onClick={onSubmit()}
                                                   >
                                                     Guardar
                                                   </Button>
@@ -277,7 +334,9 @@ function EditHistoria() {
                                                     className="my-4"
                                                     color="danger"
                                                     type="button"
-                                                    onClick={() => setformModal2(false)}
+                                                    onClick={() =>
+                                                      setformModal2(false)
+                                                    }
                                                   >
                                                     Cancelar
                                                   </Button>
@@ -316,8 +375,7 @@ function EditHistoria() {
                                                 <small>Fecha Aplicación</small>
                                               </div>
                                               <Form role="form">
-                                                <FormGroup
-                                                >
+                                                <FormGroup>
                                                   <InputGroup className="input-group-merge input-group-alternative">
                                                     <InputGroupAddon addonType="prepend">
                                                       <InputGroupText>
@@ -325,15 +383,22 @@ function EditHistoria() {
                                                       </InputGroupText>
                                                     </InputGroupAddon>
                                                     <Input
+                                                      name="dateApplication"
+                                                      id="input-dateApplication"
                                                       placeholder="Fecha Aplicacion"
                                                       type="date"
-                                                    // onFocus={() => setFocusedEmail(true)}
-                                                    // onBlur={() => setFocusedEmail(false)}
+                                                      onChange={(event) =>
+                                                        valueToState(
+                                                          event.target
+                                                        )
+                                                      }
                                                     />
                                                   </InputGroup>
                                                 </FormGroup>
                                                 <div className="text-center text-muted mb-4">
-                                                  <small>Fecha Vencimiento</small>
+                                                  <small>
+                                                    Fecha Vencimiento
+                                                  </small>
                                                 </div>
                                                 <FormGroup>
                                                   <InputGroup className="input-group-merge input-group-alternative">
@@ -343,10 +408,15 @@ function EditHistoria() {
                                                       </InputGroupText>
                                                     </InputGroupAddon>
                                                     <Input
+                                                      name="dateVto"
+                                                      id="input-dateVto"
                                                       placeholder="Fecha Vencimiento"
                                                       type="date"
-                                                    // onFocus={() => setFocusedEmail(true)}
-                                                    // onBlur={() => setFocusedEmail(false)}
+                                                      onChange={(event) =>
+                                                        valueToState(
+                                                          event.target
+                                                        )
+                                                      }
                                                     />
                                                   </InputGroup>
                                                 </FormGroup>
@@ -365,15 +435,20 @@ function EditHistoria() {
                                                       </InputGroupText>
                                                     </InputGroupAddon>
                                                     <Input
+                                                      name="vacuna"
+                                                      id="input-vacuna"
                                                       placeholder="Vacuna"
                                                       type="text"
-                                                    // onFocus={() => setFocusedPassword(true)}
-                                                    // onBlur={() => setFocusedPassword(false)}
+                                                      onChange={(event) =>
+                                                        valueToState(
+                                                          event.target
+                                                        )
+                                                      }
                                                     />
                                                   </InputGroup>
                                                 </FormGroup>
 
-                                                <FormGroup >
+                                                <FormGroup>
                                                   <label
                                                     className="form-control-label"
                                                     htmlFor="input-address"
@@ -384,15 +459,20 @@ function EditHistoria() {
                                                     id="input-ph"
                                                     placeholder=""
                                                     type="file"
+                                                    onChange={(event) =>
+                                                      uploadPicture(
+                                                        event.target
+                                                      )
+                                                    }
                                                   />
                                                 </FormGroup>
-
 
                                                 <div className="text-center">
                                                   <Button
                                                     className="my-4"
                                                     color="primary"
                                                     type="button"
+                                                    onClick={onSubmit()}
                                                   >
                                                     Guardar
                                                   </Button>
@@ -402,7 +482,9 @@ function EditHistoria() {
                                                     className="my-4"
                                                     color="danger"
                                                     type="button"
-                                                    onClick={() => setformModal(false)}
+                                                    onClick={() =>
+                                                      setformModal(false)
+                                                    }
                                                   >
                                                     Cancelar
                                                   </Button>
@@ -429,26 +511,17 @@ function EditHistoria() {
                                 bordered={false}
                                 id="react-bs-table"
                               />
-
                             </div>
-
                           )}
                         </ToolkitProvider>
                       </Card>
                     </div>
                   </Row>
 
-
-                  <>
-
-                  </>
+                  <></>
 
                   <hr className="my-4" />
-                  <div className="d-flex justify-content-between">
-
-
-
-                  </div>
+                  <div className="d-flex justify-content-between"></div>
                 </Form>
               </CardBody>
             </Card>
