@@ -17,6 +17,7 @@ import { RepositoryFactory } from "repositories/RepositoryFactory";
 import SimpleHeader from "components/Headers/SimpleHeader.js";
 import Select from 'react-select';
 const userRepository = RepositoryFactory.get('user')
+const petRepository = RepositoryFactory.get('pet')
 
 const AddMascota = () => {
   const { SearchBar } = Search;
@@ -72,7 +73,7 @@ const AddMascota = () => {
   }
 
 
-  const validateCustomStylesForm = () => {
+  const validateCustomStylesForm = async () => {
     if (firstName === "") {
       setfirstNameState("invalid");
     } else {
@@ -91,14 +92,15 @@ const AddMascota = () => {
       date: date,
       gender: gender,
     }
+    await petRepository.createPet(data)
 
-
-
+    //window.location.reload()
   };
+
   function handlerUser(e) {
     setusername(e.value)
   }
-  console.log(username)
+
   return (
     <>
       <SimpleHeader name="Form validation" parentName="Forms" />

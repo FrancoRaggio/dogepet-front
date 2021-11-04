@@ -31,6 +31,7 @@ import Select from 'react-select';
 const userRepository = RepositoryFactory.get('user')
 
 const turnRepository = RepositoryFactory.get('turn')
+const petRepository = RepositoryFactory.get('pet')
 
 // import { events } from '../../variables/general'
 
@@ -58,7 +59,8 @@ function CalendarView() {
   const [currentDate, setCurrentDate] = React.useState(null);
   const calendarRef = React.useRef(null);
   const [username, setusername] = React.useState("");
-  const [users, setUsers] = React.useState(true);
+  const [users, setUsers] = React.useState([]);
+  const [pets, setPets] = React.useState([]);
 
 
   React.useEffect( () => {
@@ -70,17 +72,29 @@ function CalendarView() {
   // Select de clientes 
   const getUsers = async () => {
     let usersAux = await userRepository.getUsers()
+    let petsAux = await petRepository.getPets()
     let aux = []
+    let aux2 = []
     for (const user of usersAux) {
       aux.push({
         label: user.name + " " + user.lastname,
         value: user.id
       })
     }
+    for (const pet of petsAux) {
+      aux2.push({
+        label: pet.name,
+        value: user.id
+      })
+    }
     setUsers(aux)
+    setPets(aux2)
   }
   function handlerUser(e) {
     setusername(e.value)
+  }
+  function handlerPet(e) {
+    setEventPet(e.value)
   }
 
 
@@ -143,8 +157,8 @@ function CalendarView() {
 
     let calendarInfo = {
       title: eventTitle,
-      client_id: 2,
-      pet_id: 1,
+      client_id: username,
+      pet_id: eventPet,
       className: radios,
       start: startDate,
     }
@@ -375,11 +389,11 @@ function CalendarView() {
                     <Select
                         className="basic-single"
                         classNamePrefix="select"
-                        defaultValue={users[0]}
+                        defaultValue={pets[0]}
                         // isSearchable={isSearchable}
                         name="color"
-                        options={users}
-                        onChange= {(e) => handlerUser(e)}
+                        options={pets}
+                        onChange= {(e) => handlerPet(e)}
                     />
                   </FormGroup>
                   <FormGroup className="mb-0">
