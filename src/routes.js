@@ -60,13 +60,13 @@ const routes = [
       //   component: Alternative,
       //   layout: "/admin",
       // },
-      {
-        path: "/profile",
-        name: "Perfil",
-        miniName: "P",
-        component: Profile,
-        layout: "/admin",
-      },
+      // {
+      //   path: "/profile/:id",
+      //   name: "Perfil",
+      //   miniName: "P",
+      //   component: Profile,
+      //   layout: "/admin",
+      // },
       {
         path: "/MenuMascota",
         name: "Mascotas ",

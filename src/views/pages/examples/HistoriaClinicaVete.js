@@ -95,7 +95,7 @@ function HistoriaClinica() {
                   <td className="table-actions">
                     <a
                       className="table-action"
-                      href="/admin/BmCliente"
+                      href={"/admin/BmCliente/"+user.id}
                       id="tooltip123539273"
                     >
                       <i className="fas fa-user-edit" />

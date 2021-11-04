@@ -6,6 +6,7 @@ import { useLocation, Route, Switch, Redirect } from "react-router-dom";
 import AdminNavbar from "components/Navbars/AdminNavbar.js";
 import AdminFooter from "components/Footers/AdminFooter.js";
 import Sidebar from "components/Sidebar/Sidebar.js";
+import Profile from "views/pages/examples/Profile.js";
 
 import routes from "routes.js";
 import { useSelector } from 'react-redux';
@@ -101,7 +102,8 @@ function Admin() {
         />
         <Switch>
           {getRoutes(routes)}
-          <Redirect from="*" to="/admin/dashboard" />
+          <Route path="/admin/profile/:id" exact component={Profile} />
+          {/* <Redirect from="*" to="/admin/dashboard" /> */}
         </Switch>
         <AdminFooter />
       </div>

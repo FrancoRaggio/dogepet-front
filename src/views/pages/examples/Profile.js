@@ -1,6 +1,5 @@
 
-import React, {useState} from "react";
-
+import React, {useState, useEffect} from "react";
 // reactstrap components
 import {
   Button,
@@ -27,17 +26,35 @@ const userRepository = RepositoryFactory.get('user');
 
 function Profile() {
   const user = useSelector(state => state.auth.user)
+
+  useEffect(() => {
+    getUser()
+  }, [])
+
   const [form, setForm] = useState({
-    name: user?.name,
-    lastname: user?.lastname,
-    email: user?.email,
-    phone: user?.phone,
-    address: user?.address,
-    city: user?.city,
+    name: '',
+    lastname: '',
+    email: '',
+    phone: '',
+    address: '',
+    city: '',
   })
 
+  const getUser = async () => {
+    let path = window.location.pathname.split("/");
+    let user = await userRepository.getUser(path[path.length - 1])
+    
+    setForm({
+      name: user.name,
+      lastname: user.lastname,
+      email: user.email,
+      phone: user.phone,
+      address: user.address,
+      city: user.city,
+    })
+  }
+
   const updateUser = async () => {
-    console.log(form)
     await userRepository.updateUser(form, user.id)
   }
   

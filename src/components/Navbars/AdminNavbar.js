@@ -29,8 +29,11 @@ import {
   Row,
   Col,
 } from "reactstrap";
+import UserRepository from "repositories/UserRepository";
+import { useSelector } from 'react-redux';
 
 function AdminNavbar({ theme, sidenavOpen, toggleSidenav }) {
+  const user = useSelector(state => state.auth.user)
   // function that on mobile devices makes the search open
   const openSearch = () => {
     document.body.classList.add("g-navbar-search-showing");
@@ -368,7 +371,7 @@ function AdminNavbar({ theme, sidenavOpen, toggleSidenav }) {
                     <h6 className="text-overflow m-0">Bienvenido</h6>
                   </DropdownItem>
                   <DropdownItem
-                    onClick={(e) => window.location.href = "/admin/profile"}
+                    onClick={(e) => window.location.href = "/admin/profile/"+user?.id}
                   >
                     <i className="ni ni-single-02" />
                       <span>Mi Perfil</span>

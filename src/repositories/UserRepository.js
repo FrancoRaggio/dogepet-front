@@ -2,6 +2,12 @@ import Repository from './Repository';
 const resource = '/users';
 
 export default {
+  async getUser(id) {
+    let response = await Repository.get(`${resource}/`+id);
+
+    return response;
+  },
+
   async getUsers() {
     let response = await Repository.get(`${resource}`);
 

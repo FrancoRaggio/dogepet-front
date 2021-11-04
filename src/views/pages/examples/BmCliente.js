@@ -44,7 +44,7 @@ import { dataTable } from "variables/general";
 
 
 function BmCliente() {
-  
+  let path = window.location.pathname.split("/");
   return (
     <>
       <ProfileHeader />
@@ -132,7 +132,7 @@ function BmCliente() {
                     <Button
                       block
                       color="default"
-                      onClick={(e) => window.location.href = "/admin/Profile"}
+                      onClick={(e) => window.location.href = "/admin/profile/"+path[path.length - 1]}
                       style={{marginBottom: 5}}
                     >
                       Editar Cliente 
