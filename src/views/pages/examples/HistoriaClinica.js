@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState, useEffect} from "react";
 
 // reactstrap components
 import {
@@ -37,11 +37,32 @@ import ReactBSAlert from "react-bootstrap-sweetalert";
 
 import SimpleHeader from "components/Headers/SimpleHeader.js";
 
+import { RepositoryFactory } from "../../../repositories/RepositoryFactory";
 import { dataTable } from "variables/general";
+const petRepository = RepositoryFactory.get("pet");
+
 const { SearchBar } = Search;
 
 function HistoriaClinica() {
   const [alert, setAlert] = React.useState(null);
+  const [vaccines, setVaccines] = React.useState([]);
+  const [sizes, setSizes] = React.useState([]);
+
+
+  useEffect(() => {
+    getVaccines()
+    getSizes()
+  }, [])
+
+  const getVaccines = async () => {
+    let vaccinesAux = await petRepository.getVaccines()
+    setVaccines(vaccinesAux);
+  };
+
+  const getSizes = async () => {
+    let vaccinesAux = await petRepository.getFeatures(1)
+    setSizes(vaccinesAux);
+  };
 
   const componentRef = React.useRef(null);
   const copyToClipboardAsTable = (el) => {
@@ -81,6 +102,7 @@ function HistoriaClinica() {
     );
   };
 
+  console.log(vaccines)
   return (
     <>
       <ProfileHeader />
@@ -168,27 +190,21 @@ function HistoriaClinica() {
               </CardHeader> */}
 
                         <ToolkitProvider
-                          data={dataTable}
+                          data={vaccines}
                           keyField="name"
                           columns={[
                             {
-                              dataField: "label",
-                              text: "Imagen",
-                              sort: true,
-                            },
-
-                            {
-                              dataField: "office",
+                              dataField: "vaccine_type.name",
                               text: "Vacuna",
                               sort: true,
                             },
                             {
-                              dataField: "start_date",
+                              dataField: "date",
                               text: "Fecha",
                               sort: true,
                             },
                             {
-                              dataField: "end_date",
+                              dataField: "next_date",
                               text: "Vencimiento",
                               sort: true,
                             },
@@ -211,29 +227,14 @@ function HistoriaClinica() {
                                         className="form-control-label"
                                         htmlFor="input-username"
                                       >
-                                        Nombre
-                                      </label>
-                                      <Input
-                                        defaultValue="Titan"
+                                        Nombre: <span
                                         id="input-username"
-                                        placeholder="Username"
                                         type="text"
-                                      />
-                                    </FormGroup>
-                                  </Col>
-                                  <Col lg="2">
-                                    <FormGroup>
-                                      <label
-                                        className="form-control-label"
-                                        htmlFor="input-email"
                                       >
-                                        Edad
+                                      Titan
+                                      </span>
                                       </label>
-                                      <Input
-                                        id="input"
-                                        placeholder="3"
-                                        type="number"
-                                      />
+                                      
                                     </FormGroup>
                                   </Col>
                                 </Row>
@@ -253,18 +254,12 @@ function HistoriaClinica() {
                                     </tr>
                                   </thead>
                                   <tbody>
-                                    <tr>
-                                      <td>24/6/19</td>
-                                      <td>1,170 Kg</td>
-                                    </tr>
-                                    <tr>
-                                      <td>24/3/21</td>
-                                      <td>5,170 Kg</td>
-                                    </tr>
-                                    <tr>
-                                      <td>24/6/21</td>
-                                      <td>8,500 Kg</td>
-                                    </tr>
+                                    {sizes.map((size)  => (
+                                      <tr>
+                                        <td>{size.date}</td>
+                                        <td>{size.size} Kg</td>
+                                      </tr>
+                                    ))}
                                   </tbody>
                                 </table>
                               </div>

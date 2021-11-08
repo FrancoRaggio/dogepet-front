@@ -26,6 +26,30 @@ export default {
     return response;
   },
 
+  async addSize(data) {
+    let response = await Repository.post(`${resource}/size`, data);
+
+    return response;
+  },
+
+  async addVaccine(data) {
+    let response = await Repository.post(`${resource}/vaccine`, data);
+
+    return response;
+  },
+
+  async getVaccines() {
+    let response = await Repository.get(`/vaccines`);
+
+    return response;
+  },
+
+  async getFeatures(id) {
+    let response = await Repository.get(`${resource}/features/${id}`);
+
+    return response;
+  },
+
   async deleteTurn(id) {
     let response = await Repository.delete(`${resource}/${id}`);
 

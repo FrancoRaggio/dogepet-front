@@ -17,8 +17,11 @@ import {
   NavLink,
   Nav,
 } from "reactstrap";
+import { useSelector } from 'react-redux';
 
 function Sidebar({ toggleSidenav, sidenavOpen, routes, logo, rtlActive }) {
+  const user = useSelector(state => state.auth.user)
+
   const [state, setState] = React.useState({});
   const location = useLocation();
   React.useEffect(() => {
@@ -80,6 +83,13 @@ function Sidebar({ toggleSidenav, sidenavOpen, routes, logo, rtlActive }) {
   // this function creates the links and collapses that appear in the sidebar (left menu)
   const createLinks = (routes) => {
     return routes.map((prop, key) => {
+
+      if(prop.path == "/HistoriaClinicaVete"){
+        console.log(user)
+        if(user?.role?.id != 1 ){
+          return null
+        }
+      }
       if(prop.path == "/login" || prop.path == "/register" || prop.path == "/profileM" || prop.path == "/HistoriaClinica"|| prop.path == "/EditHistoria" 
       || prop.path == "/BmCliente" ){
         return null

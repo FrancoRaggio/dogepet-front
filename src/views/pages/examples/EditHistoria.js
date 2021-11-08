@@ -42,10 +42,9 @@ import ReactBSAlert from "react-bootstrap-sweetalert";
 import SimpleHeader from "components/Headers/SimpleHeader.js";
 import classnames from "classnames";
 
-import { dataTable } from "variables/general";
 import { RepositoryFactory } from "../../../repositories/RepositoryFactory";
 import Select from "react-select";
-const userRepository = RepositoryFactory.get("user");
+const petRepository = RepositoryFactory.get("pet");
 
 const { SearchBar } = Search;
 
@@ -64,14 +63,17 @@ function EditHistoria() {
   const [formModal, setformModal] = React.useState(false);
   const [formModal2, setformModal2] = React.useState(false);
   const [username, setusername] = React.useState("");
-  const [users, setUsers] = React.useState(true);
+  const [users, setUsers] = React.useState([]);
+  const [vaccines, setVaccines] = React.useState([]);
   // Select de clientes
   const getUsers = async () => {
-    let usersAux = await userRepository.getUsers();
+    let petsAux = await petRepository.getPets()
+    let vaccinesAux = await petRepository.getVaccines()
     let aux = [];
-    for (const user of usersAux) {
+    setVaccines(vaccinesAux);
+    for (const user of petsAux) {
       aux.push({
-        label: user.name + " " + user.lastname,
+        label: user.name,
         value: user.id,
       });
     }
@@ -81,10 +83,7 @@ function EditHistoria() {
     setusername(e.value);
   }
   const uploadPicture = (target) => {
-    setPicture({
-      /* this contains the file we want to send */
-      pictureAsFile: target.files[0],
-    });
+    setPicture(target.files[0]);
   };
   const valueToState = (target) => {
     setState({
@@ -92,9 +91,29 @@ function EditHistoria() {
       [target.name]: target.value,
     });
   };
-  const onSubmit = () => {
-    console.log(state, picture);
+
+  const onSubmit = async (type) => {
+    if(type == 'size'){
+      let data = {
+        pet_id: username,
+        date: state.date,
+        size: state.size
+      }
+
+      await petRepository.addSize(data)
+    } else {
+
+      let data = {
+        date_application: state.dateApplication,
+        date_vto: state.dateVto,
+        vaccine_id: state.vacuna,
+        pet_id: username,
+      }
+      await petRepository.addVaccine(data)
+    }
+    window.location.reload()
   };
+
   // const [alert, setalert] = React.useState(false);
   const notificationAlertRef = React.useRef(null);
   const componentRef = React.useRef(null);
@@ -164,40 +183,25 @@ function EditHistoria() {
               <CardBody>
                 <Form>
                   {alert}
-                  {/* <SimpleHeader name="React Tables" parentName="Tables" /> */}
-                  {/* <Container > */}
                   <Row>
                     <div className="col">
                       <Card>
-                        {/* <CardHeader>
-                <h3 className="mb-0">Vacunas</h3>
-                <p className="text-sm mb-0">
-                  
-                </p>
-              </CardHeader> */}
-
                         <ToolkitProvider
-                          data={dataTable}
+                          data={vaccines}
                           keyField="name"
                           columns={[
                             {
-                              dataField: "label",
-                              text: "Imagen",
-                              sort: true,
-                            },
-
-                            {
-                              dataField: "office",
+                              dataField: "vaccine_type.name",
                               text: "Vacuna",
                               sort: true,
                             },
                             {
-                              dataField: "start_date",
+                              dataField: "date",
                               text: "Fecha",
                               sort: true,
                             },
                             {
-                              dataField: "end_date",
+                              dataField: "next_date",
                               text: "Vencimiento",
                               sort: true,
                             },
@@ -307,7 +311,7 @@ function EditHistoria() {
                                                       </InputGroupText>
                                                     </InputGroupAddon>
                                                     <Input
-                                                      name="name"
+                                                      name="size"
                                                       id="input-name"
                                                       placeholder="Peso"
                                                       type="text"
@@ -324,7 +328,7 @@ function EditHistoria() {
                                                     className="my-4"
                                                     color="primary"
                                                     type="button"
-                                                    onClick={onSubmit()}
+                                                    onClick={() => onSubmit('size')}
                                                   >
                                                     Guardar
                                                   </Button>
@@ -472,7 +476,7 @@ function EditHistoria() {
                                                     className="my-4"
                                                     color="primary"
                                                     type="button"
-                                                    onClick={onSubmit()}
+                                                    onClick={() => onSubmit('vaccine')}
                                                   >
                                                     Guardar
                                                   </Button>

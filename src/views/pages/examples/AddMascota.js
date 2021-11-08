@@ -90,11 +90,12 @@ const AddMascota = () => {
       user_id: username,
       race_id: race,
       date: date,
+      color: color,
       gender: gender,
     }
     await petRepository.createPet(data)
 
-    //window.location.reload()
+    window.location.reload()
   };
 
   function handlerUser(e) {
