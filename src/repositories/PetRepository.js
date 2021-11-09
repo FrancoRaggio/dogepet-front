@@ -2,6 +2,12 @@ import Repository from './Repository';
 const resource = '/pets';
 
 export default {
+  async getPet(id) {
+    let response = await Repository.get(`${resource}/${id}`);
+
+    return response;
+  },
+
   async getPets() {
     let response = await Repository.get(`${resource}`);
 

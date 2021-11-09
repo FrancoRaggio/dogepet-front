@@ -125,142 +125,147 @@ function AdminNavbar({ theme, sidenavOpen, toggleSidenav }) {
               </NavItem>
               <NavItem className="d-sm-none">
                 <NavLink onClick={openSearch}>
-                  <i className="ni ni-zoom-split-in" />
+                  <a href="#" style={{ color: 'white' }}>
+                    <i className="ni ni-zoom-split-in" />
+                  </a>
                 </NavLink>
               </NavItem>
               <UncontrolledDropdown nav>
                 <DropdownToggle className="nav-link" color="" tag="a">
-                  <i className="ni ni-send" />
+                  <a href="#" style={{ color: 'white' }}>
+                    <i className="ni ni-send" />
+                  </a>
                 </DropdownToggle>
                 <DropdownMenu
                   className="dropdown-menu-xl py-0 overflow-hidden"
                   right
-                >  
+                >
                   <ListGroup flush>
-                    <ListGroupItem
-                      className="list-group-item-action"
-                      href="#pablo"
-                      onClick={(e) => e.preventDefault()}
-                      tag="a"
-                    >
-                      <Row className="align-items-center">
-                        <Col className="col-auto">
-                          <img
-                            alt="..."
-                            className="avatar rounded-circle"
-                            src={require("assets/img/theme/team-4.jpg").default}
-                          />
-                        </Col>
-                        <div className="col ml--2">
-                          <div className="d-flex justify-content-between align-items-center">
-                            <div>
-                              <h4 className="mb-0 text-sm">Franco Raggio</h4>
+                    <a href="#" style={{ color: 'white' }}>
+                      <ListGroupItem
+                        className="list-group-item-action"
+                        href="#"
+                        onClick={(e) => e.preventDefault()}
+                        tag="a"
+                      >
+                        <Row className="align-items-center">
+                          <Col className="col-auto">
+                            <img
+                              alt="..."
+                              className="avatar rounded-circle"
+                              src={require("assets/img/theme/team-4.jpg").default}
+                            />
+                          </Col>
+                          <div className="col ml--2">
+                            <div className="d-flex justify-content-between align-items-center">
+                              <div>
+                                <h4 className="mb-0 text-sm">Franco Raggio</h4>
+                              </div>
+                              <div className="text-right text-muted">
+                                <small>2 hs</small>
+                              </div>
                             </div>
-                            <div className="text-right text-muted">
-                              <small>2 hs</small>
-                            </div>
+                            <p className="text-sm mb-0">
+                              Necesitaria un turno para la semana que viene
+                            </p>
                           </div>
-                          <p className="text-sm mb-0">
-                            Necesitaria un turno para la semana que viene
-                          </p>
-                        </div>
-                      </Row>
-                    </ListGroupItem>
-                    <ListGroupItem
-                      className="list-group-item-action"
-                      href="#pablo"
-                      onClick={(e) => e.preventDefault()}
-                      tag="a"
-                    >
-                      <Row className="align-items-center">
-                        <Col className="col-auto">
-                          <img
-                            alt="..."
-                            className="avatar rounded-circle"
-                            src={require("assets/img/theme/team-2.jpg").default}
-                          />
-                        </Col>
-                        <div className="col ml--2">
-                          <div className="d-flex justify-content-between align-items-center">
-                            <div>
-                              <h4 className="mb-0 text-sm">Ever Pippino</h4>
+                        </Row>
+                      </ListGroupItem>
+                      <ListGroupItem
+                        className="list-group-item-action"
+                        href="#pablo"
+                        onClick={(e) => e.preventDefault()}
+                        tag="a"
+                      >
+                        <Row className="align-items-center">
+                          <Col className="col-auto">
+                            <img
+                              alt="..."
+                              className="avatar rounded-circle"
+                              src={require("assets/img/theme/team-2.jpg").default}
+                            />
+                          </Col>
+                          <div className="col ml--2">
+                            <div className="d-flex justify-content-between align-items-center">
+                              <div>
+                                <h4 className="mb-0 text-sm">Ever Pippino</h4>
+                              </div>
+                              <div className="text-right text-muted">
+                                <small>22 hs</small>
+                              </div>
                             </div>
-                            <div className="text-right text-muted">
-                              <small>22 hs</small>
-                            </div>
+                            <p className="text-sm mb-0">
+                              La medicacion le hizo bien a mi mascota
+                            </p>
                           </div>
-                          <p className="text-sm mb-0">
-                            La medicacion le hizo bien a mi mascota
-                          </p>
-                        </div>
-                      </Row>
-                    </ListGroupItem>
-                    <ListGroupItem
-                      className="list-group-item-action"
-                      href="#pablo"
-                      onClick={(e) => e.preventDefault()}
-                      tag="a"
-                    >
-                      <Row className="align-items-center">
-                        <Col className="col-auto">
-                          <img
-                            alt="..."
-                            className="avatar rounded-circle"
-                            src={require("assets/img/theme/team-3.jpg").default}
-                          />
-                        </Col>
-                        <div className="col ml--2">
-                          <div className="d-flex justify-content-between align-items-center">
-                            <div>
-                              <h4 className="mb-0 text-sm">Carolina Mendez</h4>
+                        </Row>
+                      </ListGroupItem>
+                      <ListGroupItem
+                        className="list-group-item-action"
+                        href="#pablo"
+                        onClick={(e) => e.preventDefault()}
+                        tag="a"
+                      >
+                        <Row className="align-items-center">
+                          <Col className="col-auto">
+                            <img
+                              alt="..."
+                              className="avatar rounded-circle"
+                              src={require("assets/img/theme/team-3.jpg").default}
+                            />
+                          </Col>
+                          <div className="col ml--2">
+                            <div className="d-flex justify-content-between align-items-center">
+                              <div>
+                                <h4 className="mb-0 text-sm">Carolina Mendez</h4>
+                              </div>
+                              <div className="text-right text-muted">
+                                <small>2 dias</small>
+                              </div>
                             </div>
-                            <div className="text-right text-muted">
-                              <small>2 dias</small>
-                            </div>
+                            <p className="text-sm mb-0">
+                              Ayer mi mascota tuvo un problema
+                            </p>
                           </div>
-                          <p className="text-sm mb-0">
-                           Ayer mi mascota tuvo un problema
-                          </p>
-                        </div>
-                      </Row>
-                    </ListGroupItem>
-                    <ListGroupItem
-                      className="list-group-item-action"
-                      href="#pablo"
-                      onClick={(e) => e.preventDefault()}
-                      tag="a"
-                    >
-                      <Row className="align-items-center">
-                        <Col className="col-auto">
-                          <img
-                            alt="..."
-                            className="avatar rounded-circle"
-                            src={require("assets/img/theme/team-1.jpg").default}
-                          />
-                        </Col>
-                        <div className="col ml--2">
-                          <div className="d-flex justify-content-between align-items-center">
-                            <div>
-                              <h4 className="mb-0 text-sm">Martin Tito</h4>
+                        </Row>
+                      </ListGroupItem>
+                      <ListGroupItem
+                        className="list-group-item-action"
+                        href="#pablo"
+                        onClick={(e) => e.preventDefault()}
+                        tag="a"
+                      >
+                        <Row className="align-items-center">
+                          <Col className="col-auto">
+                            <img
+                              alt="..."
+                              className="avatar rounded-circle"
+                              src={require("assets/img/theme/team-1.jpg").default}
+                            />
+                          </Col>
+                          <div className="col ml--2">
+                            <div className="d-flex justify-content-between align-items-center">
+                              <div>
+                                <h4 className="mb-0 text-sm">Martin Tito</h4>
+                              </div>
+                              <div className="text-right text-muted">
+                                <small>2 dias</small>
+                              </div>
                             </div>
-                            <div className="text-right text-muted">
-                              <small>2 dias</small>
-                            </div>
+                            <p className="text-sm mb-0">
+                              Habria un turno disponible?
+                            </p>
                           </div>
-                          <p className="text-sm mb-0">
-                            Habria un turno disponible?
-                          </p>
-                        </div>
-                      </Row>
-                    </ListGroupItem>
+                        </Row>
+                      </ListGroupItem>
+                    </a>
                   </ListGroup>
-
                   <DropdownItem
                     className="text-center text-info font-weight-bold py-3"
                     href="#pablo"
                     onClick={(e) => e.preventDefault()}
                   >
-                    
+
                     Ver todos
                   </DropdownItem>
                 </DropdownMenu>
@@ -280,9 +285,9 @@ function AdminNavbar({ theme, sidenavOpen, toggleSidenav }) {
                       xs="4"
                       tag="a"
                     >
-                      <span className="shortcut-media avatar rounded-circle bg-gradient-red">
+                      <a href="#" className="shortcut-media avatar rounded-circle bg-gradient-red">
                         <i className="ni ni-calendar-grid-58" />
-                      </span>
+                      </a>
                       <small>Calendar</small>
                     </Col>
                     <Col
@@ -291,9 +296,9 @@ function AdminNavbar({ theme, sidenavOpen, toggleSidenav }) {
                       xs="4"
                       tag="a"
                     >
-                      <span className="shortcut-media avatar rounded-circle bg-gradient-orange">
+                      <a href="#" className="shortcut-media avatar rounded-circle bg-gradient-orange">
                         <i className="ni ni-email-83" />
-                      </span>
+                      </a>
                       <small>Chat</small>
                     </Col>
                     <Col
@@ -302,47 +307,11 @@ function AdminNavbar({ theme, sidenavOpen, toggleSidenav }) {
                       xs="4"
                       tag="a"
                     >
-                      <span className="shortcut-media avatar rounded-circle bg-gradient-info">
+                      <a href="#" className="shortcut-media avatar rounded-circle bg-gradient-info">
                         <i className="ni ni-credit-card" />
-                      </span>
+                      </a>
                       <small>Historial clinico</small>
                     </Col>
-                    {/* <Col
-                      className="shortcut-item"
-                      href="#pablo"
-                      onClick={(e) => e.preventDefault()}
-                      xs="4"
-                      tag="a"
-                    >
-                      <span className="shortcut-media avatar rounded-circle bg-gradient-green">
-                        <i className="ni ni-books" />
-                      </span>
-                      <small>Reports</small>
-                    </Col>
-                    <Col
-                      className="shortcut-item"
-                      href="#pablo"
-                      onClick={(e) => e.preventDefault()}
-                      xs="4"
-                      tag="a"
-                    >
-                      <span className="shortcut-media avatar rounded-circle bg-gradient-purple">
-                        <i className="ni ni-pin-3" />
-                      </span>
-                      <small>Maps</small>
-                    </Col>
-                    <Col
-                      className="shortcut-item"
-                      href="#pablo"
-                      onClick={(e) => e.preventDefault()}
-                      xs="4"
-                      tag="a"
-                    >
-                      <span className="shortcut-media avatar rounded-circle bg-gradient-yellow">
-                        <i className="ni ni-basket" />
-                      </span>
-                      <small>Shop</small>
-                    </Col> */}
                   </Row>
                 </DropdownMenu>
               </UncontrolledDropdown>
@@ -358,23 +327,23 @@ function AdminNavbar({ theme, sidenavOpen, toggleSidenav }) {
                       />
                     </span>
                     <Media className="ml-2 d-none d-lg-block">
-                      <span className="mb-0 text-sm font-weight-bold">
+                      <a href="#" style={{ textDecoration: 'none', color: 'white' }} className="mb-0 text-sm font-weight-bold">
                         Usuario
-                      </span>
+                      </a>
                     </Media>
                   </Media>
 
-                  
+
                 </DropdownToggle>
                 <DropdownMenu right>
                   <DropdownItem className="noti-title" header tag="div">
                     <h6 className="text-overflow m-0">Bienvenido</h6>
                   </DropdownItem>
                   <DropdownItem
-                    onClick={(e) => window.location.href = "/admin/profile/"+user?.id}
+                    onClick={(e) => window.location.href = "/admin/profile/" + user?.id}
                   >
                     <i className="ni ni-single-02" />
-                      <span>Mi Perfil</span>
+                    <span>Mi Perfil</span>
                   </DropdownItem>
                   <DropdownItem
                     onClick={(e) => logout()}

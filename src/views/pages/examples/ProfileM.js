@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
 // reactstrap components
 import {
@@ -20,10 +20,18 @@ import {
 } from "reactstrap";
 // core components
 import ProfileHeader from "components/Headers/ProfileHeader.js";
+import { RepositoryFactory } from "../../../repositories/RepositoryFactory";
+const petRepository = RepositoryFactory.get("pet");
 
 function ProfileM() {
   const [state, setState] = React.useState({});
   const [picture, setPicture] = React.useState({});
+  const [pet, setPet] = React.useState({});
+
+  useEffect(() => {
+    getPet()
+  }, [])
+
   const uploadPicture = (target) => {
     setPicture({
       /* this contains the file we want to send */
@@ -39,6 +47,13 @@ function ProfileM() {
   const onSubmit = () => {
     console.log(state, picture);
   };
+
+  const getPet = async () => {
+    let path = window.location.pathname.split("/");
+    let data = await petRepository.getPet(path[path.length - 1])
+    setPet(data);
+  };
+
   return (
     <>
       <ProfileHeader />
@@ -117,7 +132,7 @@ function ProfileM() {
                           </label>
                           <Input
                             name="name"
-                            defaultValue="Titan"
+                            defaultValue={pet.name}
                             id="input-username"
                             placeholder="Username"
                             type="text"
@@ -132,7 +147,7 @@ function ProfileM() {
                             className="form-control-label"
                             htmlFor="input-email"
                           >
-                            Raza
+                            Color
                           </label>
                           <div class="col-xs-10">
                             <select
@@ -142,11 +157,11 @@ function ProfileM() {
                               onChange={(event) => valueToState(event.target)}
                             >
                               <option> Seleccionar</option>
-                              <option value="value1" selected>
-                                Pitbull
+                              <option value="Negro" selected>
+                                Negro
                               </option>
-                              <option value="Dogo">Dogo</option>
-                              <option value="Caniche">Caniche Toy</option>
+                              <option value="Blanco">Blanco</option>
+                              <option value="Marron">Marron</option>
                             </select>
                           </div>
                         </div>
@@ -157,12 +172,12 @@ function ProfileM() {
                             className="form-control-label"
                             htmlFor="input-first-name"
                           >
-                            Edad
+                            Fecha de Nacimiento
                           </label>
                           <Input
                             name="birthdate"
                             onChange={(event) => valueToState(event.target)}
-                            defaultValue="3"
+                            defaultValue={pet.date_birth}
                             id="input-first-name"
                             placeholder="3"
                             type="date"

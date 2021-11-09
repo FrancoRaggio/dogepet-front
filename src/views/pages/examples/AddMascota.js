@@ -31,30 +31,7 @@ const AddMascota = () => {
   const [gender, setGender] = React.useState(true);
   const [users, setUsers] = React.useState(true);
   const [client, setClient] = React.useState(null);
-  // Fuse buscador de cliente 
-  // function handleOnSearch(e) {
-
-  //   let wordSearch = e.target.value
-
-  //   if (wordSearch === '') {
-  //     return setClient(null);
-  //   }
-
-  //   const fuse = new Fuse(users, {
-  //     keys: ['name', 'lastname'],
-  //     includeScore: true
-  //   })
-  //   let clientResult = []
-
-  //   const results = fuse.search(wordSearch);
-    
-  //   for (let i = 0; i < results.length; i++) {
-  //     // clientResult = results[0].id
-  //     clientResult.push(results[i].item)
-  //   }
-  //   console.log(clientResult)
-  //   setClient(clientResult);
-  // }
+  const [picture, setPicture] = React.useState(null);
 
   useEffect(() => {
     getUsers()
@@ -73,6 +50,10 @@ const AddMascota = () => {
   }
 
 
+  const uploadPicture = (target) => {
+    setPicture(target.files[0]);
+  };
+
   const validateCustomStylesForm = async () => {
     if (firstName === "") {
       setfirstNameState("invalid");
@@ -85,6 +66,8 @@ const AddMascota = () => {
       setusernameState("valid");
     }
 
+    console.log(picture)
+
     let data = {
       name: firstName,
       user_id: username,
@@ -92,10 +75,20 @@ const AddMascota = () => {
       date: date,
       color: color,
       gender: gender,
+      photo: picture,
     }
-    await petRepository.createPet(data)
+    const form = new FormData()
+    form.append('name', firstName)
+    form.append('user_id', username)
+    form.append('race_id', race)
+    form.append('date', date)
+    form.append('color', color)
+    form.append('gender', gender)
+    form.append('photo[]', picture)
 
-    window.location.reload()
+    await petRepository.createPet(form)
+
+    // window.location.reload()
   };
 
   function handlerUser(e) {
@@ -175,7 +168,7 @@ const AddMascota = () => {
                         </label>
                         <Input
                           id="validationCustom03"
-                          placeholder="Edad"
+                          placeholder="Fecha Nacimiento"
                           type="date"
                           value={date}
                           onChange={(e) => setDate(e.target.value)}
@@ -185,21 +178,31 @@ const AddMascota = () => {
                         </div>
                       </Col>
                       <Col className="mb-3" md="3">
-                        <label
-                          className="form-control-label"
-                          htmlFor="validationCustom04"
-                        >
-                          Color
-                        </label>
-                        <Input
-                          id="validationCustom04"
-                          placeholder="Color"
-                          type="text"
-                          value={color}
-                          onChange={(e) => setColor(e.target.value)}
-                        />
+                        <FormGroup>
+                          <label
+                            className="form-control-label"
+                            htmlFor="validationCustom05"
+                          >
+                            Seleccione Color
+                          </label>
+                          <Input 
+                            type="select"
+                            id="validationCustom05"
+                            placeholder="Selecciona"
+                            valid={color}
+                            onChange={(e) => {
+                              setColor(e.target.value);
+                            }}>
+                            <option selected>Seleccionar..</option>
+                            <option value={'Negro'}>Negro</option>
+                            <option value={'Blanco'}>Blanco</option>
+                            <option value={'Marron'}>Marron</option>
+                          </Input>
+                        </FormGroup>
+
+
                         <div className="invalid-feedback">
-                          Ingrese color.
+                          seleccione Color.
                         </div>
                       </Col>
                       <Col className="mb-3" md="3">
@@ -257,6 +260,23 @@ const AddMascota = () => {
                           seleccione Genero!
                         </div>
                       </Col>
+                      <Col md="4">
+                      <FormGroup>
+                        <label
+                          className="form-control-label"
+                          htmlFor="input-address"
+                        >
+                          Cargar Imagen
+                        </label>
+                        <Input
+                          id="input-ph"
+                          placeholder=""
+                          type="file"
+                          name="img"
+                          onChange={(event) => uploadPicture(event.target)}
+                        />
+                      </FormGroup>
+                    </Col>
                     </div>
 
                     <Button

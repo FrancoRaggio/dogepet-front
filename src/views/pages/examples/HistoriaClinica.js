@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from "react";
+import React, { useState, useEffect } from "react";
 
 // reactstrap components
 import {
@@ -38,7 +38,6 @@ import ReactBSAlert from "react-bootstrap-sweetalert";
 import SimpleHeader from "components/Headers/SimpleHeader.js";
 
 import { RepositoryFactory } from "../../../repositories/RepositoryFactory";
-import { dataTable } from "variables/general";
 const petRepository = RepositoryFactory.get("pet");
 
 const { SearchBar } = Search;
@@ -47,6 +46,7 @@ function HistoriaClinica() {
   const [alert, setAlert] = React.useState(null);
   const [vaccines, setVaccines] = React.useState([]);
   const [sizes, setSizes] = React.useState([]);
+  const [pet, setPet] = React.useState(null);
 
 
   useEffect(() => {
@@ -60,8 +60,12 @@ function HistoriaClinica() {
   };
 
   const getSizes = async () => {
-    let vaccinesAux = await petRepository.getFeatures(1)
+    let path = window.location.pathname.split("/");
+    let data = await petRepository.getPet(path[path.length - 1])
+
+    let vaccinesAux = await petRepository.getFeatures(path[path.length - 1])
     setSizes(vaccinesAux);
+    setPet(data);
   };
 
   const componentRef = React.useRef(null);
@@ -143,7 +147,7 @@ function HistoriaClinica() {
                 </Row>
                 <div className="text-center">
                   <h5 className="h3">
-                    Titan Mendez
+                    {pet?.name}
                     <span className="font-weight-light"> , 3</span>
                   </h5>
                 </div>
@@ -228,13 +232,13 @@ function HistoriaClinica() {
                                         htmlFor="input-username"
                                       >
                                         Nombre: <span
-                                        id="input-username"
-                                        type="text"
-                                      >
-                                      Titan
-                                      </span>
+                                          id="input-username"
+                                          type="text"
+                                        >
+                                          {pet?.name}
+                                        </span>
                                       </label>
-                                      
+
                                     </FormGroup>
                                   </Col>
                                 </Row>
@@ -254,7 +258,7 @@ function HistoriaClinica() {
                                     </tr>
                                   </thead>
                                   <tbody>
-                                    {sizes.map((size)  => (
+                                    {sizes.map((size) => (
                                       <tr>
                                         <td>{size.date}</td>
                                         <td>{size.size} Kg</td>

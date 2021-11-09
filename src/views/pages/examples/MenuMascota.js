@@ -1,5 +1,5 @@
 
-import React from "react";
+import React, {useState, useEffect} from "react";
 
 // reactstrap components
 import {
@@ -23,10 +23,22 @@ import {
 // core components
 import ProfileHeader from "components/Headers/ProfileHeader.js";
 import { useSelector } from 'react-redux';
+import { RepositoryFactory } from "repositories/RepositoryFactory";
+const userRepository = RepositoryFactory.get('user')
 
 
 function MenuMascota() {
-  const user = useSelector(state => state.auth.user)
+  const userAux = useSelector(state => state.auth.user)
+  const [user, setUser] = useState({})
+
+  useEffect(() => {
+    getUser(userAux.id)
+  }, [])
+
+  const getUser = async (id) => {
+    let userA = await userRepository.getUser(id)
+    setUser(userA);
+  };
 
   return (
     <>
