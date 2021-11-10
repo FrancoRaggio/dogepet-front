@@ -82,15 +82,15 @@ const AddMascota = () => {
       color: color,
       gender: gender,
       photo: picture,
-    };
-    const form = new FormData();
-    form.append("name", firstName);
-    form.append("user_id", username);
-    form.append("race_id", race);
-    form.append("date", date);
-    form.append("color", color);
-    form.append("gender", gender);
-    form.append("photo[]", picture);
+    }
+    const form = new FormData()
+    form.append('name', firstName)
+    form.append('user_id', username)
+    form.append('race_id', race)
+    form.append('date', date)
+    form.append('color', color)
+    form.append('gender', gender)
+    form.append('photo', picture)
 
     await petRepository.createPet(form);
 
