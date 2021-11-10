@@ -16,6 +16,7 @@ import { Search } from "react-bootstrap-table2-toolkit";
 import { RepositoryFactory } from "repositories/RepositoryFactory";
 import SimpleHeader from "components/Headers/SimpleHeader.js";
 import Select from "react-select";
+import { useSelector } from "react-redux";
 const userRepository = RepositoryFactory.get("user");
 const petRepository = RepositoryFactory.get("pet");
 
@@ -37,14 +38,20 @@ const AddMascota = () => {
     getUsers();
   }, []);
 
+  //obtengo los datos el usuario
+  const userId = useSelector((state) => state.auth.user);
+  console.log("===>", userId);
+
   const getUsers = async () => {
     let usersAux = await userRepository.getUsers();
     let aux = [];
     for (const user of usersAux) {
-      aux.push({
-        label: user.name + " " + user.lastname,
-        value: user.id,
-      });
+      if (userId.id === user.id) {
+        aux.push({
+          label: user.name + " " + user.lastname,
+          value: user.id,
+        });
+      }
     }
     setUsers(aux);
   };
