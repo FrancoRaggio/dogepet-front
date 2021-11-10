@@ -267,9 +267,11 @@ function AdminNavbar({ theme, sidenavOpen, toggleSidenav }) {
                   </DropdownItem>
                 </DropdownMenu>
               </UncontrolledDropdown>
-              {/* <UncontrolledDropdown nav>
+              <UncontrolledDropdown nav>
                 <DropdownToggle className="nav-link" color="" tag="a">
-                  <i className="ni ni-ungroup" />
+                  <a href="#" style={{ cursor: "pointer", color: "white" }}>
+                    <i className="ni ni-ungroup" />
+                  </a>
                 </DropdownToggle>
                 <DropdownMenu
                   className="dropdown-menu-lg dropdown-menu-dark bg-default"
@@ -278,40 +280,55 @@ function AdminNavbar({ theme, sidenavOpen, toggleSidenav }) {
                   <Row className="shortcuts px-4">
                     <Col
                       className="shortcut-item"
-                      onClick={(e) => window.location.href = "/admin/calendar"}
+                      onClick={(e) =>
+                        (window.location.href = "/admin/calendar")
+                      }
                       xs="4"
                       tag="a"
                     >
-                      <a href="#" className="shortcut-media avatar rounded-circle bg-gradient-red">
+                      <a
+                        href="#"
+                        className="shortcut-media avatar rounded-circle bg-gradient-red"
+                      >
                         <i className="ni ni-calendar-grid-58" />
                       </a>
                       <small>Calendar</small>
                     </Col>
                     <Col
                       className="shortcut-item"
-                      onClick={(e) => window.location.href = "http://3.131.200.100/chat"}
+                      onClick={(e) =>
+                        (window.location.href = "http://3.131.200.100/chat")
+                      }
                       xs="4"
                       tag="a"
                     >
-                      <a href="#" className="shortcut-media avatar rounded-circle bg-gradient-orange">
+                      <a
+                        href="#"
+                        className="shortcut-media avatar rounded-circle bg-gradient-orange"
+                      >
                         <i className="ni ni-email-83" />
                       </a>
                       <small>Chat</small>
                     </Col>
                     <Col
                       className="shortcut-item"
-                      onClick={(e) => window.location.href = "/admin/HistoriaClinicaVete"}
+                      onClick={(e) =>
+                        (window.location.href = "/admin/HistoriaClinicaVete")
+                      }
                       xs="4"
                       tag="a"
                     >
-                      <a href="#" className="shortcut-media avatar rounded-circle bg-gradient-info">
+                      <a
+                        href="#"
+                        className="shortcut-media avatar rounded-circle bg-gradient-info"
+                      >
                         <i className="ni ni-credit-card" />
                       </a>
                       <small>Historial clinico</small>
                     </Col>
                   </Row>
                 </DropdownMenu>
-              </UncontrolledDropdown> */}
+              </UncontrolledDropdown>
             </Nav>
             <Nav className="align-items-center ml-auto ml-md-0" navbar>
               <UncontrolledDropdown nav>

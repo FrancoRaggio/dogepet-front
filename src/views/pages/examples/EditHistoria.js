@@ -67,9 +67,10 @@ function EditHistoria() {
   const [vaccines, setVaccines] = React.useState([]);
   // Select de clientes
   const getUsers = async () => {
-    let petsAux = await petRepository.getPets()
-    let vaccinesAux = await petRepository.getVaccines()
+    let petsAux = await petRepository.getPets();
+    let vaccinesAux = await petRepository.getVaccines();
     let aux = [];
+    // console.log("vacunas", vaccinesAux[0].date);
     setVaccines(vaccinesAux);
     for (const user of petsAux) {
       aux.push({
@@ -93,25 +94,24 @@ function EditHistoria() {
   };
 
   const onSubmit = async (type) => {
-    if(type == 'size'){
+    if (type == "size") {
       let data = {
         pet_id: username,
         date: state.date,
-        size: state.size
-      }
+        size: state.size,
+      };
 
-      await petRepository.addSize(data)
+      await petRepository.addSize(data);
     } else {
-
       let data = {
         date_application: state.dateApplication,
         date_vto: state.dateVto,
         vaccine_id: state.vacuna,
         pet_id: username,
-      }
-      await petRepository.addVaccine(data)
+      };
+      await petRepository.addVaccine(data);
     }
-    window.location.reload()
+    window.location.reload();
   };
 
   // const [alert, setalert] = React.useState(false);
@@ -328,7 +328,9 @@ function EditHistoria() {
                                                     className="my-4"
                                                     color="primary"
                                                     type="button"
-                                                    onClick={() => onSubmit('size')}
+                                                    onClick={() =>
+                                                      onSubmit("size")
+                                                    }
                                                   >
                                                     Guardar
                                                   </Button>
@@ -432,7 +434,31 @@ function EditHistoria() {
                                                     focused: focusedPassword,
                                                   })}
                                                 >
-                                                  <InputGroup className="input-group-merge input-group-alternative">
+                                                  {/* select de vacunas  cambiale la variable  martin !!*/}
+
+                                                  {/* <Select
+                                                    className="basic-single"
+                                                    classNamePrefix="select"
+                                                    defaultValue={vaccines[0]}
+                                                    // isSearchable={isSearchable}
+                                                    name="name"
+                                                    options={vaccines}
+                                                    onChange={(e) =>
+                                                      handlerUser(e)
+                                                    }
+                                                  /> */}
+                                                  <Select
+                                                    className="basic-single"
+                                                    classNamePrefix="select"
+                                                    defaultValue={users[0]}
+                                                    // isSearchable={isSearchable}
+                                                    name="name"
+                                                    options={users}
+                                                    onChange={(e) =>
+                                                      handlerUser(e)
+                                                    }
+                                                  />
+                                                  {/* <InputGroup className="input-group-merge input-group-alternative">
                                                     <InputGroupAddon addonType="prepend">
                                                       <InputGroupText>
                                                         <i className="ni ni-ruler-pencil" />
@@ -440,8 +466,6 @@ function EditHistoria() {
                                                     </InputGroupAddon>
                                                     <Input
                                                       name="vacuna"
-                                                      id="input-vacuna"
-                                                      placeholder="Vacuna"
                                                       type="text"
                                                       onChange={(event) =>
                                                         valueToState(
@@ -449,7 +473,7 @@ function EditHistoria() {
                                                         )
                                                       }
                                                     />
-                                                  </InputGroup>
+                                                  </InputGroup> */}
                                                 </FormGroup>
 
                                                 <FormGroup>
@@ -476,7 +500,9 @@ function EditHistoria() {
                                                     className="my-4"
                                                     color="primary"
                                                     type="button"
-                                                    onClick={() => onSubmit('vaccine')}
+                                                    onClick={() =>
+                                                      onSubmit("vaccine")
+                                                    }
                                                   >
                                                     Guardar
                                                   </Button>
