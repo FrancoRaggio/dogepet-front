@@ -84,7 +84,7 @@ const AddMascota = () => {
     form.append('date', date)
     form.append('color', color)
     form.append('gender', gender)
-    form.append('photo[]', picture)
+    form.append('photo', picture)
 
     await petRepository.createPet(form)
 
