@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import Fuse from 'fuse.js'
+import Fuse from "fuse.js";
 import {
   Button,
   Card,
@@ -15,9 +15,9 @@ import {
 import { Search } from "react-bootstrap-table2-toolkit";
 import { RepositoryFactory } from "repositories/RepositoryFactory";
 import SimpleHeader from "components/Headers/SimpleHeader.js";
-import Select from 'react-select';
-const userRepository = RepositoryFactory.get('user')
-const petRepository = RepositoryFactory.get('pet')
+import Select from "react-select";
+const userRepository = RepositoryFactory.get("user");
+const petRepository = RepositoryFactory.get("pet");
 
 const AddMascota = () => {
   const { SearchBar } = Search;
@@ -26,29 +26,28 @@ const AddMascota = () => {
   const [username, setusername] = React.useState("");
   const [usernameState, setusernameState] = React.useState(null);
   const [race, setRace] = React.useState(0);
-  const [date, setDate] = React.useState('');
-  const [color, setColor] = React.useState('');
+  const [date, setDate] = React.useState("");
+  const [color, setColor] = React.useState("");
   const [gender, setGender] = React.useState(true);
   const [users, setUsers] = React.useState(true);
   const [client, setClient] = React.useState(null);
   const [picture, setPicture] = React.useState(null);
 
   useEffect(() => {
-    getUsers()
-  }, [])
+    getUsers();
+  }, []);
 
   const getUsers = async () => {
-    let usersAux = await userRepository.getUsers()
-    let aux = []
+    let usersAux = await userRepository.getUsers();
+    let aux = [];
     for (const user of usersAux) {
       aux.push({
         label: user.name + " " + user.lastname,
-        value: user.id
-      })
+        value: user.id,
+      });
     }
-    setUsers(aux)
-  }
-
+    setUsers(aux);
+  };
 
   const uploadPicture = (target) => {
     setPicture(target.files[0]);
@@ -66,7 +65,7 @@ const AddMascota = () => {
       setusernameState("valid");
     }
 
-    console.log(picture)
+    console.log(picture);
 
     let data = {
       name: firstName,
@@ -86,13 +85,13 @@ const AddMascota = () => {
     form.append('gender', gender)
     form.append('photo', picture)
 
-    await petRepository.createPet(form)
+    await petRepository.createPet(form);
 
     // window.location.reload()
   };
 
   function handlerUser(e) {
-    setusername(e.value)
+    setusername(e.value);
   }
 
   return (
@@ -108,7 +107,6 @@ const AddMascota = () => {
                   <h3 className="mb-0">Agregar Mascota</h3>
                 </CardHeader>
                 <CardBody>
-
                   <Form className="needs-validation" noValidate>
                     <div className="form-row">
                       <Col className="mb-3" md="4">
@@ -136,7 +134,11 @@ const AddMascota = () => {
                         />
                         <div className="invalid-feedback">Cargar Nombre!</div>
                       </Col>
-                      <Col className="mb-3 ml-7" style={{ marginTop: 30 }} md="4" >
+                      <Col
+                        className="mb-3 ml-7"
+                        style={{ marginTop: 3 }}
+                        md="4"
+                      >
                         <label
                           className="form-control-label"
                           htmlFor="validationCustomUsername"
@@ -147,15 +149,14 @@ const AddMascota = () => {
                           Carga Un Dueño!
                         </div> */}
                         <Select
-                                  className="basic-single"
-                                  classNamePrefix="select"
-                                  defaultValue={users[0]}
-
-                                  // isSearchable={isSearchable}
-                                  name="color"
-                                  options={users}
-                                  onChange= {(e) => handlerUser(e)}
-                                />
+                          className="basic-single"
+                          classNamePrefix="select"
+                          defaultValue={users[0]}
+                          // isSearchable={isSearchable}
+                          name="color"
+                          options={users}
+                          onChange={(e) => handlerUser(e)}
+                        />
                       </Col>
                     </div>
                     <div className="form-row">
@@ -185,21 +186,21 @@ const AddMascota = () => {
                           >
                             Seleccione Color
                           </label>
-                          <Input 
+                          <Input
                             type="select"
                             id="validationCustom05"
                             placeholder="Selecciona"
                             valid={color}
                             onChange={(e) => {
                               setColor(e.target.value);
-                            }}>
+                            }}
+                          >
                             <option selected>Seleccionar..</option>
-                            <option value={'Negro'}>Negro</option>
-                            <option value={'Blanco'}>Blanco</option>
-                            <option value={'Marron'}>Marron</option>
+                            <option value={"Negro"}>Negro</option>
+                            <option value={"Blanco"}>Blanco</option>
+                            <option value={"Marron"}>Marron</option>
                           </Input>
                         </FormGroup>
-
 
                         <div className="invalid-feedback">
                           seleccione Color.
@@ -213,14 +214,15 @@ const AddMascota = () => {
                           >
                             Seleccione Raza
                           </label>
-                          <Input 
+                          <Input
                             type="select"
                             id="validationCustom05"
                             placeholder="Selecciona"
                             valid={race}
                             onChange={(e) => {
                               setRace(parseInt(e.target.value));
-                            }}>
+                            }}
+                          >
                             <option selected>Seleccionar..</option>
                             <option value={2}>Pitbull</option>
                             <option value={3}>Dogo</option>
@@ -228,10 +230,7 @@ const AddMascota = () => {
                           </Input>
                         </FormGroup>
 
-
-                        <div className="invalid-feedback">
-                          seleccione Raza.
-                        </div>
+                        <div className="invalid-feedback">seleccione Raza.</div>
                       </Col>
                       <Col className="mb-3" md="4">
                         <FormGroup>
@@ -241,42 +240,45 @@ const AddMascota = () => {
                           >
                             Seleccione Genero
                           </label>
-                          <Input type="select"
+                          <Input
+                            type="select"
                             id="validationCustom05"
                             placeholder="Selecciona"
                             aria-describedby="inputGroupPrepend"
                             id="validationCustomUsername"
                             placeholder="Dueño"
                             type="select"
-                            onChange={(e) => setGender(parseInt(e.target.value))}>
+                            onChange={(e) =>
+                              setGender(parseInt(e.target.value))
+                            }
+                          >
                             <option selected>Seleccionar..</option>
                             <option value={1}>Macho</option>
                             <option value={0}>Hembra</option>
                           </Input>
                         </FormGroup>
 
-
                         <div className="invalid-feedback">
                           seleccione Genero!
                         </div>
                       </Col>
                       <Col md="4">
-                      <FormGroup>
-                        <label
-                          className="form-control-label"
-                          htmlFor="input-address"
-                        >
-                          Cargar Imagen
-                        </label>
-                        <Input
-                          id="input-ph"
-                          placeholder=""
-                          type="file"
-                          name="img"
-                          onChange={(event) => uploadPicture(event.target)}
-                        />
-                      </FormGroup>
-                    </Col>
+                        <FormGroup>
+                          <label
+                            className="form-control-label"
+                            htmlFor="input-address"
+                          >
+                            Cargar Imagen
+                          </label>
+                          <Input
+                            id="input-ph"
+                            placeholder=""
+                            type="file"
+                            name="img"
+                            onChange={(event) => uploadPicture(event.target)}
+                          />
+                        </FormGroup>
+                      </Col>
                     </div>
 
                     <Button
@@ -293,10 +295,8 @@ const AddMascota = () => {
           </div>
         </Row>
       </Container>
-
     </>
   );
-}
-
+};
 
 export default AddMascota;

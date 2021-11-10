@@ -1,4 +1,3 @@
-
 import React from "react";
 
 // reactstrap components
@@ -31,7 +30,7 @@ function Cards() {
             <Card>
               <CardImg
                 alt="..."
-                src={require("assets/img/theme/img-1-1000x600.jpg").default}
+                src={require("assets/img/theme/colorPastel.jpg").default}
                 top
               />
 
@@ -85,7 +84,7 @@ function Cards() {
             <Card className="card-profile">
               <CardImg
                 alt="..."
-                src={require("assets/img/theme/img-1-1000x600.jpg").default}
+                src={require("assets/img/theme/colorPastel.jpg").default}
                 top
               />
               <Row className="justify-content-center">
@@ -415,7 +414,7 @@ function Cards() {
             <Card className="bg-dark text-white border-0">
               <CardImg
                 alt="..."
-                src={require("assets/img/theme/img-1-1000x600.jpg").default}
+                src={require("assets/img/theme/colorPastel.jpg").default}
               />
               <CardImgOverlay className="d-flex align-items-center">
                 <div>
