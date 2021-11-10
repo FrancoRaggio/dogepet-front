@@ -48,22 +48,21 @@ function HistoriaClinica() {
   const [sizes, setSizes] = React.useState([]);
   const [pet, setPet] = React.useState(null);
 
-
   useEffect(() => {
-    getVaccines()
-    getSizes()
-  }, [])
+    getVaccines();
+    getSizes();
+  }, []);
 
   const getVaccines = async () => {
-    let vaccinesAux = await petRepository.getVaccines()
+    let vaccinesAux = await petRepository.getVaccines();
     setVaccines(vaccinesAux);
   };
 
   const getSizes = async () => {
     let path = window.location.pathname.split("/");
-    let data = await petRepository.getPet(path[path.length - 1])
+    let data = await petRepository.getPet(path[path.length - 1]);
 
-    let vaccinesAux = await petRepository.getFeatures(path[path.length - 1])
+    let vaccinesAux = await petRepository.getFeatures(path[path.length - 1]);
     setSizes(vaccinesAux);
     setPet(data);
   };
@@ -106,7 +105,7 @@ function HistoriaClinica() {
     );
   };
 
-  console.log(vaccines)
+  console.log(vaccines);
   return (
     <>
       <ProfileHeader />
@@ -116,7 +115,7 @@ function HistoriaClinica() {
             <Card className="card-profile">
               <CardImg
                 alt="..."
-                src={require("assets/img/theme/colagetit.jpeg").default}
+                src={require("assets/img/theme/colorPastel1.jpg").default}
                 top
               />
               <Row className="justify-content-center">
@@ -148,7 +147,7 @@ function HistoriaClinica() {
                 <div className="text-center">
                   <h5 className="h3">
                     {pet?.name}
-                    <span className="font-weight-light"> , 3</span>
+                    <span className="font-weight-light"></span>
                   </h5>
                 </div>
               </CardBody>
@@ -231,14 +230,11 @@ function HistoriaClinica() {
                                         className="form-control-label"
                                         htmlFor="input-username"
                                       >
-                                        Nombre: <span
-                                          id="input-username"
-                                          type="text"
-                                        >
+                                        Nombre:{" "}
+                                        <span id="input-username" type="text">
                                           {pet?.name}
                                         </span>
                                       </label>
-
                                     </FormGroup>
                                   </Col>
                                 </Row>

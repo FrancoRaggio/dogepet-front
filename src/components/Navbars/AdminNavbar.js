@@ -1,4 +1,3 @@
-
 import React from "react";
 // nodejs library that concatenates classes
 import classnames from "classnames";
@@ -30,10 +29,10 @@ import {
   Col,
 } from "reactstrap";
 import UserRepository from "repositories/UserRepository";
-import { useSelector } from 'react-redux';
+import { useSelector } from "react-redux";
 
 function AdminNavbar({ theme, sidenavOpen, toggleSidenav }) {
-  const user = useSelector(state => state.auth.user)
+  const user = useSelector((state) => state.auth.user);
   // function that on mobile devices makes the search open
   const openSearch = () => {
     document.body.classList.add("g-navbar-search-showing");
@@ -62,11 +61,10 @@ function AdminNavbar({ theme, sidenavOpen, toggleSidenav }) {
   };
 
   const logout = () => {
+    localStorage.removeItem("auth");
 
-    localStorage.removeItem('auth')
-
-    window.location.href = "/auth/login"
-  }
+    window.location.href = "/auth/login";
+  };
 
   return (
     <>
@@ -86,16 +84,6 @@ function AdminNavbar({ theme, sidenavOpen, toggleSidenav }) {
                 { "navbar-search-dark": theme === "light" }
               )}
             >
-              {/* <FormGroup className="mb-0">
-                <InputGroup className="input-group-alternative input-group-merge">
-                  <InputGroupAddon addonType="prepend">
-                    <InputGroupText>
-                      <i className="fas fa-search" />
-                    </InputGroupText>
-                  </InputGroupAddon>
-                  <Input placeholder="Search" type="text" />
-                </InputGroup>
-              </FormGroup> */}
               <button
                 aria-label="Close"
                 className="close"
@@ -125,14 +113,14 @@ function AdminNavbar({ theme, sidenavOpen, toggleSidenav }) {
               </NavItem>
               <NavItem className="d-sm-none">
                 <NavLink onClick={openSearch}>
-                  <a href="#" style={{ color: 'white' }}>
+                  <a href="#" style={{ color: "white" }}>
                     <i className="ni ni-zoom-split-in" />
                   </a>
                 </NavLink>
               </NavItem>
               <UncontrolledDropdown nav>
                 <DropdownToggle className="nav-link" color="" tag="a">
-                  <a href="#" style={{ color: 'white' }}>
+                  <a href="#" style={{ color: "white" }}>
                     <i className="ni ni-send" />
                   </a>
                 </DropdownToggle>
@@ -141,7 +129,7 @@ function AdminNavbar({ theme, sidenavOpen, toggleSidenav }) {
                   right
                 >
                   <ListGroup flush>
-                    <a href="#" style={{ color: 'white' }}>
+                    <a href="#" style={{ color: "white" }}>
                       <ListGroupItem
                         className="list-group-item-action"
                         href="#"
@@ -153,7 +141,9 @@ function AdminNavbar({ theme, sidenavOpen, toggleSidenav }) {
                             <img
                               alt="..."
                               className="avatar rounded-circle"
-                              src={require("assets/img/theme/team-4.jpg").default}
+                              src={
+                                require("assets/img/theme/team-4.jpg").default
+                              }
                             />
                           </Col>
                           <div className="col ml--2">
@@ -182,7 +172,9 @@ function AdminNavbar({ theme, sidenavOpen, toggleSidenav }) {
                             <img
                               alt="..."
                               className="avatar rounded-circle"
-                              src={require("assets/img/theme/team-2.jpg").default}
+                              src={
+                                require("assets/img/theme/team-2.jpg").default
+                              }
                             />
                           </Col>
                           <div className="col ml--2">
@@ -211,13 +203,17 @@ function AdminNavbar({ theme, sidenavOpen, toggleSidenav }) {
                             <img
                               alt="..."
                               className="avatar rounded-circle"
-                              src={require("assets/img/theme/team-3.jpg").default}
+                              src={
+                                require("assets/img/theme/team-3.jpg").default
+                              }
                             />
                           </Col>
                           <div className="col ml--2">
                             <div className="d-flex justify-content-between align-items-center">
                               <div>
-                                <h4 className="mb-0 text-sm">Carolina Mendez</h4>
+                                <h4 className="mb-0 text-sm">
+                                  Carolina Mendez
+                                </h4>
                               </div>
                               <div className="text-right text-muted">
                                 <small>2 dias</small>
@@ -240,7 +236,9 @@ function AdminNavbar({ theme, sidenavOpen, toggleSidenav }) {
                             <img
                               alt="..."
                               className="avatar rounded-circle"
-                              src={require("assets/img/theme/team-1.jpg").default}
+                              src={
+                                require("assets/img/theme/team-1.jpg").default
+                              }
                             />
                           </Col>
                           <div className="col ml--2">
@@ -265,12 +263,11 @@ function AdminNavbar({ theme, sidenavOpen, toggleSidenav }) {
                     href="#pablo"
                     onClick={(e) => e.preventDefault()}
                   >
-
                     Ver todos
                   </DropdownItem>
                 </DropdownMenu>
               </UncontrolledDropdown>
-              <UncontrolledDropdown nav>
+              {/* <UncontrolledDropdown nav>
                 <DropdownToggle className="nav-link" color="" tag="a">
                   <i className="ni ni-ungroup" />
                 </DropdownToggle>
@@ -314,7 +311,7 @@ function AdminNavbar({ theme, sidenavOpen, toggleSidenav }) {
                     </Col>
                   </Row>
                 </DropdownMenu>
-              </UncontrolledDropdown>
+              </UncontrolledDropdown> */}
             </Nav>
             <Nav className="align-items-center ml-auto ml-md-0" navbar>
               <UncontrolledDropdown nav>
@@ -327,27 +324,29 @@ function AdminNavbar({ theme, sidenavOpen, toggleSidenav }) {
                       />
                     </span>
                     <Media className="ml-2 d-none d-lg-block">
-                      <a href="#" style={{ textDecoration: 'none', color: 'white' }} className="mb-0 text-sm font-weight-bold">
+                      <a
+                        href="#"
+                        style={{ textDecoration: "none", color: "white" }}
+                        className="mb-0 text-sm font-weight-bold"
+                      >
                         Usuario
                       </a>
                     </Media>
                   </Media>
-
-
                 </DropdownToggle>
                 <DropdownMenu right>
                   <DropdownItem className="noti-title" header tag="div">
                     <h6 className="text-overflow m-0">Bienvenido</h6>
                   </DropdownItem>
                   <DropdownItem
-                    onClick={(e) => window.location.href = "/admin/profile/" + user?.id}
+                    onClick={(e) =>
+                      (window.location.href = "/admin/profile/" + user?.id)
+                    }
                   >
                     <i className="ni ni-single-02" />
                     <span>Mi Perfil</span>
                   </DropdownItem>
-                  <DropdownItem
-                    onClick={(e) => logout()}
-                  >
+                  <DropdownItem onClick={(e) => logout()}>
                     <i className="ni ni-curved-next" />
                     <span>Cerrar sesion</span>
                   </DropdownItem>
@@ -362,7 +361,7 @@ function AdminNavbar({ theme, sidenavOpen, toggleSidenav }) {
 }
 
 AdminNavbar.defaultProps = {
-  toggleSidenav: () => { },
+  toggleSidenav: () => {},
   sidenavOpen: false,
   theme: "dark",
 };

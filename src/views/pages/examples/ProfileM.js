@@ -29,8 +29,8 @@ function ProfileM() {
   const [pet, setPet] = React.useState({});
 
   useEffect(() => {
-    getPet()
-  }, [])
+    getPet();
+  }, []);
 
   const uploadPicture = (target) => {
     setPicture({
@@ -50,7 +50,7 @@ function ProfileM() {
 
   const getPet = async () => {
     let path = window.location.pathname.split("/");
-    let data = await petRepository.getPet(path[path.length - 1])
+    let data = await petRepository.getPet(path[path.length - 1]);
     setPet(data);
   };
 
@@ -63,7 +63,7 @@ function ProfileM() {
             <Card className="card-profile">
               <CardImg
                 alt="..."
-                src={require("assets/img/theme/colagetit.jpeg").default}
+                src={require("assets/img/theme/colorPastel1.jpg").default}
                 top
               />
               <Row className="justify-content-center">

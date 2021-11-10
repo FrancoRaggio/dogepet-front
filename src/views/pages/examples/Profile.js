@@ -1,5 +1,4 @@
-
-import React, {useState, useEffect} from "react";
+import React, { useState, useEffect } from "react";
 // reactstrap components
 import {
   Button,
@@ -20,30 +19,30 @@ import {
 } from "reactstrap";
 // core components
 import ProfileHeader from "components/Headers/ProfileHeader.js";
-import { useSelector } from 'react-redux';
+import { useSelector } from "react-redux";
 import { RepositoryFactory } from "repositories/RepositoryFactory";
-const userRepository = RepositoryFactory.get('user');
+const userRepository = RepositoryFactory.get("user");
 
 function Profile() {
-  const user = useSelector(state => state.auth.user)
+  const user = useSelector((state) => state.auth.user);
 
   useEffect(() => {
-    getUser()
-  }, [])
+    getUser();
+  }, []);
 
   const [form, setForm] = useState({
-    name: '',
-    lastname: '',
-    email: '',
-    phone: '',
-    address: '',
-    city: '',
-  })
+    name: "",
+    lastname: "",
+    email: "",
+    phone: "",
+    address: "",
+    city: "",
+  });
 
   const getUser = async () => {
     let path = window.location.pathname.split("/");
-    let user = await userRepository.getUser(path[path.length - 1])
-    
+    let user = await userRepository.getUser(path[path.length - 1]);
+
     setForm({
       name: user.name,
       lastname: user.lastname,
@@ -51,13 +50,13 @@ function Profile() {
       phone: user.phone,
       address: user.address,
       city: user.city,
-    })
-  }
+    });
+  };
 
   const updateUser = async () => {
-    await userRepository.updateUser(form, user.id)
-  }
-  
+    await userRepository.updateUser(form, user.id);
+  };
+
   return (
     <>
       <ProfileHeader />
@@ -67,7 +66,7 @@ function Profile() {
             <Card className="card-profile">
               <CardImg
                 alt="..."
-                src={require("assets/img/theme/img-1-1000x600.jpg").default}
+                src={require("assets/img/theme/colorPastel1.jpg").default}
                 top
               />
               <Row className="justify-content-center">
@@ -96,10 +95,9 @@ function Profile() {
                 </Row>
                 <div className="text-center">
                   <h5 className="h3">
-                    {form.name + ' ' + form.lastname }
+                    {form.name + " " + form.lastname}
                     <span className="font-weight-light"></span>
                   </h5>
-                 
                 </div>
               </CardBody>
             </Card>
@@ -135,10 +133,12 @@ function Profile() {
                             type="text"
                             value={form.name}
                             name="name"
-                            onChange={(e) => setForm({
-                              ...form,
-                              [e.target.name]: e.target.value
-                            })}
+                            onChange={(e) =>
+                              setForm({
+                                ...form,
+                                [e.target.name]: e.target.value,
+                              })
+                            }
                           />
                         </FormGroup>
                       </Col>
@@ -157,10 +157,12 @@ function Profile() {
                             type="text"
                             value={form.lastname}
                             name="lastname"
-                            onChange={(e) => setForm({
-                              ...form,
-                              [e.target.name]: e.target.value
-                            })}
+                            onChange={(e) =>
+                              setForm({
+                                ...form,
+                                [e.target.name]: e.target.value,
+                              })
+                            }
                           />
                         </FormGroup>
                       </Col>
@@ -178,10 +180,12 @@ function Profile() {
                             type="email"
                             value={form.email}
                             name="email"
-                            onChange={(e) => setForm({
-                              ...form,
-                              [e.target.name]: e.target.value
-                            })}
+                            onChange={(e) =>
+                              setForm({
+                                ...form,
+                                [e.target.name]: e.target.value,
+                              })
+                            }
                           />
                         </FormGroup>
                       </Col>
@@ -199,10 +203,12 @@ function Profile() {
                             type="text"
                             value={form.phone}
                             name="phone"
-                            onChange={(e) => setForm({
-                              ...form,
-                              phone: e.target.value
-                            })}
+                            onChange={(e) =>
+                              setForm({
+                                ...form,
+                                phone: e.target.value,
+                              })
+                            }
                           />
                         </FormGroup>
                       </Col>
@@ -230,10 +236,12 @@ function Profile() {
                             type="text"
                             value={form.address}
                             name="address"
-                            onChange={(e) => setForm({
-                              ...form,
-                              address: e.target.value
-                            })}
+                            onChange={(e) =>
+                              setForm({
+                                ...form,
+                                address: e.target.value,
+                              })
+                            }
                           />
                         </FormGroup>
                       </Col>
@@ -254,10 +262,12 @@ function Profile() {
                             type="text"
                             value={form.city}
                             name="city"
-                            onChange={(e) => setForm({
-                              ...form,
-                              city: e.target.value
-                            })}
+                            onChange={(e) =>
+                              setForm({
+                                ...form,
+                                city: e.target.value,
+                              })
+                            }
                           />
                         </FormGroup>
                       </Col>
