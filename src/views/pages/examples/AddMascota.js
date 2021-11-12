@@ -17,8 +17,8 @@ import { RepositoryFactory } from "repositories/RepositoryFactory";
 import SimpleHeader from "components/Headers/SimpleHeader.js";
 import Select from "react-select";
 import { useSelector } from "react-redux";
-import S3 from 'react-aws-s3';
- 
+import S3 from "react-aws-s3";
+
 const userRepository = RepositoryFactory.get("user");
 const petRepository = RepositoryFactory.get("pet");
 
@@ -41,12 +41,12 @@ const AddMascota = () => {
   }, []);
 
   const config = {
-    bucketName: 'dogepet',
-    dirName: 'pets', /* optional */
-    region: 'us-east-2',
-    accessKeyId: 'AKIAXZACIXEO5WOJY5FQ',
-    secretAccessKey: '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',
-  }
+    bucketName: "dogepet",
+    dirName: "pets" /* optional */,
+    region: "us-east-2",
+    accessKeyId: "AKIAXZACIXEO5WOJY5FQ",
+    secretAccessKey: "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",
+  };
 
   const ReactS3Client = new S3(config);
   //obtengo los datos el usuario
@@ -57,6 +57,11 @@ const AddMascota = () => {
     let aux = [];
     for (const user of usersAux) {
       if (userId.id === user.id) {
+        aux.push({
+          label: user.name + " " + user.lastname,
+          value: user.id,
+        });
+      } else if (userId.id === 1) {
         aux.push({
           label: user.name + " " + user.lastname,
           value: user.id,
@@ -89,20 +94,18 @@ const AddMascota = () => {
       date: date,
       color: color,
       gender: gender,
-    }
+    };
 
-    const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
-    let azar = Math.random().toString(36).substring(0,5); 
+    const characters =
+      "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+    let azar = Math.random().toString(36).substring(0, 5);
 
-    ReactS3Client
-    .uploadFile(picture, azar)
-    .then(async (data) => {  
-      info.photo = data.location
-      await petRepository.createPet(info)
-    }
-    )
-    .catch(err => console.error('erro',err))
-
+    ReactS3Client.uploadFile(picture, azar)
+      .then(async (data) => {
+        info.photo = data.location;
+        await petRepository.createPet(info);
+      })
+      .catch((err) => console.error("erro", err));
 
     // window.location.reload()
   };

@@ -1,4 +1,3 @@
-
 import React from "react";
 // node.js library that concatenates classes (strings)
 import classnames from "classnames";
@@ -43,10 +42,10 @@ import {
   chartExample2,
 } from "variables/charts.js";
 import ShoppingCart from "components/Headers/ShoppingCart";
-import { useSelector } from 'react-redux';
+import { useSelector } from "react-redux";
 
 function Dashboard() {
-  const auth = useSelector(state => state.auth)
+  const auth = useSelector((state) => state.auth);
   const [activeNav, setActiveNav] = React.useState(1);
   const [chartExample1Data, setChartExample1Data] = React.useState("data1");
   const toggleNavs = (e, index) => {
@@ -55,15 +54,13 @@ function Dashboard() {
     setChartExample1Data(chartExample1Data === "data1" ? "data2" : "data1");
   };
 
-  
   if (window.Chart) {
     parseOptions(Chart, chartOptions());
   }
   return (
     <>
-    
       <CardsHeader name="Default" parentName="Dashboards" />
-      <Container className="mt--6" fluid>
+      {/* <Container className="mt--6" fluid>
         <Row>
           <Col xl="12">
             <Card className="bg-default">
@@ -116,7 +113,7 @@ function Dashboard() {
             </Card>
           </Col>
         </Row>
-      </Container>
+      </Container> */}
     </>
   );
 }
