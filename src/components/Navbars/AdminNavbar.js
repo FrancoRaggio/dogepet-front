@@ -121,7 +121,7 @@ function AdminNavbar({ theme, sidenavOpen, toggleSidenav }) {
               <UncontrolledDropdown nav>
                 <DropdownToggle className="nav-link" color="" tag="a">
                   <a href="#" style={{ color: "white" }}>
-                    <i className="ni ni-send" />
+                    <i className="ni ni-bell-55" />
                   </a>
                 </DropdownToggle>
                 <DropdownMenu
@@ -270,7 +270,7 @@ function AdminNavbar({ theme, sidenavOpen, toggleSidenav }) {
               <UncontrolledDropdown nav>
                 <DropdownToggle className="nav-link" color="" tag="a">
                   <a href="#" style={{ cursor: "pointer", color: "white" }}>
-                    <i className="ni ni-ungroup" />
+                    <i className="ni ni-app" />
                   </a>
                 </DropdownToggle>
                 <DropdownMenu
