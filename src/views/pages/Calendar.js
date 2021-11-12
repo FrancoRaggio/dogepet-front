@@ -35,7 +35,6 @@ const petRepository = RepositoryFactory.get('pet')
 
 // import { events } from '../../variables/general'
 
-// console.log(events)
 let calendar;
 
 function CalendarView() {
@@ -81,6 +80,10 @@ function CalendarView() {
         value: user.id
       })
     }
+    aux2.push({
+      label: 'Seleccione',
+      value: null
+    })
     for (const pet of petsAux) {
       aux2.push({
         label: pet.name,
@@ -90,8 +93,27 @@ function CalendarView() {
     setUsers(aux)
     setPets(aux2)
   }
-  function handlerUser(e) {
+
+  async function handlerUser(e) {
     setusername(e.value)
+    let aux2 = []
+    let usersAux = await userRepository.getUsers()
+
+    aux2.push({
+      label: 'Seleccione',
+      value: null
+    })
+    for (const user of usersAux) {
+      if (user.id == e.value) {
+        for (const pet of user?.pets) {
+          aux2.push({
+            label: pet.name,
+            value: pet.id
+          })
+        }
+      }
+    }
+    setPets(aux2)
   }
   function handlerPet(e) {
     setEventPet(e.value)
@@ -101,7 +123,7 @@ function CalendarView() {
   const getEvents = async () => {
     let response
     if (user?.role?.id == 2) {
-      response = await turnRepository.turnsByUser(user?.role?.id)
+      response = await turnRepository.turnsByUser(user?.id)
     } else {
       response = await turnRepository.getTurns()
     }
@@ -109,7 +131,6 @@ function CalendarView() {
     for (const r of response) {
       let date = r.start.split('-')
       r.start = new Date(date[0],(date[1]-1),date[2])
-      console.log(r)
     }
 
     createCalendar(response);
@@ -159,6 +180,7 @@ function CalendarView() {
       title: eventTitle,
       client_id: username,
       pet_id: eventPet,
+      vet_id: user.id,
       className: radios,
       start: startDate,
     }
@@ -360,42 +382,6 @@ function CalendarView() {
                       onChange={(e) => setEventTitle(e.target.value)}
                     />
                   </FormGroup>
-                  <FormGroup>
-                    <label className="form-control-label">Cliente</label>
-                    {/* <Input
-                      className="form-control-alternative new-event--title"
-                      placeholder="Nombre del cliente"
-                      type="text"
-                      onChange={(e) => setEventClient(e.target.value)}
-                    /> */}
-                     <Select
-                        className="basic-single"
-                        classNamePrefix="select"
-                        defaultValue={users[0]}
-                        // isSearchable={isSearchable}
-                        name="color"
-                        options={users}
-                        onChange= {(e) => handlerUser(e)}
-                      />
-                  </FormGroup>
-                  <FormGroup>
-                    <label className="form-control-label">Mascota</label>
-                    {/* <Input
-                      className="form-control-alternative new-event--title"
-                      placeholder="Nombre de la Mascota"
-                      type="text"
-                      onChange={(e) => setEventPet(e.target.value)}
-                    /> */}
-                    <Select
-                        className="basic-single"
-                        classNamePrefix="select"
-                        defaultValue={pets[0]}
-                        // isSearchable={isSearchable}
-                        name="color"
-                        options={pets}
-                        onChange= {(e) => handlerPet(e)}
-                    />
-                  </FormGroup>
                   <FormGroup className="mb-0">
                     <label className="form-control-label d-block mb-3">
                       Color
@@ -446,6 +432,43 @@ function CalendarView() {
                       />
                     </ButtonGroup>
                   </FormGroup>
+                  <FormGroup>
+                    <label className="form-control-label">Cliente</label>
+                    {/* <Input
+                      className="form-control-alternative new-event--title"
+                      placeholder="Nombre del cliente"
+                      type="text"
+                      onChange={(e) => setEventClient(e.target.value)}
+                    /> */}
+                     <Select
+                        className="basic-single"
+                        classNamePrefix="select"
+                        defaultValue={users[0]}
+                        // isSearchable={isSearchable}
+                        name="color"
+                        options={users}
+                        onChange= {(e) => handlerUser(e)}
+                      />
+                  </FormGroup>
+                  <FormGroup>
+                    <label className="form-control-label">Mascota</label>
+                    {/* <Input
+                      className="form-control-alternative new-event--title"
+                      placeholder="Nombre de la Mascota"
+                      type="text"
+                      onChange={(e) => setEventPet(e.target.value)}
+                    /> */}
+                    <Select
+                        className="basic-single"
+                        classNamePrefix="select"
+                        defaultValue={pets.length > 0 ? pets[0] : {}}
+                        // isSearchable={isSearchable}
+                        name="color"
+                        options={pets}
+                        onChange= {(e) => handlerPet(e)}
+                    />
+                  </FormGroup>
+                  
                 </form>
               </div>
               <div className="modal-footer">

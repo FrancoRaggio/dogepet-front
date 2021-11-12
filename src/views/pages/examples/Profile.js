@@ -54,7 +54,9 @@ function Profile() {
   };
 
   const updateUser = async () => {
-    await userRepository.updateUser(form, user.id);
+    let path = window.location.pathname.split("/");
+    await userRepository.updateUser(form, path[path.length - 1]);
+    window.location.reload()
   };
 
   return (
