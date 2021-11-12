@@ -44,8 +44,8 @@ export default {
     return response;
   },
 
-  async getVaccines() {
-    let response = await Repository.get(`/vaccines`);
+  async getVaccines(id) {
+    let response = await Repository.get(`/vaccines/${id}`);
 
     return response;
   },

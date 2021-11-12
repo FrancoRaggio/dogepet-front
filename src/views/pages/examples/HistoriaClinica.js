@@ -54,7 +54,8 @@ function HistoriaClinica() {
   }, []);
 
   const getVaccines = async () => {
-    let vaccinesAux = await petRepository.getVaccines();
+    let path = window.location.pathname.split("/");
+    let vaccinesAux = await petRepository.getVaccines(path[path.length - 1]);
     setVaccines(vaccinesAux);
   };
 
@@ -127,7 +128,7 @@ function HistoriaClinica() {
                         class="rounded-circle"
                         width="500"
                         height="150"
-                        src={require("assets/img/theme/titan.jfif").default}
+                        src={pet?.photo ? pet.photo : require("assets/img/theme/titan.jfif").default}
                       />
                     </a>
                   </div>
