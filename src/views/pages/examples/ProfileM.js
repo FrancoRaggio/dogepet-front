@@ -75,7 +75,7 @@ function ProfileM() {
                         class="rounded-circle"
                         width="500"
                         height="150"
-                        src={require("assets/img/theme/titan.jfif").default}
+                        src={pet.photo}
                       />
                     </a>
                   </div>
