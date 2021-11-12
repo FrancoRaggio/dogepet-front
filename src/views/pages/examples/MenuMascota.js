@@ -50,16 +50,6 @@ function MenuMascota() {
               <Col xs="8">
                 <h3 className="mb-0">MASCOTAS</h3>
               </Col>
-              {/* <Col className="text-right" xs="4">
-                    <Button
-                      color="primary"
-                      href="#pablo"
-                      onClick={(e) => e.preventDefault()}
-                      size="sm"
-                    >
-                      Volver A Menu Mascota
-                    </Button>
-                  </Col> */}
             </Row>
           </CardHeader>
           <CardBody>
@@ -91,7 +81,7 @@ function MenuMascota() {
                             alt="..."
                             class="rounded float-left"
                             width="50" height="70"
-                            src={require("assets/img/theme/titan.jfif").default}
+                            src={pet.photo}
                           /></td>
                           <td class="text-center text-lg">{pet.name}</td>
                           <td>
@@ -99,7 +89,6 @@ function MenuMascota() {
                               <Button
                                 color="danger"
                                 href={"/admin/ProfileM/"+pet.id}
-                                // onClick={(e) => e.preventDefault(e)}
                                 size="lg"
                               >
                                 Editar
@@ -107,9 +96,7 @@ function MenuMascota() {
                               <Button
                                 color="primary"
                                 href={"/admin/HistoriaClinica/"+pet.id}
-                                // onClick={(e) => e.preventDefault()}
                                 size="lg"
-                              // Redirect to='/HistoriaClinica'
                               >
                                 Historial
                               </Button>
@@ -119,111 +106,7 @@ function MenuMascota() {
                       </tbody>
 
                     </table>
-                    {/* <FormGroup>
-                          <label
-                            className="form-control-label"
-                            htmlFor="input-username"
-                          >
-                            Nombre
-                          </label>
-                          <Input
-                            defaultValue="Titan"
-                            id="input-username"
-                            placeholder="Username"
-                            type="text"
-                          />
-                        </FormGroup>
-                      </Col>
-                      <Col lg="5">
-                       
-                        <div class="form-group">
-                        <label
-                            className="form-control-label"
-                            htmlFor="input-email"
-                          >Raza</label>
-                        <div class="col-xs-10">
-                            <select id="inputState" class="form-control">
-                                <option selected> Seleccionar</option>
-                                <option value="value1">Pitbull</option>
-                         <option value="value2" >Dogo</option>
-                         <option value="value3">Caniche Toy</option>
-                            </select>
-                        </div>
-                    </div>
-                      </Col>
-                    </Row>
-                    <Row>
-                      <Col lg="6">
-                        <FormGroup>
-                          <label
-                            className="form-control-label"
-                            htmlFor="input-last-name"
-                          >
-                            Apellido
-                          </label>
-                          <Input
-                            defaultValue="Mendez"
-                            id="input-last-name"
-                            placeholder="Last name"
-                            type="text"
-                          />
-                        </FormGroup>
-                      </Col>
-                      <Col lg="6">
-                        <FormGroup>
-                          <label
-                            className="form-control-label"
-                            htmlFor="input-first-name"
-                          >
-                            Edad
-                          </label>
-                          <Input
-                            defaultValue="2"
-                            id="input-first-name"
-                            placeholder="2"
-                            type="text"
-                          />
-                        </FormGroup>
-                      </Col>
-                    </Row>
-                  </div>
-                  <hr className="my-4" />
-
-                  <h6 className="heading-small text-muted mb-4">
-                   Mas datos...
-                  </h6>
-                  
-                  <div className="pl-lg-4">
-                    <FormGroup>
-                      <label className="form-control-label">Más sobre tu mascota</label>
-                      <Input
-                        placeholder="A few words about you ..."
-                        rows="4"
-                        type="textarea"
-                        defaultValue="Le gustan las orejitas."
-                      />
-                    </FormGroup>
-                  </div>
-                  <div className="d-flex justify-content-between">
-                  <Button
-                    className="mr-4"
-                    color="danger"
-                    href=""
-                    onClick={(e) => e.preventDefault()}
-                    size="sm"
-                  >
-                    Cancelar
-                  </Button>
-                  <Button
-                    className="float-right"
-                    color="default"
-                    href=""
-                    onClick={(e) => e.preventDefault()}
-                    size="sm"
-                  >
-                    Guardar
-                  </Button>
-                </div> */}
+                    
                   </Col>
                 </Row>
               </div>

@@ -16,9 +16,7 @@ if (auth) {
 
 provider.interceptors.request.use(
   function (config) {
-    if (config.data instanceof FormData) {
-      config.headers.common["Content-Type"] = "multipart/form-data";
-    }
+    config.headers.common["Content-Type"] = "multipart/form-data";
     // console.log('Request: ', config);
     return config;
   },

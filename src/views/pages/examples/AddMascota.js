@@ -17,6 +17,8 @@ import { RepositoryFactory } from "repositories/RepositoryFactory";
 import SimpleHeader from "components/Headers/SimpleHeader.js";
 import Select from "react-select";
 import { useSelector } from "react-redux";
+import S3 from 'react-aws-s3';
+ 
 const userRepository = RepositoryFactory.get("user");
 const petRepository = RepositoryFactory.get("pet");
 
@@ -38,9 +40,17 @@ const AddMascota = () => {
     getUsers();
   }, []);
 
+  const config = {
+    bucketName: 'dogepet',
+    dirName: 'pets', /* optional */
+    region: 'us-east-2',
+    accessKeyId: 'AKIAXZACIXEO5WOJY5FQ',
+    secretAccessKey: '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',
+  }
+
+  const ReactS3Client = new S3(config);
   //obtengo los datos el usuario
   const userId = useSelector((state) => state.auth.user);
-  console.log("===>", userId);
 
   const getUsers = async () => {
     let usersAux = await userRepository.getUsers();
@@ -72,27 +82,27 @@ const AddMascota = () => {
       setusernameState("valid");
     }
 
-    console.log(picture);
-
-    let data = {
+    let info = {
       name: firstName,
       user_id: username,
       race_id: race,
       date: date,
       color: color,
       gender: gender,
-      photo: picture,
     }
-    const form = new FormData()
-    // form.append('name', firstName)
-    // form.append('user_id', username)
-    // form.append('race_id', race)
-    // form.append('date', date)
-    // form.append('color', color)
-    // form.append('gender', gender)
-    form.append('photo', picture)
 
-    await petRepository.createPet(form);
+    const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+    let azar = Math.random().toString(36).substring(0,5); 
+
+    ReactS3Client
+    .uploadFile(picture, azar)
+    .then(async (data) => {  
+      info.photo = data.location
+      await petRepository.createPet(info)
+    }
+    )
+    .catch(err => console.error('erro',err))
+
 
     // window.location.reload()
   };
